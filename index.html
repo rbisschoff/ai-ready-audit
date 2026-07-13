@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Ready Audit — Operator Intelligence Suite</title>
+  <meta name="description" content="Audit whether your direct booking website is ready for AI-driven discovery and booking. Machine-readability and AI-search visibility.">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPJ7VKS451"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JPJ7VKS451');
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --accent: #1B4F72;
+      --accent-dark: #0a2a3d;
+      --accent-light: #D6EAF8;
+      --alert: #C0392B;
+      --positive: #1E8449;
+      --warning: #F39C12;
+      --ink: #0A0A0F;
+      --ink2: #2C2C3A;
+      --muted: #7A7A8C;
+      --muted2: #ADADBE;
+      --bg: #F2F2F7;
+      --card: #FFFFFF;
+      --border: #E5E5EA;
+      --border-light: #F0F0F4;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 10px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, 'Inter', BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    header {
+      background: rgba(8,8,14,0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+
+    .brand-mark {
+      width: 30px; height: 30px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: 700; font-size: 13px; flex-shrink: 0;
+    }
+
+    .brand-text { color: white; }
+    .brand-title { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+    .brand-subtitle { font-size: 12px; color: var(--muted2); margin-top: 1px; }
+
+    .header-link {
+      color: white; font-size: 13px; font-weight: 500;
+      padding: 8px 14px; border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      transition: all 0.2s; white-space: nowrap;
+    }
+
+    .header-link:hover { background: rgba(255,255,255,0.15); }
+
+    .hero {
+      background: linear-gradient(180deg, white 0%, var(--bg) 100%);
+      padding: 28px 20px 20px;
+      text-align: center;
+    }
+
+    .hero-inner { max-width: 720px; margin: 0 auto; }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--accent); background: var(--accent-light);
+      padding: 4px 10px; border-radius: 20px; margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      font-size: clamp(22px, 3.5vw, 30px);
+      font-weight: 800; letter-spacing: -0.03em;
+      line-height: 1.2; margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+      font-size: 14px; color: var(--muted);
+      line-height: 1.55; max-width: 640px; margin: 0 auto;
+    }
+
+    main { max-width: 760px; margin: 0 auto; padding: 0 20px 28px; }
+
+    .panel {
+      background: var(--card);
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 14px;
+    }
+
+    .section-label {
+      font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--accent); margin-bottom: 14px;
+    }
+
+    .question-block { margin-bottom: 20px; }
+    .question-block:last-child { margin-bottom: 0; }
+
+    .question-text {
+      font-size: 14px; font-weight: 600;
+      color: var(--ink); margin-bottom: 4px; line-height: 1.45;
+    }
+
+    .question-helper {
+      font-size: 12px; color: var(--muted);
+      line-height: 1.5; margin-bottom: 10px;
+    }
+
+    .radio-group {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+
+    .radio-option { position: relative; }
+
+    .radio-option input {
+      position: absolute; opacity: 0; width: 1px; height: 1px;
+      overflow: hidden; clip: rect(0,0,0,0);
+    }
+
+    .radio-option label {
+      display: inline-block;
+      font-size: 12px; font-weight: 600;
+      color: var(--ink2); background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 9px 14px; cursor: pointer;
+      transition: all 0.15s; user-select: none;
+    }
+
+    .radio-option input:checked + label {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    .radio-option label:hover { border-color: var(--accent); }
+
+    .field-label {
+      display: block;
+      font-size: 13px; font-weight: 600;
+      color: var(--ink); margin-bottom: 8px; line-height: 1.45;
+    }
+
+    textarea {
+      width: 100%; min-height: 140px;
+      font-family: inherit; font-size: 14px;
+      padding: 12px; border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg); color: var(--ink);
+      resize: vertical; line-height: 1.5;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(27, 79, 114, 0.12);
+    }
+
+    .submit-btn {
+      display: block; width: 100%; margin-top: 18px;
+      font-family: inherit; font-size: 15px; font-weight: 700;
+      color: white; background: var(--accent);
+      border: none; border-radius: var(--radius-sm);
+      padding: 14px 18px; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .submit-btn:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+    .hidden { display: none !important; }
+
+    /* ── OUTPUT ── */
+    .score-panel {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      padding: 24px 22px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .score-number {
+      font-size: clamp(48px, 10vw, 64px);
+      font-weight: 800; letter-spacing: -0.04em;
+      line-height: 1; margin-bottom: 6px;
+    }
+
+    .score-band {
+      display: inline-block;
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 5px 12px; border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    .band-red { background: rgba(192,57,43,0.1); color: var(--alert); }
+    .band-amber { background: rgba(243,156,18,0.12); color: #B7791F; }
+    .band-blue { background: var(--accent-light); color: var(--accent); }
+    .band-green { background: rgba(30,132,73,0.1); color: var(--positive); }
+
+    .score-readout {
+      font-size: 14px; color: var(--ink2);
+      line-height: 1.55; max-width: 520px; margin: 0 auto;
+    }
+
+    .potential-line {
+      font-size: 14px; color: var(--muted);
+      margin-top: 12px; line-height: 1.5;
+    }
+
+    .potential-line strong { color: var(--accent); font-weight: 600; }
+
+    .potential-footnote {
+      font-size: 12px; color: var(--muted2);
+      margin-top: 8px; line-height: 1.5;
+      max-width: 520px; margin-left: auto; margin-right: auto;
+    }
+
+    .sub-scores {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 10px; margin-top: 18px;
+    }
+
+    .sub-score {
+      background: var(--bg);
+      border-radius: var(--radius-sm);
+      padding: 12px; border: 1px solid var(--border-light);
+    }
+
+    .sub-score-label {
+      font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted); margin-bottom: 4px;
+    }
+
+    .sub-score-value {
+      font-size: 22px; font-weight: 800;
+      color: var(--accent); letter-spacing: -0.02em;
+    }
+
+    .output-block {
+      background: var(--card);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 12px;
+    }
+
+    .output-block-title {
+      font-size: 13px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--muted); margin-bottom: 12px;
+    }
+
+    .output-block p {
+      font-size: 14px; color: var(--ink2);
+      line-height: 1.6; margin-bottom: 10px;
+    }
+
+    .output-block p:last-child { margin-bottom: 0; }
+
+    .gap-list { list-style: none; }
+
+    .gap-list li {
+      font-size: 13px; color: var(--ink2);
+      line-height: 1.55; padding: 10px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .gap-list li:last-child { border-bottom: none; }
+
+    .gap-label { font-weight: 600; color: var(--ink); }
+
+    .gap-note {
+      display: block; font-size: 12px;
+      color: var(--muted); margin-top: 4px;
+    }
+
+    .unsure-group {
+      margin-top: 14px; padding-top: 14px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .unsure-heading {
+      font-size: 12px; font-weight: 600;
+      color: var(--muted); margin-bottom: 8px;
+    }
+
+    .fix-list { list-style: none; counter-reset: fix; }
+
+    .fix-list li {
+      counter-increment: fix;
+      font-size: 13px; color: var(--ink2);
+      line-height: 1.55; padding: 12px 0;
+      border-bottom: 1px solid var(--border-light);
+      display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 12px;
+    }
+
+    .fix-list li:last-child { border-bottom: none; }
+
+    .fix-list li::before {
+      content: counter(fix) ".";
+      font-weight: 700; color: var(--accent);
+      margin-right: 8px; flex-shrink: 0;
+    }
+
+    .fix-text { flex: 1; }
+
+    .fix-action {
+      display: block; margin-top: 4px;
+      color: var(--ink2);
+    }
+
+    .pts-badge {
+      font-size: 11px; font-weight: 600;
+      color: var(--accent); opacity: 0.75;
+      white-space: nowrap; flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .output-footer-text {
+      font-size: 13px; color: var(--ink2);
+      line-height: 1.6; margin: 18px 0 14px;
+    }
+
+    .output-footer-text a { color: var(--accent); font-weight: 600; }
+    .output-footer-text a:hover { text-decoration: underline; }
+
+    .secondary-btn {
+      font-family: inherit; font-size: 13px; font-weight: 600;
+      color: var(--accent); background: white;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 10px 16px; cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .secondary-btn:hover { background: var(--accent-light); }
+
+    footer {
+      max-width: 1280px; margin: 0 auto;
+      padding: 16px 20px 24px; text-align: center;
+      font-size: 11px; color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    footer a { color: var(--accent); }
+    footer a:hover { text-decoration: underline; }
+    footer p + p { margin-top: 4px; }
+
+    @media (max-width: 640px) {
+      .hero { padding: 20px 16px 16px; }
+      main { padding: 0 16px 24px; }
+      .panel { padding: 16px; }
+      .sub-scores { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-mark">AI</div>
+        <div class="brand-text">
+          <div class="brand-title">AI-Ready Audit</div>
+          <div class="brand-subtitle">Operator Intelligence Suite</div>
+        </div>
+      </div>
+      <a href="https://rbisschoff.github.io/operator-intelligence-suite/" class="header-link">Suite Hub</a>
+    </div>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Operator Series · Website Audit</div>
+      <h1 id="hero-title">Is your direct booking site ready for AI?</h1>
+      <p class="hero-subtitle" id="hero-subtitle">
+        This audit checks whether an assistant can read and understand your website well enough to recommend and book it. Answer ten short questions about your site and listing copy.
+      </p>
+    </div>
+  </section>
+
+  <main>
+    <div id="input-state">
+      <form id="audit-form" novalidate>
+        <div class="panel">
+          <div class="section-label">Section A — Your website</div>
+
+          <div class="question-block" data-q="A1">
+            <div class="question-text">Does your website have structured data markup (schema.org — e.g. for your property, rooms, and prices)?</div>
+            <div class="question-helper">This is how an AI reads what you offer without guessing. It is the single strongest machine-readability signal.</div>
+            <div class="radio-group">
+              <div class="radio-option"><input type="radio" name="A1" id="A1-yes" value="yes"><label for="A1-yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="A1" id="A1-no" value="no"><label for="A1-no">No</label></div>
+              <div class="radio-option"><input type="radio" name="A1" id="A1-unsure" value="unsure"><label for="A1-unsure">Not sure</label></div>
+            </div>
+          </div>
+
+          <div class="question-block" data-q="A2">
+            <div class="question-text">Are your prices and availability visible as readable text on the page, rather than only inside an embedded booking widget or calendar that loads separately?</div>
+            <div class="question-helper">An AI often cannot read what is locked inside a third-party widget.</div>
+            <div class="radio-group">
+              <div class="radio-option"><input type="radio" name="A2" id="A2-yes" value="yes"><label for="A2-yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="A2" id="A2-no" value="no"><label for="A2-no">No</label></div>
+              <div class="radio-option"><input type="radio" name="A2" id="A2-unsure" value="unsure"><label for="A2-unsure">Not sure</label></div>
+            </div>
+          </div>
+
+          <div class="question-block" data-q="A3">
+            <div class="question-text">Can the core facts — what the place is, where it is, what it costs, how to book — be reached in the page's text without requiring JavaScript or several clicks?</div>
+            <div class="question-helper">Machines frequently see the first HTML response, not the fully-rendered page.</div>
+            <div class="radio-group">
+              <div class="radio-option"><input type="radio" name="A3" id="A3-yes" value="yes"><label for="A3-yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="A3" id="A3-no" value="no"><label for="A3-no">No</label></div>
+              <div class="radio-option"><input type="radio" name="A3" id="A3-unsure" value="unsure"><label for="A3-unsure">Not sure</label></div>
+            </div>
+          </div>
+
+          <div class="question-block" data-q="A4">
+            <div class="question-text">Does your site answer, in plain text, the natural questions a guest would ask an assistant (suitable for families, parking, distance to the centre, cancellation policy)?</div>
+            <div class="question-helper">AI recommends the sites that actually answer the question being asked.</div>
+            <div class="radio-group">
+              <div class="radio-option"><input type="radio" name="A4" id="A4-yes" value="yes"><label for="A4-yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="A4" id="A4-no" value="no"><label for="A4-no">No</label></div>
+              <div class="radio-option"><input type="radio" name="A4" id="A4-unsure" value="unsure"><label for="A4-unsure">Not sure</label></div>
+            </div>
+          </div>
+
+          <div class="question-block" data-q="A5">
+            <div class="question-text">Is there a clear, stable booking path with a real linkable URL an agent could point a guest to, rather than a flow buried behind a pop-up or third-party redirect?</div>
+            <div class="question-helper">An assistant needs somewhere concrete to send the guest.</div>
+            <div class="radio-group">
+              <div class="radio-option"><input type="radio" name="A5" id="A5-yes" value="yes"><label for="A5-yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="A5" id="A5-no" value="no"><label for="A5-no">No</label></div>
+              <div class="radio-option"><input type="radio" name="A5" id="A5-unsure" value="unsure"><label for="A5-unsure">Not sure</label></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="section-label">Section B — Your listing copy</div>
+
+          <label class="field-label" for="listingText">Paste the main description text from one of your listings or property pages.</label>
+          <textarea id="listingText" name="listingText" placeholder="Paste your listing description here…"></textarea>
+
+          <div class="question-block" data-q="B1" style="margin-top:18px">
+            <div class="question-text">Does the description lead with WHO the place is for and WHY they would come, rather than opening with a list of amenities?</div>
+            <div class="question-helper">An AI summarises the opening. A feature-first opening gives it nothing to recommend on.</div>
+            <div class="radio-group">
+              <div class="radio-option"><input type="radio" name="B1" id="B1-yes" value="yes"><label for="B1-yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="B1" id="B1-no" value="no"><label for="B1-no">No</label></div>
+              <div class="radio-option"><input type="radio" name="B1" id="B1-unsure" value="unsure"><label for="B1-unsure">Not sure</label></div>
+            </div>
+          </div>
+
+          <div class="question-block" data-q="B2">
+            <div class="question-text">Does the copy state concrete facts — location context, capacity, key amenities, distances — in clear sentences rather than marketing adjectives?</div>
+            <div class="question-helper">"Cosy and charming" is invisible to a machine. "Sleeps four, ten minutes from the station" is not.</div>
+            <div class="radio-group">
+              <div class="radio-option"><input type="radio" name="B2" id="B2-yes" value="yes"><label for="B2-yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="B2" id="B2-no" value="no"><label for="B2-no">No</label></div>
+              <div class="radio-option"><input type="radio" name="B2" id="B2-unsure" value="unsure"><label for="B2-unsure">Not sure</label></div>
+            </div>
+          </div>
+
+          <div class="question-block" data-q="B3">
+            <div class="question-text">Is the cancellation and booking policy stated in the text itself?</div>
+            <div class="question-helper">It is one of the first things an assistant checks before recommending.</div>
+            <div class="radio-group">
+              <div class="radio-option"><input type="radio" name="B3" id="B3-yes" value="yes"><label for="B3-yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="B3" id="B3-no" value="no"><label for="B3-no">No</label></div>
+              <div class="radio-option"><input type="radio" name="B3" id="B3-unsure" value="unsure"><label for="B3-unsure">Not sure</label></div>
+            </div>
+          </div>
+
+          <div class="question-block" data-q="B4">
+            <div class="question-text">Are your key facts in the text, rather than buried in images, PDFs, or graphics an AI cannot read?</div>
+            <div class="question-helper">If it is only in a photo, the machine does not have it.</div>
+            <div class="radio-group">
+              <div class="radio-option"><input type="radio" name="B4" id="B4-yes" value="yes"><label for="B4-yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="B4" id="B4-no" value="no"><label for="B4-no">No</label></div>
+              <div class="radio-option"><input type="radio" name="B4" id="B4-unsure" value="unsure"><label for="B4-unsure">Not sure</label></div>
+            </div>
+          </div>
+
+          <div class="question-block" data-q="B5">
+            <div class="question-text">Does the copy make sense on its own, without relying on the photos or page design to fill the gaps?</div>
+            <div class="question-helper">An AI often has only the words.</div>
+            <div class="radio-group">
+              <div class="radio-option"><input type="radio" name="B5" id="B5-yes" value="yes"><label for="B5-yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="B5" id="B5-no" value="no"><label for="B5-no">No</label></div>
+              <div class="radio-option"><input type="radio" name="B5" id="B5-unsure" value="unsure"><label for="B5-unsure">Not sure</label></div>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Run audit</button>
+      </form>
+    </div>
+
+    <div id="output-state" class="hidden">
+      <div class="score-panel" id="score-panel"></div>
+
+      <div class="output-block">
+        <div class="output-block-title">Where you stand today</div>
+        <div id="block-stand"></div>
+      </div>
+
+      <div class="output-block">
+        <div class="output-block-title">Where AI is passing you by</div>
+        <div id="block-gaps"></div>
+      </div>
+
+      <div class="output-block">
+        <div class="output-block-title">What to fix first</div>
+        <div id="block-fix"></div>
+      </div>
+
+      <p class="output-footer-text">
+        Built by Roger Bisschoff. If AI-readiness is something you are working through for a portfolio, the <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">LinkedIn link</a> above is the best way to reach me.
+      </p>
+      <p class="output-footer-text">
+        <a href="https://rbisschoff.github.io/operator-intelligence-suite/">Back to the Operator Intelligence Suite</a>
+      </p>
+      <button type="button" class="secondary-btn" id="start-again-btn">Start again</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>AI-Ready Audit — part of the Operator Intelligence Suite by <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">Roger Bisschoff</a></p>
+  </footer>
+
+  <script>
+    const QUESTIONS_PER_SECTION = 5;
+    const SECTION_WEIGHT = 50;
+    const QUESTION_IDS = ['A1','A2','A3','A4','A5','B1','B2','B3','B4','B5'];
+
+    const FIX_PRIORITY = ['A1','A2','A3','B3','B2','A4','B1','A5','B4','B5'];
+
+    const META = {
+      A1: {
+        short: 'Structured data markup',
+        gap: 'Without schema.org markup, an assistant has to guess what you offer rather than reading it directly.',
+        action: 'Add schema.org structured data for your property and room types — most site builders have a plugin or a settings panel for this.'
+      },
+      A2: {
+        short: 'Readable prices and availability',
+        gap: 'If prices sit inside an embedded widget, an assistant often cannot see them at all.',
+        action: 'Ensure prices and availability appear as plain text in the page HTML, not only inside a third-party booking widget.'
+      },
+      A3: {
+        short: 'Core facts without JavaScript',
+        gap: 'If key facts only appear after scripts run, many crawlers and assistants never see them.',
+        action: 'Make sure property name, location, price range, and booking instructions are visible in the initial HTML response.'
+      },
+      A4: {
+        short: 'Answers to natural guest questions',
+        gap: 'Assistants recommend sites that answer the question being asked — parking, families, location, policy.',
+        action: 'Add a short FAQ section in plain text covering the questions guests ask before they book.'
+      },
+      A5: {
+        short: 'Stable booking URL',
+        gap: 'A booking flow buried behind pop-ups or redirects gives an assistant nowhere concrete to send a guest.',
+        action: 'Create a direct, linkable booking URL that an assistant can point to without navigating a multi-step pop-up.'
+      },
+      B1: {
+        short: 'Purpose-led opening',
+        gap: 'A feature-first opening gives an AI nothing to summarise or recommend on.',
+        action: 'Rewrite the first sentence to say who the property is for and why they would come, before listing amenities.'
+      },
+      B2: {
+        short: 'Concrete facts in copy',
+        gap: 'Marketing adjectives are invisible to a machine; concrete facts are what get quoted and recommended.',
+        action: 'Replace vague phrases with specific details: capacity, distances, transport links, and key amenities in clear sentences.'
+      },
+      B3: {
+        short: 'Policy stated in text',
+        gap: 'An assistant checks cancellation and booking terms before recommending — if they are missing, it moves on.',
+        action: 'Add your cancellation and booking policy as readable text in the listing description itself.'
+      },
+      B4: {
+        short: 'Facts not trapped in images',
+        gap: 'Information that exists only in photos or PDFs is invisible to an assistant.',
+        action: 'Move key facts from images and graphics into the text of the listing page.'
+      },
+      B5: {
+        short: 'Self-contained copy',
+        gap: 'If the copy only makes sense alongside photos, an assistant working from text alone cannot use it.',
+        action: 'Read the description without looking at photos — if anything is unclear, add that detail in words.'
+      }
+    };
+
+    const AMENITY_WORDS = ['wifi','kitchen','pool','parking','tv','air conditioning','balcony'];
+    const PURPOSE_WORDS = ['family','couple','business','stay','explore','relax','perfect for'];
+    const DISTANCE_RE = /\d+\s*(min|minutes|km|m\b|metres|meters|miles)/i;
+    const POLICY_RE = /cancel|refund|policy/i;
+
+    function getAnswer(id) {
+      const el = document.querySelector('input[name="' + id + '"]:checked');
+      return el ? el.value : null;
+    }
+
+    function countSection(prefix) {
+      let yes = 0, unsure = 0;
+      for (let i = 1; i <= QUESTIONS_PER_SECTION; i++) {
+        const v = getAnswer(prefix + i);
+        if (v === 'yes') yes++;
+        else if (v === 'unsure') unsure++;
+      }
+      return { yes, unsure };
+    }
+
+    function finalScore(aYes, bYes) {
+      return Math.round(((aYes / QUESTIONS_PER_SECTION) + (bYes / QUESTIONS_PER_SECTION)) / 2 * 100);
+    }
+
+    function getBand(score) {
+      if (score <= 39) return { label: 'Not yet AI-ready', cls: 'band-red', readout: 'Your site has significant gaps that would limit how an assistant can read, understand, or recommend it.' };
+      if (score <= 69) return { label: 'Partially AI-ready', cls: 'band-amber', readout: 'Some foundations are in place, but there are clear gaps an assistant would struggle with today.' };
+      if (score <= 89) return { label: 'Largely AI-ready', cls: 'band-blue', readout: 'Your site is in reasonable shape for AI discovery, though a few items still need attention.' };
+      return { label: 'AI-ready', cls: 'band-green', readout: 'Your site covers the structural bases an assistant needs to read and recommend it.' };
+    }
+
+    function runTextChecks(text) {
+      const flags = {};
+      const trimmed = (text || '').trim();
+      const words = trimmed.split(/\s+/).filter(Boolean);
+
+      if (words.length > 0 && words.length < 40) {
+        flags.general = 'This description is very short — an AI has little to work with.';
+      }
+
+      const firstSentence = trimmed.split(/[.!?]/)[0] || '';
+      const lowerFirst = firstSentence.toLowerCase();
+      const amenityFirst = AMENITY_WORDS.some(w => lowerFirst.indexOf(w) !== -1);
+      const purposeFirst = PURPOSE_WORDS.some(w => lowerFirst.indexOf(w) !== -1);
+      if (amenityFirst && !purposeFirst) {
+        flags.B1 = 'Your opening line appears to lead with amenities.';
+      }
+
+      if (trimmed && !DISTANCE_RE.test(trimmed)) {
+        flags.B2 = 'No concrete distances found in the text.';
+      }
+
+      if (trimmed && !POLICY_RE.test(trimmed)) {
+        flags.B3 = 'No cancellation or policy wording found in the text.';
+      }
+
+      return flags;
+    }
+
+    function perItemPoints() {
+      return Math.round(SECTION_WEIGHT / QUESTIONS_PER_SECTION);
+    }
+
+    function computePointBadges(failedIds, currentScore) {
+      const base = perItemPoints();
+      const points = failedIds.map(() => base);
+      const potential = Math.min(100, currentScore + failedIds.length * base);
+      const gap = potential - currentScore;
+      const sum = points.reduce((a, b) => a + b, 0);
+      if (points.length && sum !== gap) points[0] += gap - sum;
+      return points;
+    }
+
+    function renderOutput() {
+      const answers = {};
+      let allAnswered = true;
+      QUESTION_IDS.forEach(id => {
+        answers[id] = getAnswer(id);
+        if (!answers[id]) allAnswered = false;
+      });
+      if (!allAnswered) {
+        alert('Please answer all questions before running the audit.');
+        return;
+      }
+
+      const listingText = document.getElementById('listingText').value;
+      const textFlags = runTextChecks(listingText);
+
+      const sectionA = countSection('A');
+      const sectionB = countSection('B');
+      const totalYes = sectionA.yes + sectionB.yes;
+      const score = finalScore(sectionA.yes, sectionB.yes);
+      const band = getBand(score);
+      const aPct = Math.round(sectionA.yes / QUESTIONS_PER_SECTION * 100);
+      const bPct = Math.round(sectionB.yes / QUESTIONS_PER_SECTION * 100);
+
+      const failedIds = FIX_PRIORITY.filter(id => answers[id] !== 'yes');
+      const potential = Math.min(100, score + failedIds.length * perItemPoints());
+      const badgePoints = computePointBadges(failedIds, score);
+
+      const scoreColor = score <= 39 ? 'var(--alert)' : score <= 69 ? '#B7791F' : score <= 89 ? 'var(--accent)' : 'var(--positive)';
+
+      let scoreHtml = '<div class="score-number" style="color:' + scoreColor + '">' + score + '<span style="font-size:0.45em;color:var(--muted);font-weight:600"> / 100</span></div>';
+      scoreHtml += '<div class="score-band ' + band.cls + '">' + band.label + '</div>';
+      scoreHtml += '<p class="score-readout">' + band.readout + '</p>';
+
+      if (failedIds.length > 0) {
+        scoreHtml += '<p class="potential-line">If you address the points below, your score would rise to <strong>' + potential + ' / 100</strong>.</p>';
+        scoreHtml += '<p class="potential-footnote">This reflects the structural fixes above. Choosing keywords and content that guests actually search for still matters beyond the checklist.</p>';
+      }
+
+      scoreHtml += '<div class="sub-scores">';
+      scoreHtml += '<div class="sub-score"><div class="sub-score-label">Machine-readability</div><div class="sub-score-value">' + aPct + '%</div></div>';
+      scoreHtml += '<div class="sub-score"><div class="sub-score-label">AI-search &amp; content</div><div class="sub-score-value">' + bPct + '%</div></div>';
+      scoreHtml += '</div>';
+
+      document.getElementById('score-panel').innerHTML = scoreHtml;
+
+      const stronger = aPct > bPct ? 'machine-readability (your website structure)' : aPct < bPct ? 'AI-search and content (your listing copy)' : 'both dimensions equally';
+      const weaker = aPct < bPct ? 'machine-readability (your website structure)' : aPct > bPct ? 'AI-search and content (your listing copy)' : null;
+
+      let standHtml = '<p>You passed ' + totalYes + ' of 10 checks. ';
+      if (weaker) standHtml += 'Your stronger side is ' + stronger + ', and ' + weaker + ' is where the gaps sit.';
+      else standHtml += 'Your website structure and listing copy are at a similar level.';
+      standHtml += '</p>';
+      document.getElementById('block-stand').innerHTML = standHtml;
+
+      const failed = QUESTION_IDS.filter(id => answers[id] !== 'yes');
+      const unsureItems = QUESTION_IDS.filter(id => answers[id] === 'unsure');
+      const definiteNo = QUESTION_IDS.filter(id => answers[id] === 'no');
+
+      let gapsHtml = '';
+      if (failed.length === 0) {
+        gapsHtml = '<p>No structural gaps were flagged. Your site covers the bases this audit checks for.</p>';
+      } else {
+        gapsHtml = '<ul class="gap-list">';
+        definiteNo.forEach(id => {
+          gapsHtml += '<li><span class="gap-label">' + META[id].short + '</span> — ' + META[id].gap;
+          if (textFlags[id]) gapsHtml += '<span class="gap-note">' + textFlags[id] + '</span>';
+          gapsHtml += '</li>';
+        });
+        gapsHtml += '</ul>';
+
+        if (unsureItems.length) {
+          gapsHtml += '<div class="unsure-group"><div class="unsure-heading">Worth checking — you were not certain on these:</div><ul class="gap-list">';
+          unsureItems.forEach(id => {
+            gapsHtml += '<li><span class="gap-label">' + META[id].short + '</span> — ' + META[id].gap;
+            if (textFlags[id]) gapsHtml += '<span class="gap-note">' + textFlags[id] + '</span>';
+            gapsHtml += '</li>';
+          });
+          gapsHtml += '</ul></div>';
+        }
+
+        if (textFlags.general) {
+          gapsHtml += '<p class="gap-note" style="margin-top:12px">' + textFlags.general + '</p>';
+        }
+      }
+      document.getElementById('block-gaps').innerHTML = gapsHtml;
+
+      let fixHtml = '';
+      if (failedIds.length === 0) {
+        fixHtml = '<p>No priority fixes to list — you passed all structural checks.</p>';
+      } else {
+        fixHtml = '<ol class="fix-list">';
+        failedIds.forEach((id, i) => {
+          fixHtml += '<li><span class="fix-text"><strong>' + META[id].short + '.</strong><span class="fix-action">' + META[id].action + '</span></span><span class="pts-badge">+' + badgePoints[i] + ' pts</span></li>';
+        });
+        fixHtml += '</ol>';
+      }
+      document.getElementById('block-fix').innerHTML = fixHtml;
+
+      document.getElementById('input-state').classList.add('hidden');
+      document.getElementById('output-state').classList.remove('hidden');
+      document.getElementById('hero-title').textContent = 'Your AI-readiness result';
+      document.getElementById('hero-subtitle').textContent = 'A snapshot of how ready your direct booking site is for AI-driven discovery and booking.';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.getElementById('audit-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      renderOutput();
+    });
+
+    document.getElementById('start-again-btn').addEventListener('click', function() {
+      document.getElementById('output-state').classList.add('hidden');
+      document.getElementById('input-state').classList.remove('hidden');
+      document.getElementById('hero-title').textContent = 'Is your direct booking site ready for AI?';
+      document.getElementById('hero-subtitle').textContent = 'This audit checks whether an assistant can read and understand your website well enough to recommend and book it. Answer ten short questions about your site and listing copy.';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
