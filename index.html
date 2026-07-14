@@ -669,6 +669,32 @@
       color: var(--ink);
     }
 
+    .finding-val-yes {
+      color: var(--positive);
+      font-weight: 700;
+    }
+
+    .finding-val-no {
+      color: #B7791F;
+      font-weight: 700;
+    }
+
+    .deep-dive-summary {
+      font-size: 13px;
+      color: var(--ink2);
+      line-height: 1.55;
+      background: var(--bg);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      margin-bottom: 14px;
+    }
+
+    .deep-dive-summary.warn {
+      border-color: rgba(243,156,18,0.35);
+      background: rgba(243,156,18,0.06);
+    }
+
     .deep-finding-why {
       display: block;
       font-size: 12px;
@@ -1289,7 +1315,32 @@
 
     // --- Deep dive ---
     function yesNo(val) {
-      return val ? 'Yes' : 'No';
+      return val
+        ? '<span class="finding-val-yes">Yes</span>'
+        : '<span class="finding-val-no">No</span>';
+    }
+
+    function deepDiveSummary(data) {
+      const meta = data.meta || {};
+      const vis = data.visibility || {};
+      const wc = vis.wordCount || 0;
+      const bytes = meta.htmlBytes || 0;
+
+      if (meta.thinResponse) {
+        return '<div class="deep-dive-summary warn"><strong>We reached the site, but the raw page had very little to read</strong> (' + wc + ' words, ' + bytes + ' bytes of HTML). That often means the real content loads with JavaScript after the first response. An AI would see the same gap. Your self-assessed answers still matter more here.</div>';
+      }
+
+      const yesCount = [
+        vis.structuredDataFound,
+        vis.metaDescription,
+        wc >= 80,
+        vis.keywords && (vis.keywords.parking || vis.keywords.family || vis.keywords.cancellation || vis.keywords.distance),
+        data.bookability && data.bookability.priceInRawText,
+        data.bookability && data.bookability.priceSchemaFound,
+        data.bookability && data.bookability.bookingSignal
+      ].filter(Boolean).length;
+
+      return '<div class="deep-dive-summary"><strong>Page read successfully.</strong> HTTP ' + (meta.httpStatus || 200) + ', about ' + wc + ' words in the raw text. ' + yesCount + ' of 7 checks passed. "No" means a fixable gap in what AI can see, not that the tool failed.</div>';
     }
 
     function keywordSummary(keywords) {
@@ -1312,6 +1363,7 @@
         : 'none found';
 
       let html = '<div class="deep-dive-results-title">What we found</div>';
+      html += deepDiveSummary(data);
 
       html += '<div class="deep-dive-bar-block">';
       html += '<div class="deep-dive-bar-heading">Visibility. Can AI find and recommend you</div>';
