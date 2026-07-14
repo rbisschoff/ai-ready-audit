@@ -459,6 +459,234 @@
 
     .secondary-btn:hover { background: var(--accent-light); }
 
+    .explainer {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+
+    .explainer-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 18px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      text-align: left;
+    }
+
+    .explainer-toggle-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .explainer-chevron {
+      font-size: 12px;
+      color: var(--muted);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .explainer.is-open .explainer-chevron {
+      transform: rotate(180deg);
+    }
+
+    .explainer-body {
+      display: none;
+      padding: 0 18px 16px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .explainer.is-open .explainer-body {
+      display: block;
+      padding-top: 14px;
+    }
+
+    .explainer-layer {
+      margin-bottom: 14px;
+    }
+
+    .explainer-layer:last-of-type {
+      margin-bottom: 12px;
+    }
+
+    .explainer-layer-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .explainer-layer-text {
+      font-size: 13px;
+      color: var(--ink2);
+      line-height: 1.55;
+    }
+
+    .explainer-bridge {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .deep-dive-panel {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--card);
+      box-shadow: var(--shadow-sm);
+      padding: 20px 22px;
+      margin-top: 14px;
+    }
+
+    .deep-dive-title {
+      font-size: clamp(18px, 3vw, 20px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .deep-dive-intro {
+      font-size: 13px;
+      color: var(--ink2);
+      line-height: 1.55;
+      margin-bottom: 12px;
+    }
+
+    .deep-dive-privacy {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+      background: var(--bg);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      margin-bottom: 14px;
+    }
+
+    .url-input {
+      width: 100%;
+      font-family: inherit;
+      font-size: 14px;
+      padding: 11px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .url-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(27, 79, 114, 0.12);
+    }
+
+    .deep-dive-btn {
+      display: inline-block;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      color: white;
+      background: var(--accent);
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 10px 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .deep-dive-btn:hover { background: var(--accent-dark); }
+    .deep-dive-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .deep-dive-msg {
+      font-size: 13px;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    .deep-dive-msg.error { color: var(--alert); }
+    .deep-dive-msg.loading { color: var(--muted); }
+
+    .deep-dive-results {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .deep-dive-results-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .deep-dive-bar-block {
+      margin-bottom: 16px;
+    }
+
+    .deep-dive-bar-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .deep-dive-bar-heading {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .deep-finding-list {
+      list-style: none;
+    }
+
+    .deep-finding-list li {
+      font-size: 13px;
+      color: var(--ink2);
+      line-height: 1.55;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .deep-finding-list li:last-child {
+      border-bottom: none;
+    }
+
+    .deep-finding-label {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .deep-finding-why {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .deep-dive-caveat {
+      font-size: 12px;
+      color: var(--muted2);
+      line-height: 1.5;
+      margin-top: 12px;
+    }
+
+    .prefill-btn {
+      margin-top: 12px;
+    }
+
     footer {
       max-width: 1280px; margin: 0 auto;
       padding: 16px 20px 24px; text-align: center;
@@ -504,6 +732,28 @@
 
   <main>
     <div id="input-state">
+      <div class="explainer" id="explainer">
+        <button type="button" class="explainer-toggle" id="explainer-toggle" aria-expanded="false" aria-controls="explainer-body">
+          <span class="explainer-toggle-text">How AI reads your site</span>
+          <span class="explainer-chevron" aria-hidden="true">&#9660;</span>
+        </button>
+        <div class="explainer-body" id="explainer-body">
+          <div class="explainer-layer">
+            <div class="explainer-layer-title">1. The raw text a site sends first.</div>
+            <p class="explainer-layer-text">This is the version an AI reads. It is the site stripped of its looks, just the words and the structure underneath.</p>
+          </div>
+          <div class="explainer-layer">
+            <div class="explainer-layer-title">2. The hidden labels.</div>
+            <p class="explainer-layer-text">A tidy block of information tucked into the page that spells out plainly what the place is, what it costs, and where it is. AI relies on these, because it does not have to guess. This is what mostly decides whether AI can find and recommend you.</p>
+          </div>
+          <div class="explainer-layer">
+            <div class="explainer-layer-title">3. The stuff that loads late.</div>
+            <p class="explainer-layer-text">Some sites only show the price and the calendar after extra code runs. That late content is often invisible to AI, because AI usually sees only the first raw version. This is what decides whether AI can actually book you.</p>
+          </div>
+          <p class="explainer-bridge">The two scores below follow from this. Visibility is about the first two layers. Bookability is about whether your prices and booking sit in the raw version or load too late.</p>
+        </div>
+      </div>
+
       <form id="audit-form" novalidate>
         <div class="panel">
           <div class="section-header">
@@ -626,10 +876,25 @@
 
         <button type="submit" class="submit-btn">Run audit</button>
       </form>
+
+      <div class="deep-dive-panel" id="deep-dive-panel">
+        <div class="deep-dive-title">Deep dive: read my real site</div>
+        <p class="deep-dive-intro">This checks your actual website the way an AI does. It reads the first raw version of your page and reports what is there.</p>
+        <p class="deep-dive-privacy">This one check is different from the rest of the tool. To read your site, the address you enter is sent to a small server that fetches the page. Nothing else about you is sent or stored. The rest of the audit still runs entirely in your browser.</p>
+        <label class="field-label" for="deep-dive-url">Your website address</label>
+        <input type="url" class="url-input" id="deep-dive-url" placeholder="https://www.yourproperty.com" autocomplete="url">
+        <button type="button" class="deep-dive-btn" id="deep-dive-run-btn">Run deep dive</button>
+        <div class="deep-dive-msg hidden" id="deep-dive-msg"></div>
+        <div class="deep-dive-results hidden" id="deep-dive-results"></div>
+      </div>
     </div>
 
     <div id="output-state" class="hidden">
       <div class="score-panel" id="score-panel"></div>
+      <div class="output-block hidden" id="deep-dive-output-block">
+        <div class="output-block-title">Deep dive: what we found</div>
+        <div id="deep-dive-output-results"></div>
+      </div>
 
       <div class="output-block">
         <div class="output-block-title">Where you stand today</div>
@@ -661,6 +926,9 @@
   </footer>
 
   <script>
+    // Set this after deploying the Cloudflare Worker (see ai-ready-audit-worker/deep-dive-worker.js)
+    const DEEP_DIVE_ENDPOINT = 'https://hidden-cake-6c08.rbisschoff.workers.dev';
+
     const VISIBILITY_IDS = ['A1', 'B4', 'A4', 'B1', 'B2', 'B3'];
     const BOOKABILITY_IDS = ['A2', 'A5', 'A3', 'B5'];
     const QUESTION_IDS = VISIBILITY_IDS.concat(BOOKABILITY_IDS);
@@ -750,6 +1018,8 @@
     const PURPOSE_WORDS = ['family','couple','business','stay','explore','relax','perfect for'];
     const DISTANCE_RE = /\d+\s*(min|minutes|km|m\b|metres|meters|miles)/i;
     const POLICY_RE = /cancel|refund|policy/i;
+
+    let lastDeepDiveResult = null;
 
     function getAnswer(id) {
       const el = document.querySelector('input[name="' + id + '"]:checked');
@@ -978,6 +1248,18 @@
       }
       document.getElementById('block-fix').innerHTML = fixHtml;
 
+      const deepOutBlock = document.getElementById('deep-dive-output-block');
+      const deepOutResults = document.getElementById('deep-dive-output-results');
+      if (lastDeepDiveResult) {
+        deepOutResults.innerHTML = renderDeepDiveFindings(lastDeepDiveResult);
+        const prefillInOutput = deepOutResults.querySelector('#prefill-audit-btn');
+        if (prefillInOutput) prefillInOutput.classList.add('hidden');
+        deepOutBlock.classList.remove('hidden');
+      } else {
+        deepOutBlock.classList.add('hidden');
+        deepOutResults.innerHTML = '';
+      }
+
       document.getElementById('input-state').classList.add('hidden');
       document.getElementById('output-state').classList.remove('hidden');
       document.getElementById('hero-title').textContent = 'Your AI-readiness result';
@@ -997,6 +1279,186 @@
       document.getElementById('hero-subtitle').textContent = 'This audit checks whether an assistant can find and recommend you, and whether it can book you. Answer ten short questions about your site and listing copy.';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // --- Explainer toggle ---
+    document.getElementById('explainer-toggle').addEventListener('click', function() {
+      const box = document.getElementById('explainer');
+      const open = box.classList.toggle('is-open');
+      this.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // --- Deep dive ---
+    function yesNo(val) {
+      return val ? 'Yes' : 'No';
+    }
+
+    function keywordSummary(keywords) {
+      if (!keywords) return 'None found';
+      const labels = {
+        parking: 'parking',
+        family: 'families',
+        cancellation: 'cancellation',
+        distance: 'distance to centre'
+      };
+      const found = Object.keys(labels).filter(function(k) { return keywords[k]; }).map(function(k) { return labels[k]; });
+      return found.length ? found.join(', ') : 'None of the guest-question keywords found';
+    }
+
+    function renderDeepDiveFindings(data) {
+      const vis = data.visibility || {};
+      const book = data.bookability || {};
+      const types = (vis.schemaTypes && vis.schemaTypes.length)
+        ? vis.schemaTypes.join(', ')
+        : 'none found';
+
+      let html = '<div class="deep-dive-results-title">What we found</div>';
+
+      html += '<div class="deep-dive-bar-block">';
+      html += '<div class="deep-dive-bar-heading">Visibility. Can AI find and recommend you</div>';
+      html += '<ul class="deep-finding-list">';
+      html += '<li><span class="deep-finding-label">Hidden labels (structured data): ' + yesNo(vis.structuredDataFound) + '</span>';
+      if (vis.structuredDataFound) html += ' (' + types + ')';
+      html += '<span class="deep-finding-why">' + (vis.structuredDataFound
+        ? 'These labels help an assistant understand what you are without guessing.'
+        : 'Adding property schema is the clearest way to help AI find and recommend you.') + '</span></li>';
+      html += '<li><span class="deep-finding-label">Page description present: ' + yesNo(vis.metaDescription) + '</span>';
+      html += '<span class="deep-finding-why">' + (vis.metaDescription
+        ? 'A page description gives assistants a short summary to work with.'
+        : 'A short page description gives assistants a ready-made summary of the property.') + '</span></li>';
+      html += '<li><span class="deep-finding-label">Readable text on the page: about ' + (vis.wordCount || 0) + ' words</span>';
+      html += '<span class="deep-finding-why">' + ((vis.wordCount || 0) < 80
+        ? 'That is thin for an assistant. More plain text about the property would help.'
+        : 'Enough text for an assistant to work with, as long as the important facts are in it.') + '</span></li>';
+      html += '<li><span class="deep-finding-label">Guest-question keywords: ' + keywordSummary(vis.keywords) + '</span>';
+      html += '<span class="deep-finding-why">Assistants recommend sites that answer parking, families, distance, and cancellation in plain words.</span></li>';
+      html += '</ul></div>';
+
+      html += '<div class="deep-dive-bar-block">';
+      html += '<div class="deep-dive-bar-heading">Bookability. Can AI book you</div>';
+      html += '<ul class="deep-finding-list">';
+      html += '<li><span class="deep-finding-label">Price visible in the raw text: ' + yesNo(book.priceInRawText) + '</span>';
+      html += '<span class="deep-finding-why">' + (book.priceInRawText
+        ? 'Prices that sit in the first raw version are visible to AI.'
+        : 'If prices only appear after the page loads in a browser, an AI often cannot see them.') + '</span></li>';
+      html += '<li><span class="deep-finding-label">Price labels (offer / price structured data): ' + yesNo(book.priceSchemaFound) + '</span>';
+      html += '<span class="deep-finding-why">' + (book.priceSchemaFound
+        ? 'Offer and price labels tell an agent what can actually be booked.'
+        : 'Offer or price schema helps an agent understand rates and availability without guessing.') + '</span></li>';
+      html += '<li><span class="deep-finding-label">Booking link or form in the raw version: ' + yesNo(book.bookingSignal) + '</span>';
+      html += '<span class="deep-finding-why">' + (book.bookingSignal
+        ? 'A booking signal in the first raw version gives an agent somewhere concrete to go.'
+        : 'A clear book / reserve path in the first raw HTML is what an agent needs to hand a guest to.') + '</span></li>';
+      html += '</ul></div>';
+
+      html += '<p class="deep-dive-caveat">Some sites block automated reads or hide everything behind late-loading code. When that happens the deep dive sees little, which is itself a signal, because an AI would see little too. The self-assessed audit is the reliable fallback.</p>';
+      html += '<button type="button" class="secondary-btn prefill-btn" id="prefill-audit-btn">Use these findings to fill the audit</button>';
+
+      return html;
+    }
+
+    function setRadio(id, value) {
+      const el = document.querySelector('input[name="' + id + '"][value="' + value + '"]');
+      if (el) el.checked = true;
+    }
+
+    function prefillFromDeepDive(data) {
+      if (!data) return;
+      const vis = data.visibility || {};
+      const book = data.bookability || {};
+      const kw = vis.keywords || {};
+
+      setRadio('A1', vis.structuredDataFound ? 'yes' : 'no');
+      setRadio('B4', (vis.wordCount || 0) >= 80 ? 'yes' : 'no');
+      setRadio('A4', (kw.parking && kw.family && kw.cancellation && kw.distance) ? 'yes'
+        : (kw.parking || kw.family || kw.cancellation || kw.distance) ? 'unsure' : 'no');
+      setRadio('B3', kw.cancellation ? 'yes' : 'no');
+      setRadio('B2', kw.distance ? 'yes' : 'unsure');
+
+      setRadio('A2', book.priceInRawText ? 'yes' : 'no');
+      setRadio('A3', (book.priceInRawText || book.bookingSignal) ? 'yes' : 'no');
+      setRadio('A5', book.bookingSignal ? 'yes' : 'no');
+      setRadio('B5', book.priceSchemaFound ? 'yes' : 'no');
+    }
+
+    function showDeepDiveMessage(text, kind) {
+      const msg = document.getElementById('deep-dive-msg');
+      msg.textContent = text;
+      msg.className = 'deep-dive-msg ' + (kind || '');
+      msg.classList.remove('hidden');
+    }
+
+    function hideDeepDiveMessage() {
+      const msg = document.getElementById('deep-dive-msg');
+      msg.classList.add('hidden');
+      msg.textContent = '';
+    }
+
+    async function runDeepDive() {
+      const urlInput = document.getElementById('deep-dive-url');
+      const url = (urlInput.value || '').trim();
+      const btn = document.getElementById('deep-dive-run-btn');
+      const resultsEl = document.getElementById('deep-dive-results');
+
+      if (!/^https?:\/\//i.test(url)) {
+        showDeepDiveMessage('Please enter a full address starting with http:// or https://.', 'error');
+        return;
+      }
+
+      if (!DEEP_DIVE_ENDPOINT) {
+        showDeepDiveMessage('The deep dive is not connected yet. Deploy the worker (see deep-dive-worker.js) and paste its URL into DEEP_DIVE_ENDPOINT.', 'error');
+        return;
+      }
+
+      hideDeepDiveMessage();
+      resultsEl.classList.add('hidden');
+      resultsEl.innerHTML = '';
+      btn.disabled = true;
+      showDeepDiveMessage('Reading your site...', 'loading');
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'deep_dive_run');
+      }
+
+      try {
+        const resp = await fetch(DEEP_DIVE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ url: url })
+        });
+        const data = await resp.json().catch(function() { return null; });
+
+        if (!resp.ok || !data || data.error) {
+          showDeepDiveMessage('We could not read this site. It may block automated reads, or it may be down. Your self-assessed score still stands.', 'error');
+          lastDeepDiveResult = null;
+          return;
+        }
+
+        lastDeepDiveResult = data;
+        hideDeepDiveMessage();
+        resultsEl.innerHTML = renderDeepDiveFindings(data);
+        resultsEl.classList.remove('hidden');
+
+        if (typeof gtag === 'function') {
+          gtag('event', 'deep_dive_success');
+        }
+
+        const prefillBtn = document.getElementById('prefill-audit-btn');
+        if (prefillBtn) {
+          prefillBtn.addEventListener('click', function() {
+            prefillFromDeepDive(lastDeepDiveResult);
+            showDeepDiveMessage('Answers filled from what we found. Review them, then run the audit.', '');
+            document.getElementById('audit-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        }
+      } catch (err) {
+        showDeepDiveMessage('We could not read this site. It may block automated reads, or it may be down. Your self-assessed score still stands.', 'error');
+        lastDeepDiveResult = null;
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    document.getElementById('deep-dive-run-btn').addEventListener('click', runDeepDive);
   </script>
 </body>
 </html>
