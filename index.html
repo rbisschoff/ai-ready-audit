@@ -18,25 +18,27 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
     :root {
-      --accent: #1B4F72;
-      --accent-dark: #0a2a3d;
-      --accent-light: #D6EAF8;
-      --alert: #C0392B;
-      --positive: #1E8449;
-      --warning: #F39C12;
-      --ink: #0A0A0F;
-      --ink2: #2C2C3A;
-      --muted: #7A7A8C;
-      --muted2: #ADADBE;
+      --accent: #007AFF;
+      --accent-dark: #0051D5;
+      --accent-light: rgba(0, 122, 255, 0.12);
+      --accent-secondary: #5856D6;
+      --alert: #FF3B30;
+      --positive: #34C759;
+      --warning: #FF9500;
+      --ink: #1C1C1E;
+      --ink2: #3A3A3C;
+      --muted: #8E8E93;
+      --muted2: #AEAEB2;
       --bg: #F2F2F7;
       --card: #FFFFFF;
-      --border: #E5E5EA;
-      --border-light: #F0F0F4;
-      --radius-lg: 16px;
-      --radius-md: 12px;
-      --radius-sm: 10px;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
-      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --border: rgba(60, 60, 67, 0.12);
+      --border-light: rgba(60, 60, 67, 0.08);
+      --radius-lg: 20px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.06);
+      --shadow-card: 0 2px 16px rgba(0,0,0,0.06);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -239,225 +241,395 @@
 
     .hidden { display: none !important; }
 
-    /* ── OUTPUT ── */
+    /* ── OUTPUT (iOS-style) ── */
+    #output-state {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
     .score-panel {
       background: var(--card);
       border-radius: var(--radius-lg);
-      padding: 24px 22px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-md);
-      margin-bottom: 16px;
+      padding: 0;
+      border: none;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 0;
+      overflow: hidden;
+    }
+
+    .result-hero {
       text-align: center;
+      padding: 28px 24px 24px;
+      background: linear-gradient(180deg, rgba(0,122,255,0.06) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .result-hero-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 8px;
     }
 
     .score-number {
-      font-size: clamp(48px, 10vw, 64px);
-      font-weight: 800; letter-spacing: -0.04em;
-      line-height: 1; margin-bottom: 6px;
+      font-size: clamp(56px, 12vw, 72px);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .score-number-sub {
+      font-size: 0.35em;
+      color: var(--muted);
+      font-weight: 500;
+      letter-spacing: 0;
     }
 
     .score-band {
       display: inline-block;
-      font-size: 12px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      padding: 5px 12px; border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+    }
+
+    .band-red { background: rgba(255,59,48,0.12); color: var(--alert); }
+    .band-amber { background: rgba(255,149,0,0.14); color: #C93400; }
+    .band-blue { background: var(--accent-light); color: var(--accent); }
+    .band-green { background: rgba(52,199,89,0.14); color: #248A3D; }
+
+    .score-readout {
+      font-size: 15px;
+      color: var(--ink2);
+      line-height: 1.5;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .result-bars-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border-light);
+    }
+
+    .result-bar-card {
+      background: var(--card);
+      padding: 18px 16px 20px;
+      text-align: left;
+    }
+
+    .result-bar-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .result-bar-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .result-bar-tagline {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px;
+      line-height: 1.35;
+    }
+
+    .result-bar-score {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .progress-track {
+      height: 6px;
+      background: var(--bg);
+      border-radius: 100px;
+      overflow: hidden;
       margin-bottom: 10px;
     }
 
-    .band-red { background: rgba(192,57,43,0.1); color: var(--alert); }
-    .band-amber { background: rgba(243,156,18,0.12); color: #B7791F; }
-    .band-blue { background: var(--accent-light); color: var(--accent); }
-    .band-green { background: rgba(30,132,73,0.1); color: var(--positive); }
+    .progress-fill {
+      height: 100%;
+      border-radius: 100px;
+      transition: width 0.4s ease;
+    }
 
-    .score-readout {
-      font-size: 14px; color: var(--ink2);
-      line-height: 1.55; max-width: 520px; margin: 0 auto;
+    .result-bar-band {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 100px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .result-bar-means {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .result-footer {
+      padding: 16px 20px 20px;
+      background: var(--bg);
+      border-top: 1px solid var(--border-light);
+    }
+
+    .result-stat-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .stat-pill {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink2);
+      background: var(--card);
+      border: 1px solid var(--border-light);
+      border-radius: 100px;
+      padding: 6px 12px;
+    }
+
+    .stat-pill strong {
+      color: var(--ink);
+      font-weight: 600;
     }
 
     .potential-line {
-      font-size: 14px; color: var(--muted);
-      margin-top: 12px; line-height: 1.5;
+      font-size: 14px;
+      color: var(--ink2);
+      line-height: 1.5;
     }
 
     .potential-line strong { color: var(--accent); font-weight: 600; }
 
     .potential-footnote {
-      font-size: 12px; color: var(--muted2);
-      margin-top: 8px; line-height: 1.5;
-      max-width: 520px; margin-left: auto; margin-right: auto;
-    }
-
-    .bar-scores {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 20px;
-      text-align: left;
-    }
-
-    .bar-score {
-      background: var(--bg);
-      border-radius: var(--radius-sm);
-      padding: 14px 16px;
-      border: 1px solid var(--border-light);
-    }
-
-    .bar-score-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 6px;
-    }
-
-    .bar-score-name {
-      font-size: 18px; font-weight: 800;
-      color: var(--ink); letter-spacing: -0.02em;
-      line-height: 1.2;
-    }
-
-    .bar-score-tagline {
-      font-size: 14px; font-weight: 600;
-      color: var(--accent);
-      margin-top: 4px; line-height: 1.35;
-    }
-
-    .bar-score-value {
-      font-size: 22px; font-weight: 800;
-      letter-spacing: -0.02em; flex-shrink: 0;
-      line-height: 1;
-    }
-
-    .bar-score-means {
-      font-size: 12px; color: var(--ink2);
-      line-height: 1.5; margin-top: 8px;
-    }
-
-    .bar-score .score-band {
-      margin-bottom: 0;
+      font-size: 12px;
+      color: var(--muted);
       margin-top: 8px;
-      font-size: 10px;
-    }
-
-    .overall-divider {
-      border-top: 1px solid var(--border-light);
-      padding-top: 18px;
-      margin-top: 4px;
-    }
-
-    .overall-label {
-      font-size: 10px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--muted); margin-bottom: 8px;
+      line-height: 1.45;
     }
 
     .output-block {
-      background: var(--card);
-      border-radius: var(--radius-md);
-      padding: 18px 20px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
-      margin-bottom: 12px;
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+      margin-bottom: 0;
     }
 
     .output-block-title {
-      font-size: 13px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--muted); margin-bottom: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+      padding-left: 4px;
     }
 
-    .output-block p {
-      font-size: 14px; color: var(--ink2);
-      line-height: 1.6; margin-bottom: 10px;
+    .ios-group {
+      background: var(--card);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      margin-bottom: 4px;
     }
 
-    .output-block p:last-child { margin-bottom: 0; }
+    .ios-group p {
+      font-size: 15px;
+      color: var(--ink2);
+      line-height: 1.5;
+      padding: 16px 18px;
+      margin: 0;
+    }
 
-    .gap-list { list-style: none; }
+    .stand-summary {
+      font-size: 15px;
+      color: var(--ink2);
+      line-height: 1.55;
+      padding: 16px 18px;
+    }
 
-    .gap-list li {
-      font-size: 13px; color: var(--ink2);
-      line-height: 1.55; padding: 10px 0;
+    .stand-summary strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .gap-item, .fix-item {
+      padding: 14px 18px;
       border-bottom: 1px solid var(--border-light);
     }
 
-    .gap-list li:last-child { border-bottom: none; }
+    .gap-item:last-child, .fix-item:last-child {
+      border-bottom: none;
+    }
 
-    .gap-label { font-weight: 600; color: var(--ink); }
+    .item-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
 
-    .gap-note {
-      display: block; font-size: 12px;
-      color: var(--muted); margin-top: 4px;
+    .item-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    .bar-pill {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 4px 8px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .bar-pill-vis {
+      background: rgba(0, 122, 255, 0.12);
+      color: var(--accent);
+    }
+
+    .bar-pill-book {
+      background: rgba(88, 86, 214, 0.12);
+      color: var(--accent-secondary);
+    }
+
+    .item-body {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .item-note {
+      display: block;
+      font-size: 13px;
+      color: var(--warning);
+      margin-top: 6px;
+      line-height: 1.4;
     }
 
     .unsure-group {
-      margin-top: 14px; padding-top: 14px;
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .ios-subheader {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      padding: 12px 18px 8px;
+      background: var(--bg);
       border-top: 1px solid var(--border-light);
-    }
-
-    .unsure-heading {
-      font-size: 12px; font-weight: 600;
-      color: var(--muted); margin-bottom: 8px;
-    }
-
-    .fix-list { list-style: none; counter-reset: fix; }
-
-    .fix-list li {
-      counter-increment: fix;
-      font-size: 13px; color: var(--ink2);
-      line-height: 1.55; padding: 12px 0;
       border-bottom: 1px solid var(--border-light);
-      display: flex; justify-content: space-between;
-      align-items: flex-start; gap: 12px;
     }
 
-    .fix-list li:last-child { border-bottom: none; }
-
-    .fix-list li::before {
-      content: counter(fix) ".";
-      font-weight: 700; color: var(--accent);
-      margin-right: 8px; flex-shrink: 0;
+    .fix-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
     }
 
-    .fix-text { flex: 1; }
+    .fix-rank {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .fix-content { flex: 1; min-width: 0; }
 
     .fix-action {
-      display: block; margin-top: 4px;
-      color: var(--ink2);
+      display: block;
+      margin-top: 4px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.45;
     }
 
-    .fix-bar {
-      display: block; margin-top: 4px;
-      font-size: 11px; font-weight: 600;
-      color: var(--muted); text-transform: uppercase;
-      letter-spacing: 0.06em;
+    .fix-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      flex-wrap: wrap;
     }
 
     .pts-badge {
-      font-size: 11px; font-weight: 600;
-      color: var(--accent); opacity: 0.75;
-      white-space: nowrap; flex-shrink: 0;
-      padding-top: 2px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--positive);
+      background: rgba(52, 199, 89, 0.12);
+      padding: 4px 10px;
+      border-radius: 100px;
+      white-space: nowrap;
     }
 
     .output-footer-text {
-      font-size: 13px; color: var(--ink2);
-      line-height: 1.6; margin: 18px 0 14px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 8px 0 12px;
+      padding-left: 4px;
     }
 
-    .output-footer-text a { color: var(--accent); font-weight: 600; }
+    .output-footer-text a { color: var(--accent); font-weight: 500; }
     .output-footer-text a:hover { text-decoration: underline; }
 
     .secondary-btn {
-      font-family: inherit; font-size: 13px; font-weight: 600;
-      color: var(--accent); background: white;
-      border: 1px solid var(--accent);
-      border-radius: var(--radius-sm);
-      padding: 10px 16px; cursor: pointer;
-      transition: all 0.2s;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--card);
+      border: none;
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: background 0.2s;
+      width: 100%;
     }
 
-    .secondary-btn:hover { background: var(--accent-light); }
+    .secondary-btn:hover { background: var(--bg); }
 
     .explainer {
       background: var(--card);
@@ -620,43 +792,47 @@
 
     .deep-dive-results {
       margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border-light);
+      padding-top: 0;
+      border-top: none;
     }
 
     .deep-dive-results-title {
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 13px;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
       color: var(--muted);
-      margin-bottom: 12px;
+      margin-bottom: 8px;
+      padding-left: 2px;
     }
 
     .deep-dive-bar-block {
-      margin-bottom: 16px;
-    }
-
-    .deep-dive-bar-block:last-child {
-      margin-bottom: 0;
+      margin-bottom: 12px;
     }
 
     .deep-dive-bar-heading {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      padding: 10px 16px 6px;
+      background: var(--bg);
     }
 
     .deep-finding-list {
       list-style: none;
+      background: var(--card);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
     }
 
     .deep-finding-list li {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--ink2);
-      line-height: 1.55;
-      padding: 8px 0;
+      line-height: 1.45;
+      padding: 12px 16px;
       border-bottom: 1px solid var(--border-light);
     }
 
@@ -664,35 +840,71 @@
       border-bottom: none;
     }
 
+    .deep-finding-row-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
     .deep-finding-label {
       font-weight: 600;
       color: var(--ink);
+      font-size: 14px;
     }
 
     .finding-val-yes {
+      font-size: 12px;
+      font-weight: 600;
       color: var(--positive);
-      font-weight: 700;
+      background: rgba(52, 199, 89, 0.12);
+      padding: 3px 10px;
+      border-radius: 100px;
+      flex-shrink: 0;
     }
 
     .finding-val-no {
-      color: #B7791F;
-      font-weight: 700;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--warning);
+      background: rgba(255, 149, 0, 0.12);
+      padding: 3px 10px;
+      border-radius: 100px;
+      flex-shrink: 0;
+    }
+
+    .deep-finding-why {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+      line-height: 1.4;
     }
 
     .deep-dive-summary {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--ink2);
-      line-height: 1.55;
-      background: var(--bg);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-sm);
-      padding: 10px 12px;
-      margin-bottom: 14px;
+      line-height: 1.5;
+      background: var(--card);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      padding: 14px 16px;
+      margin-bottom: 12px;
     }
 
     .deep-dive-summary.warn {
-      border-color: rgba(243,156,18,0.35);
-      background: rgba(243,156,18,0.06);
+      background: rgba(255, 149, 0, 0.08);
+      box-shadow: none;
+      border: 1px solid rgba(255, 149, 0, 0.2);
+    }
+
+    .deep-dive-caveat {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.45;
+      margin-top: 12px;
+      padding: 0 2px;
     }
 
     .deep-finding-why {
@@ -728,6 +940,8 @@
       .hero { padding: 20px 16px 16px; }
       main { padding: 0 16px 24px; }
       .panel { padding: 16px; }
+      .result-bars-grid { grid-template-columns: 1fr; }
+      .result-bar-card { border-bottom: 1px solid var(--border-light); }
     }
   </style>
 </head>
@@ -918,7 +1132,7 @@
     <div id="output-state" class="hidden">
       <div class="score-panel" id="score-panel"></div>
       <div class="output-block hidden" id="deep-dive-output-block">
-        <div class="output-block-title">Deep dive: what we found</div>
+        <div class="output-block-title">Deep dive results</div>
         <div id="deep-dive-output-results"></div>
       </div>
 
@@ -1072,9 +1286,37 @@
 
     function scoreColor(score) {
       if (score <= 39) return 'var(--alert)';
-      if (score <= 69) return '#B7791F';
+      if (score <= 69) return 'var(--warning)';
       if (score <= 89) return 'var(--accent)';
       return 'var(--positive)';
+    }
+
+    function barColor(key) {
+      return key === 'visibility' ? 'var(--accent)' : 'var(--accent-secondary)';
+    }
+
+    function barPillClass(barKey) {
+      return barKey === 'visibility' ? 'bar-pill-vis' : 'bar-pill-book';
+    }
+
+    function progressBarHtml(pct, color) {
+      return '<div class="progress-track"><div class="progress-fill" style="width:' + pct + '%;background:' + color + '"></div></div>';
+    }
+
+    function renderBarCardHtml(bar, pct) {
+      const band = getBand(pct, bar.key);
+      const color = barColor(bar.key);
+      let html = '<div class="result-bar-card">';
+      html += '<div class="result-bar-header">';
+      html += '<div><div class="result-bar-name">' + bar.label + '</div>';
+      html += '<div class="result-bar-tagline">' + bar.tagline + '</div></div>';
+      html += '<div class="result-bar-score" style="color:' + scoreColor(pct) + '">' + pct + '</div>';
+      html += '</div>';
+      html += progressBarHtml(pct, color);
+      html += '<span class="result-bar-band score-band ' + band.cls + '">' + band.label + '</span>';
+      html += '<p class="result-bar-means">' + band.readout + '</p>';
+      html += '</div>';
+      return html;
     }
 
     function getBand(score, kind) {
@@ -1152,16 +1394,29 @@
     }
 
     function renderBarHtml(bar, pct) {
-      const band = getBand(pct, bar.key);
-      let html = '<div class="bar-score">';
-      html += '<div class="bar-score-top">';
-      html += '<div><div class="bar-score-name">' + bar.label + '</div>';
-      html += '<div class="bar-score-tagline">' + bar.tagline + '</div></div>';
-      html += '<div class="bar-score-value" style="color:' + scoreColor(pct) + '">' + pct + '</div>';
+      return renderBarCardHtml(bar, pct);
+    }
+
+    function renderGapItem(id, barLabel, barKey, note) {
+      let html = '<div class="gap-item">';
+      html += '<div class="item-top"><span class="item-title">' + META[id].short + '</span>';
+      html += '<span class="bar-pill ' + barPillClass(barKey) + '">' + barLabel + '</span></div>';
+      html += '<div class="item-body">' + META[id].gap + '</div>';
+      if (note) html += '<span class="item-note">' + note + '</span>';
       html += '</div>';
-      html += '<div class="score-band ' + band.cls + '">' + band.label + '</div>';
-      html += '<p class="bar-score-means">' + band.readout + '</p>';
-      html += '</div>';
+      return html;
+    }
+
+    function renderFixItem(id, rank, barLabel, barKey, points) {
+      let html = '<div class="fix-item">';
+      html += '<div class="fix-rank">' + rank + '</div>';
+      html += '<div class="fix-content">';
+      html += '<div class="item-title">' + META[id].short + '</div>';
+      html += '<span class="fix-action">' + META[id].action + '</span>';
+      html += '<div class="fix-meta">';
+      html += '<span class="bar-pill ' + barPillClass(barKey) + '">' + barLabel + '</span>';
+      html += '<span class="pts-badge">+' + points + ' pts</span>';
+      html += '</div></div></div>';
       return html;
     }
 
@@ -1191,20 +1446,28 @@
       const failedIds = FIX_PRIORITY.filter(function(id) { return answers[id] !== 'yes'; });
       const badgeInfo = computePointBadges(failedIds, score, visPct, bookPct, answers);
 
-      let scoreHtml = '<div class="bar-scores">';
-      scoreHtml += renderBarHtml(BARS.visibility, visPct);
-      scoreHtml += renderBarHtml(BARS.bookability, bookPct);
-      scoreHtml += '</div>';
-
-      scoreHtml += '<div class="overall-divider">';
-      scoreHtml += '<div class="overall-label">Overall readiness</div>';
-      scoreHtml += '<div class="score-number" style="color:' + scoreColor(score) + '">' + score + '<span style="font-size:0.45em;color:var(--muted);font-weight:600"> / 100</span></div>';
+      let scoreHtml = '<div class="result-hero">';
+      scoreHtml += '<div class="result-hero-label">Overall readiness</div>';
+      scoreHtml += '<div class="score-number" style="color:' + scoreColor(score) + '">' + score;
+      scoreHtml += '<span class="score-number-sub"> / 100</span></div>';
       scoreHtml += '<div class="score-band ' + band.cls + '">' + band.label + '</div>';
       scoreHtml += '<p class="score-readout">' + band.readout + '</p>';
+      scoreHtml += '</div>';
 
+      scoreHtml += '<div class="result-bars-grid">';
+      scoreHtml += renderBarCardHtml(BARS.visibility, visPct);
+      scoreHtml += renderBarCardHtml(BARS.bookability, bookPct);
+      scoreHtml += '</div>';
+
+      scoreHtml += '<div class="result-footer">';
+      scoreHtml += '<div class="result-stat-pills">';
+      scoreHtml += '<span class="stat-pill"><strong>' + totalYes + '</strong> of 10 passed</span>';
+      scoreHtml += '<span class="stat-pill">Visibility <strong>' + visPct + '</strong></span>';
+      scoreHtml += '<span class="stat-pill">Bookability <strong>' + bookPct + '</strong></span>';
+      scoreHtml += '</div>';
       if (failedIds.length > 0) {
-        scoreHtml += '<p class="potential-line">If you address the points below, your score would rise to <strong>' + badgeInfo.potential + ' / 100</strong> (Visibility ' + badgeInfo.potVis + ', Bookability ' + badgeInfo.potBook + ').</p>';
-        scoreHtml += '<p class="potential-footnote">This reflects the structural fixes above. Choosing keywords and content that guests actually search for still matters beyond the checklist.</p>';
+        scoreHtml += '<p class="potential-line">Fix the items below to reach <strong>' + badgeInfo.potential + ' / 100</strong> (Visibility ' + badgeInfo.potVis + ', Bookability ' + badgeInfo.potBook + ').</p>';
+        scoreHtml += '<p class="potential-footnote">Structural fixes only. Keyword and content choices still matter beyond this checklist.</p>';
       }
       scoreHtml += '</div>';
 
@@ -1221,10 +1484,15 @@
       const stronger = visPct > bookPct ? 'Visibility (can AI find and recommend you)' : visPct < bookPct ? 'Bookability (can AI book you)' : 'both bars equally';
       const weaker = visPct < bookPct ? 'Visibility' : visPct > bookPct ? 'Bookability' : null;
 
-      let standHtml = '<p>You passed ' + totalYes + ' of 10 checks. ';
-      if (weaker) standHtml += 'Your stronger side is ' + stronger + ', and ' + weaker + ' is where the gaps sit.';
-      else standHtml += 'Visibility and Bookability are at a similar level.';
-      standHtml += '</p>';
+      let standHtml = '<div class="ios-group"><div class="stand-summary">';
+      standHtml += 'You passed <strong>' + totalYes + ' of 10</strong> checks. ';
+      if (weaker) {
+        standHtml += 'Your stronger side is <strong>' + stronger + '</strong>. ';
+        standHtml += '<strong>' + weaker + '</strong> is where the gaps sit.';
+      } else {
+        standHtml += 'Visibility and Bookability are at a similar level.';
+      }
+      standHtml += '</div></div>';
       document.getElementById('block-stand').innerHTML = standHtml;
 
       const failed = QUESTION_IDS.filter(function(id) { return answers[id] !== 'yes'; });
@@ -1233,44 +1501,44 @@
 
       let gapsHtml = '';
       if (failed.length === 0) {
-        gapsHtml = '<p>No structural gaps were flagged. Your site covers the bases this audit checks for.</p>';
+        gapsHtml = '<div class="ios-group"><p>No structural gaps flagged. Your site covers the bases this audit checks for.</p></div>';
       } else {
-        gapsHtml = '<ul class="gap-list">';
+        gapsHtml = '<div class="ios-group">';
         definiteNo.forEach(function(id) {
-          const barLabel = META[id].bar === 'visibility' ? 'Visibility' : 'Bookability';
-          gapsHtml += '<li><span class="gap-label">' + META[id].short + '</span> (' + barLabel + ') - ' + META[id].gap;
-          if (textFlags[id]) gapsHtml += '<span class="gap-note">' + textFlags[id] + '</span>';
-          gapsHtml += '</li>';
+          const barKey = META[id].bar;
+          const barLabel = barKey === 'visibility' ? 'Visibility' : 'Bookability';
+          gapsHtml += renderGapItem(id, barLabel, barKey, textFlags[id] || null);
         });
-        gapsHtml += '</ul>';
+        gapsHtml += '</div>';
 
         if (unsureItems.length) {
-          gapsHtml += '<div class="unsure-group"><div class="unsure-heading">Worth checking. You were not certain on these:</div><ul class="gap-list">';
+          gapsHtml += '<div class="ios-group unsure-group">';
+          gapsHtml += '<div class="ios-subheader">Worth checking</div>';
           unsureItems.forEach(function(id) {
-            const barLabel = META[id].bar === 'visibility' ? 'Visibility' : 'Bookability';
-            gapsHtml += '<li><span class="gap-label">' + META[id].short + '</span> (' + barLabel + ') - ' + META[id].gap;
-            if (textFlags[id]) gapsHtml += '<span class="gap-note">' + textFlags[id] + '</span>';
-            gapsHtml += '</li>';
+            const barKey = META[id].bar;
+            const barLabel = barKey === 'visibility' ? 'Visibility' : 'Bookability';
+            gapsHtml += renderGapItem(id, barLabel, barKey, textFlags[id] || null);
           });
-          gapsHtml += '</ul></div>';
+          gapsHtml += '</div>';
         }
 
         if (textFlags.general) {
-          gapsHtml += '<p class="gap-note" style="margin-top:12px">' + textFlags.general + '</p>';
+          gapsHtml += '<p class="item-note" style="padding:8px 4px 0">' + textFlags.general + '</p>';
         }
       }
       document.getElementById('block-gaps').innerHTML = gapsHtml;
 
       let fixHtml = '';
       if (failedIds.length === 0) {
-        fixHtml = '<p>No priority fixes to list. You passed all structural checks.</p>';
+        fixHtml = '<div class="ios-group"><p>No priority fixes. You passed all structural checks.</p></div>';
       } else {
-        fixHtml = '<ol class="fix-list">';
+        fixHtml = '<div class="ios-group">';
         failedIds.forEach(function(id, i) {
-          const barLabel = META[id].bar === 'visibility' ? 'Visibility' : 'Bookability';
-          fixHtml += '<li><span class="fix-text"><strong>' + META[id].short + '.</strong><span class="fix-action">' + META[id].action + '</span><span class="fix-bar">Lifts ' + barLabel + '</span></span><span class="pts-badge">+' + badgeInfo.points[i] + ' pts</span></li>';
+          const barKey = META[id].bar;
+          const barLabel = barKey === 'visibility' ? 'Visibility' : 'Bookability';
+          fixHtml += renderFixItem(id, i + 1, barLabel, barKey, badgeInfo.points[i]);
         });
-        fixHtml += '</ol>';
+        fixHtml += '</div>';
       }
       document.getElementById('block-fix').innerHTML = fixHtml;
 
@@ -1320,6 +1588,29 @@
         : '<span class="finding-val-no">No</span>';
     }
 
+    function deepFindingRow(label, val, extra, why) {
+      let html = '<li>';
+      html += '<div class="deep-finding-row-top">';
+      html += '<span class="deep-finding-label">' + label + '</span>';
+      html += yesNo(val);
+      html += '</div>';
+      if (extra) html += '<span class="deep-finding-why">' + extra + '</span>';
+      html += '<span class="deep-finding-why">' + why + '</span>';
+      html += '</li>';
+      return html;
+    }
+
+    function deepFindingTextRow(label, text, why) {
+      let html = '<li>';
+      html += '<div class="deep-finding-row-top">';
+      html += '<span class="deep-finding-label">' + label + '</span>';
+      html += '</div>';
+      html += '<span class="deep-finding-why">' + text + '</span>';
+      html += '<span class="deep-finding-why">' + why + '</span>';
+      html += '</li>';
+      return html;
+    }
+
     function deepDiveSummary(data) {
       const meta = data.meta || {};
       const vis = data.visibility || {};
@@ -1362,44 +1653,43 @@
         ? vis.schemaTypes.join(', ')
         : 'none found';
 
-      let html = '<div class="deep-dive-results-title">What we found</div>';
-      html += deepDiveSummary(data);
+      let html = deepDiveSummary(data);
 
       html += '<div class="deep-dive-bar-block">';
-      html += '<div class="deep-dive-bar-heading">Visibility. Can AI find and recommend you</div>';
+      html += '<div class="deep-dive-bar-heading">Visibility</div>';
       html += '<ul class="deep-finding-list">';
-      html += '<li><span class="deep-finding-label">Hidden labels (structured data): ' + yesNo(vis.structuredDataFound) + '</span>';
-      if (vis.structuredDataFound) html += ' (' + types + ')';
-      html += '<span class="deep-finding-why">' + (vis.structuredDataFound
-        ? 'These labels help an assistant understand what you are without guessing.'
-        : 'Adding property schema is the clearest way to help AI find and recommend you.') + '</span></li>';
-      html += '<li><span class="deep-finding-label">Page description present: ' + yesNo(vis.metaDescription) + '</span>';
-      html += '<span class="deep-finding-why">' + (vis.metaDescription
-        ? 'A page description gives assistants a short summary to work with.'
-        : 'A short page description gives assistants a ready-made summary of the property.') + '</span></li>';
-      html += '<li><span class="deep-finding-label">Readable text on the page: about ' + (vis.wordCount || 0) + ' words</span>';
-      html += '<span class="deep-finding-why">' + ((vis.wordCount || 0) < 80
-        ? 'That is thin for an assistant. More plain text about the property would help.'
-        : 'Enough text for an assistant to work with, as long as the important facts are in it.') + '</span></li>';
-      html += '<li><span class="deep-finding-label">Guest-question keywords: ' + keywordSummary(vis.keywords) + '</span>';
-      html += '<span class="deep-finding-why">Assistants recommend sites that answer parking, families, distance, and cancellation in plain words.</span></li>';
+      html += deepFindingRow('Hidden labels (structured data)', vis.structuredDataFound,
+        vis.structuredDataFound ? 'Types: ' + types : '',
+        vis.structuredDataFound
+          ? 'These labels help an assistant understand what you are without guessing.'
+          : 'Adding property schema is the clearest way to help AI find and recommend you.');
+      html += deepFindingRow('Page description present', vis.metaDescription, '',
+        vis.metaDescription
+          ? 'A page description gives assistants a short summary to work with.'
+          : 'A short page description gives assistants a ready-made summary of the property.');
+      html += deepFindingTextRow('Readable text on the page', 'About ' + (vis.wordCount || 0) + ' words',
+        (vis.wordCount || 0) < 80
+          ? 'That is thin for an assistant. More plain text about the property would help.'
+          : 'Enough text for an assistant to work with, as long as the important facts are in it.');
+      html += deepFindingTextRow('Guest-question keywords', keywordSummary(vis.keywords),
+        'Assistants recommend sites that answer parking, families, distance, and cancellation in plain words.');
       html += '</ul></div>';
 
       html += '<div class="deep-dive-bar-block">';
-      html += '<div class="deep-dive-bar-heading">Bookability. Can AI book you</div>';
+      html += '<div class="deep-dive-bar-heading">Bookability</div>';
       html += '<ul class="deep-finding-list">';
-      html += '<li><span class="deep-finding-label">Price visible in the raw text: ' + yesNo(book.priceInRawText) + '</span>';
-      html += '<span class="deep-finding-why">' + (book.priceInRawText
-        ? 'Prices that sit in the first raw version are visible to AI.'
-        : 'If prices only appear after the page loads in a browser, an AI often cannot see them.') + '</span></li>';
-      html += '<li><span class="deep-finding-label">Price labels (offer / price structured data): ' + yesNo(book.priceSchemaFound) + '</span>';
-      html += '<span class="deep-finding-why">' + (book.priceSchemaFound
-        ? 'Offer and price labels tell an agent what can actually be booked.'
-        : 'Offer or price schema helps an agent understand rates and availability without guessing.') + '</span></li>';
-      html += '<li><span class="deep-finding-label">Booking link or form in the raw version: ' + yesNo(book.bookingSignal) + '</span>';
-      html += '<span class="deep-finding-why">' + (book.bookingSignal
-        ? 'A booking signal in the first raw version gives an agent somewhere concrete to go.'
-        : 'A clear book / reserve path in the first raw HTML is what an agent needs to hand a guest to.') + '</span></li>';
+      html += deepFindingRow('Price visible in the raw text', book.priceInRawText, '',
+        book.priceInRawText
+          ? 'Prices that sit in the first raw version are visible to AI.'
+          : 'If prices only appear after the page loads in a browser, an AI often cannot see them.');
+      html += deepFindingRow('Price labels (offer / price schema)', book.priceSchemaFound, '',
+        book.priceSchemaFound
+          ? 'Offer and price labels tell an agent what can actually be booked.'
+          : 'Offer or price schema helps an agent understand rates and availability without guessing.');
+      html += deepFindingRow('Booking link or form in raw HTML', book.bookingSignal, '',
+        book.bookingSignal
+          ? 'A booking signal in the first raw version gives an agent somewhere concrete to go.'
+          : 'A clear book / reserve path in the first raw HTML is what an agent needs to hand a guest to.');
       html += '</ul></div>';
 
       html += '<p class="deep-dive-caveat">Some sites block automated reads or hide everything behind late-loading code. When that happens the deep dive sees little, which is itself a signal, because an AI would see little too. The self-assessed audit is the reliable fallback.</p>';
