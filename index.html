@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Website AI Ready Audit - Operator Intelligence Suite</title>
   <meta name="description" content="Audit whether your direct booking website is ready for AI-driven discovery and booking. Visibility and bookability.">
 
@@ -49,6 +49,7 @@
       color: var(--ink);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
     }
 
     a { text-decoration: none; color: inherit; }
@@ -984,10 +985,61 @@
 
     @media (max-width: 640px) {
       .hero { padding: 20px 16px 16px; }
-      main { padding: 0 16px 24px; }
+      main { padding: 0 16px calc(24px + env(safe-area-inset-bottom)); }
       .panel { padding: 16px; }
       .result-bars-grid { grid-template-columns: 1fr; }
       .result-bar-card { border-bottom: 1px solid var(--border-light); }
+      .brand-subtitle { display: none; }
+      .brand-title {
+        font-size: 13px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 36vw;
+      }
+      .header-inner {
+        padding: 10px 12px;
+        padding-top: calc(10px + env(safe-area-inset-top));
+      }
+      .lang-btn {
+        padding: 8px 9px;
+        min-height: 36px;
+        gap: 0;
+        font-size: 0;
+      }
+      .lang-flag { font-size: 15px; }
+      .header-link {
+        padding: 8px 10px;
+        font-size: 12px;
+        min-height: 36px;
+        display: inline-flex;
+        align-items: center;
+      }
+      .radio-group { flex-direction: column; }
+      .radio-option { width: 100%; }
+      .radio-option label {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        min-height: 44px;
+        padding: 12px 14px;
+        text-align: center;
+        font-size: 14px;
+      }
+      input[type="url"],
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        font-size: 16px !important;
+        min-height: 48px;
+        box-sizing: border-box;
+      }
+      .submit-btn {
+        width: 100%;
+        min-height: 48px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
     }
   </style>
 </head>
