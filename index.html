@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI-Ready Audit - Operator Intelligence Suite</title>
+  <title>Website AI Ready Audit - Operator Intelligence Suite</title>
   <meta name="description" content="Audit whether your direct booking website is ready for AI-driven discovery and booking. Visibility and bookability.">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPJ7VKS451"></script>
@@ -78,14 +78,60 @@
     .brand-mark {
       width: 30px; height: 30px;
       background: var(--accent);
-      border-radius: 8px;
+      border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
       color: white; font-weight: 700; font-size: 13px; flex-shrink: 0;
+      box-shadow: 0 2px 10px rgba(0, 122, 255, 0.35);
     }
 
     .brand-text { color: white; }
     .brand-title { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
     .brand-subtitle { font-size: 12px; color: var(--muted2); margin-top: 1px; }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px;
+      padding: 3px;
+    }
+
+    .lang-btn {
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.55);
+      background: transparent;
+      border: none;
+      border-radius: 100px;
+      padding: 6px 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s;
+    }
+
+    .lang-btn:hover { color: #fff; }
+
+    .lang-btn.active {
+      background: rgba(255,255,255,0.16);
+      color: #fff;
+    }
+
+    .lang-flag {
+      font-size: 13px;
+      line-height: 1;
+    }
 
     .header-link {
       color: white; font-size: 13px; font-weight: 500;
@@ -225,7 +271,7 @@
     textarea:focus {
       outline: none;
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(27, 79, 114, 0.12);
+      box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.18);
     }
 
     .submit-btn {
@@ -761,7 +807,7 @@
     .url-input:focus {
       outline: none;
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(27, 79, 114, 0.12);
+      box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.18);
     }
 
     .deep-dive-btn {
@@ -952,19 +998,26 @@
       <div class="brand">
         <div class="brand-mark">AI</div>
         <div class="brand-text">
-          <div class="brand-title">AI-Ready Audit</div>
-          <div class="brand-subtitle">Operator Intelligence Suite</div>
+          <div class="brand-title" data-i18n="brandTitle">Website AI Ready Audit</div>
+          <div class="brand-subtitle" data-i18n="brandSubtitle">Operator Intelligence Suite</div>
         </div>
       </div>
-      <a href="https://rbisschoff.github.io/operator-intelligence-suite/" class="header-link">Suite Hub</a>
+      <div class="header-actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true"><span class="lang-flag" aria-hidden="true">🇬🇧</span> EN</button>
+          <button type="button" class="lang-btn" data-lang="it" aria-pressed="false"><span class="lang-flag" aria-hidden="true">🇮🇹</span> IT</button>
+          <button type="button" class="lang-btn" data-lang="de" aria-pressed="false"><span class="lang-flag" aria-hidden="true">🇩🇪</span> DE</button>
+        </div>
+        <a href="https://rbisschoff.github.io/operator-intelligence-suite/" class="header-link" data-i18n="headerLink">Suite Hub</a>
+      </div>
     </div>
   </header>
 
   <section class="hero" id="hero">
     <div class="hero-inner">
-      <div class="hero-eyebrow">Operator Series · Website Audit</div>
-      <h1 id="hero-title">Is your direct booking site ready for AI?</h1>
-      <p class="hero-subtitle" id="hero-subtitle">
+      <div class="hero-eyebrow" data-i18n="heroEyebrow">Operator Series · Website Audit</div>
+      <h1 id="hero-title" data-i18n="heroTitleInput">Is your direct booking site ready for AI?</h1>
+      <p class="hero-subtitle" id="hero-subtitle" data-i18n="heroSubtitleInput">
         This audit checks whether an assistant can find and recommend you, and whether it can book you. Answer ten short questions about your site and listing copy.
       </p>
     </div>
@@ -974,156 +1027,156 @@
     <div id="input-state">
       <div class="explainer" id="explainer">
         <button type="button" class="explainer-toggle" id="explainer-toggle" aria-expanded="false" aria-controls="explainer-body">
-          <span class="explainer-toggle-text">How AI reads your site</span>
+          <span class="explainer-toggle-text" data-i18n="explainerToggle">How AI reads your site</span>
           <span class="explainer-chevron" aria-hidden="true">&#9660;</span>
         </button>
         <div class="explainer-body" id="explainer-body">
           <div class="explainer-layer">
-            <div class="explainer-layer-title">1. The raw text a site sends first.</div>
-            <p class="explainer-layer-text">This is the version an AI reads. It is the site stripped of its looks, just the words and the structure underneath.</p>
+            <div class="explainer-layer-title" data-i18n="explainerLayer1Title">1. The raw text a site sends first.</div>
+            <p class="explainer-layer-text" data-i18n="explainerLayer1Text">This is the version an AI reads. It is the site stripped of its looks, just the words and the structure underneath.</p>
           </div>
           <div class="explainer-layer">
-            <div class="explainer-layer-title">2. The hidden labels.</div>
-            <p class="explainer-layer-text">A tidy block of information tucked into the page that spells out plainly what the place is, what it costs, and where it is. AI relies on these, because it does not have to guess. This is what mostly decides whether AI can find and recommend you.</p>
+            <div class="explainer-layer-title" data-i18n="explainerLayer2Title">2. The hidden labels.</div>
+            <p class="explainer-layer-text" data-i18n="explainerLayer2Text">A tidy block of information tucked into the page that spells out plainly what the place is, what it costs, and where it is. AI relies on these, because it does not have to guess. This is what mostly decides whether AI can find and recommend you.</p>
           </div>
           <div class="explainer-layer">
-            <div class="explainer-layer-title">3. The stuff that loads late.</div>
-            <p class="explainer-layer-text">Some sites only show the price and the calendar after extra code runs. That late content is often invisible to AI, because AI usually sees only the first raw version. This is what decides whether AI can actually book you.</p>
+            <div class="explainer-layer-title" data-i18n="explainerLayer3Title">3. The stuff that loads late.</div>
+            <p class="explainer-layer-text" data-i18n="explainerLayer3Text">Some sites only show the price and the calendar after extra code runs. That late content is often invisible to AI, because AI usually sees only the first raw version. This is what decides whether AI can actually book you.</p>
           </div>
-          <p class="explainer-bridge">The two scores below follow from this. Visibility is about the first two layers. Bookability is about whether your prices and booking sit in the raw version or load too late.</p>
+          <p class="explainer-bridge" data-i18n="explainerBridge">The two scores below follow from this. Visibility is about the first two layers. Bookability is about whether your prices and booking sit in the raw version or load too late.</p>
         </div>
       </div>
 
       <form id="audit-form" novalidate>
         <div class="panel">
           <div class="section-header">
-            <div class="section-label">Visibility</div>
-            <div class="section-tagline">Can AI find and recommend you?</div>
-            <p class="section-explain">These checks cover whether an assistant can understand your property and surface it in a natural-language answer.</p>
+            <div class="section-label" data-i18n="visLabel">Visibility</div>
+            <div class="section-tagline" data-i18n="visTagline">Can AI find and recommend you?</div>
+            <p class="section-explain" data-i18n="visExplain">These checks cover whether an assistant can understand your property and surface it in a natural-language answer.</p>
           </div>
 
           <div class="question-block" data-q="A1">
-            <div class="question-text">Does your site have structured data markup (schema.org) describing the property and rooms?</div>
-            <div class="question-helper">This is how an AI understands what you are without guessing.</div>
+            <div class="question-text" data-i18n="qA1Text">Does your site have structured data markup (schema.org) describing the property and rooms?</div>
+            <div class="question-helper" data-i18n="qA1Helper">This is how an AI understands what you are without guessing.</div>
             <div class="radio-group">
-              <div class="radio-option"><input type="radio" name="A1" id="A1-yes" value="yes"><label for="A1-yes">Yes</label></div>
-              <div class="radio-option"><input type="radio" name="A1" id="A1-no" value="no"><label for="A1-no">No</label></div>
-              <div class="radio-option"><input type="radio" name="A1" id="A1-unsure" value="unsure"><label for="A1-unsure">Not sure</label></div>
+              <div class="radio-option"><input type="radio" name="A1" id="A1-yes" value="yes"><label for="A1-yes" data-i18n="yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="A1" id="A1-no" value="no"><label for="A1-no" data-i18n="no">No</label></div>
+              <div class="radio-option"><input type="radio" name="A1" id="A1-unsure" value="unsure"><label for="A1-unsure" data-i18n="unsure">Not sure</label></div>
             </div>
           </div>
 
           <div class="question-block" data-q="B4">
-            <div class="question-text">Is your core content (what the place is, where it is, what makes it suitable) in plain crawlable text rather than locked inside images or a graphic?</div>
-            <div class="question-helper">If it is only in a photo or design, the machine does not have it. The copy should also make sense on its own without relying on visuals to fill gaps.</div>
+            <div class="question-text" data-i18n="qB4Text">Is your core content (what the place is, where it is, what makes it suitable) in plain crawlable text rather than locked inside images or a graphic?</div>
+            <div class="question-helper" data-i18n="qB4Helper">If it is only in a photo or design, the machine does not have it. The copy should also make sense on its own without relying on visuals to fill gaps.</div>
             <div class="radio-group">
-              <div class="radio-option"><input type="radio" name="B4" id="B4-yes" value="yes"><label for="B4-yes">Yes</label></div>
-              <div class="radio-option"><input type="radio" name="B4" id="B4-no" value="no"><label for="B4-no">No</label></div>
-              <div class="radio-option"><input type="radio" name="B4" id="B4-unsure" value="unsure"><label for="B4-unsure">Not sure</label></div>
+              <div class="radio-option"><input type="radio" name="B4" id="B4-yes" value="yes"><label for="B4-yes" data-i18n="yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="B4" id="B4-no" value="no"><label for="B4-no" data-i18n="no">No</label></div>
+              <div class="radio-option"><input type="radio" name="B4" id="B4-unsure" value="unsure"><label for="B4-unsure" data-i18n="unsure">Not sure</label></div>
             </div>
           </div>
 
           <div class="question-block" data-q="A4">
-            <div class="question-text">Does your site directly answer the natural questions a guest asks an assistant: is it suitable for families, is there parking, how far to the centre, what is the cancellation policy?</div>
-            <div class="question-helper">AI recommends the sites that actually answer the question being asked.</div>
+            <div class="question-text" data-i18n="qA4Text">Does your site directly answer the natural questions a guest asks an assistant: is it suitable for families, is there parking, how far to the centre, what is the cancellation policy?</div>
+            <div class="question-helper" data-i18n="qA4Helper">AI recommends the sites that actually answer the question being asked.</div>
             <div class="radio-group">
-              <div class="radio-option"><input type="radio" name="A4" id="A4-yes" value="yes"><label for="A4-yes">Yes</label></div>
-              <div class="radio-option"><input type="radio" name="A4" id="A4-no" value="no"><label for="A4-no">No</label></div>
-              <div class="radio-option"><input type="radio" name="A4" id="A4-unsure" value="unsure"><label for="A4-unsure">Not sure</label></div>
+              <div class="radio-option"><input type="radio" name="A4" id="A4-yes" value="yes"><label for="A4-yes" data-i18n="yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="A4" id="A4-no" value="no"><label for="A4-no" data-i18n="no">No</label></div>
+              <div class="radio-option"><input type="radio" name="A4" id="A4-unsure" value="unsure"><label for="A4-unsure" data-i18n="unsure">Not sure</label></div>
             </div>
           </div>
 
-          <label class="field-label" for="listingText">Paste the main description text from one of your listings or property pages.</label>
-          <textarea id="listingText" name="listingText" placeholder="Paste your listing description here…"></textarea>
+          <label class="field-label" for="listingText" data-i18n="listingLabel">Paste the main description text from one of your listings or property pages.</label>
+          <textarea id="listingText" name="listingText" placeholder="Paste your listing description here…" data-i18n-placeholder="listingPlaceholder"></textarea>
 
           <div class="question-block" data-q="B1" style="margin-top:18px">
-            <div class="question-text">Does the description lead with what the place is and who it suits, rather than opening with a list of amenities?</div>
-            <div class="question-helper">An AI summarises the opening. A feature-first opening gives it nothing to recommend on.</div>
+            <div class="question-text" data-i18n="qB1Text">Does the description lead with what the place is and who it suits, rather than opening with a list of amenities?</div>
+            <div class="question-helper" data-i18n="qB1Helper">An AI summarises the opening. A feature-first opening gives it nothing to recommend on.</div>
             <div class="radio-group">
-              <div class="radio-option"><input type="radio" name="B1" id="B1-yes" value="yes"><label for="B1-yes">Yes</label></div>
-              <div class="radio-option"><input type="radio" name="B1" id="B1-no" value="no"><label for="B1-no">No</label></div>
-              <div class="radio-option"><input type="radio" name="B1" id="B1-unsure" value="unsure"><label for="B1-unsure">Not sure</label></div>
+              <div class="radio-option"><input type="radio" name="B1" id="B1-yes" value="yes"><label for="B1-yes" data-i18n="yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="B1" id="B1-no" value="no"><label for="B1-no" data-i18n="no">No</label></div>
+              <div class="radio-option"><input type="radio" name="B1" id="B1-unsure" value="unsure"><label for="B1-unsure" data-i18n="unsure">Not sure</label></div>
             </div>
           </div>
 
           <div class="question-block" data-q="B2">
-            <div class="question-text">Does the copy state concrete facts (location context, capacity, key amenities, distances) in clear sentences rather than marketing adjectives?</div>
-            <div class="question-helper">"Cosy and charming" is invisible to a machine. "Sleeps four, ten minutes from the station" is not.</div>
+            <div class="question-text" data-i18n="qB2Text">Does the copy state concrete facts (location context, capacity, key amenities, distances) in clear sentences rather than marketing adjectives?</div>
+            <div class="question-helper" data-i18n="qB2Helper">"Cosy and charming" is invisible to a machine. "Sleeps four, ten minutes from the station" is not.</div>
             <div class="radio-group">
-              <div class="radio-option"><input type="radio" name="B2" id="B2-yes" value="yes"><label for="B2-yes">Yes</label></div>
-              <div class="radio-option"><input type="radio" name="B2" id="B2-no" value="no"><label for="B2-no">No</label></div>
-              <div class="radio-option"><input type="radio" name="B2" id="B2-unsure" value="unsure"><label for="B2-unsure">Not sure</label></div>
+              <div class="radio-option"><input type="radio" name="B2" id="B2-yes" value="yes"><label for="B2-yes" data-i18n="yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="B2" id="B2-no" value="no"><label for="B2-no" data-i18n="no">No</label></div>
+              <div class="radio-option"><input type="radio" name="B2" id="B2-unsure" value="unsure"><label for="B2-unsure" data-i18n="unsure">Not sure</label></div>
             </div>
           </div>
 
           <div class="question-block" data-q="B3">
-            <div class="question-text">Is the cancellation and booking policy stated in the text itself?</div>
-            <div class="question-helper">It is one of the first things an assistant checks before recommending.</div>
+            <div class="question-text" data-i18n="qB3Text">Is the cancellation and booking policy stated in the text itself?</div>
+            <div class="question-helper" data-i18n="qB3Helper">It is one of the first things an assistant checks before recommending.</div>
             <div class="radio-group">
-              <div class="radio-option"><input type="radio" name="B3" id="B3-yes" value="yes"><label for="B3-yes">Yes</label></div>
-              <div class="radio-option"><input type="radio" name="B3" id="B3-no" value="no"><label for="B3-no">No</label></div>
-              <div class="radio-option"><input type="radio" name="B3" id="B3-unsure" value="unsure"><label for="B3-unsure">Not sure</label></div>
+              <div class="radio-option"><input type="radio" name="B3" id="B3-yes" value="yes"><label for="B3-yes" data-i18n="yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="B3" id="B3-no" value="no"><label for="B3-no" data-i18n="no">No</label></div>
+              <div class="radio-option"><input type="radio" name="B3" id="B3-unsure" value="unsure"><label for="B3-unsure" data-i18n="unsure">Not sure</label></div>
             </div>
           </div>
         </div>
 
         <div class="panel">
           <div class="section-header">
-            <div class="section-label">Bookability</div>
-            <div class="section-tagline">Can AI book you?</div>
-            <p class="section-explain">These checks cover whether an agent can see prices and availability and follow a real path to book.</p>
+            <div class="section-label" data-i18n="bookLabel">Bookability</div>
+            <div class="section-tagline" data-i18n="bookTagline">Can AI book you?</div>
+            <p class="section-explain" data-i18n="bookExplain">These checks cover whether an agent can see prices and availability and follow a real path to book.</p>
           </div>
 
           <div class="question-block" data-q="A2">
-            <div class="question-text">Are your prices and live availability visible as text on the page, rather than only inside a booking widget or calendar that loads separately?</div>
-            <div class="question-helper">An agent cannot read what is locked in an embedded widget.</div>
+            <div class="question-text" data-i18n="qA2Text">Are your prices and live availability visible as text on the page, rather than only inside a booking widget or calendar that loads separately?</div>
+            <div class="question-helper" data-i18n="qA2Helper">An agent cannot read what is locked in an embedded widget.</div>
             <div class="radio-group">
-              <div class="radio-option"><input type="radio" name="A2" id="A2-yes" value="yes"><label for="A2-yes">Yes</label></div>
-              <div class="radio-option"><input type="radio" name="A2" id="A2-no" value="no"><label for="A2-no">No</label></div>
-              <div class="radio-option"><input type="radio" name="A2" id="A2-unsure" value="unsure"><label for="A2-unsure">Not sure</label></div>
+              <div class="radio-option"><input type="radio" name="A2" id="A2-yes" value="yes"><label for="A2-yes" data-i18n="yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="A2" id="A2-no" value="no"><label for="A2-no" data-i18n="no">No</label></div>
+              <div class="radio-option"><input type="radio" name="A2" id="A2-unsure" value="unsure"><label for="A2-unsure" data-i18n="unsure">Not sure</label></div>
             </div>
           </div>
 
           <div class="question-block" data-q="A5">
-            <div class="question-text">Can the booking flow (from choosing dates to confirming) be followed without steps that only a human can complete, and without depending on multiple JavaScript-only clicks?</div>
-            <div class="question-helper">An assistant needs a concrete path it can work through or hand a guest to.</div>
+            <div class="question-text" data-i18n="qA5Text">Can the booking flow (from choosing dates to confirming) be followed without steps that only a human can complete, and without depending on multiple JavaScript-only clicks?</div>
+            <div class="question-helper" data-i18n="qA5Helper">An assistant needs a concrete path it can work through or hand a guest to.</div>
             <div class="radio-group">
-              <div class="radio-option"><input type="radio" name="A5" id="A5-yes" value="yes"><label for="A5-yes">Yes</label></div>
-              <div class="radio-option"><input type="radio" name="A5" id="A5-no" value="no"><label for="A5-no">No</label></div>
-              <div class="radio-option"><input type="radio" name="A5" id="A5-unsure" value="unsure"><label for="A5-unsure">Not sure</label></div>
+              <div class="radio-option"><input type="radio" name="A5" id="A5-yes" value="yes"><label for="A5-yes" data-i18n="yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="A5" id="A5-no" value="no"><label for="A5-no" data-i18n="no">No</label></div>
+              <div class="radio-option"><input type="radio" name="A5" id="A5-unsure" value="unsure"><label for="A5-unsure" data-i18n="unsure">Not sure</label></div>
             </div>
           </div>
 
           <div class="question-block" data-q="A3">
-            <div class="question-text">Is the essential booking information reachable in the first HTML response, rather than only after the page fully renders in a browser?</div>
-            <div class="question-helper">Agents often see the initial HTML, not the rendered page.</div>
+            <div class="question-text" data-i18n="qA3Text">Is the essential booking information reachable in the first HTML response, rather than only after the page fully renders in a browser?</div>
+            <div class="question-helper" data-i18n="qA3Helper">Agents often see the initial HTML, not the rendered page.</div>
             <div class="radio-group">
-              <div class="radio-option"><input type="radio" name="A3" id="A3-yes" value="yes"><label for="A3-yes">Yes</label></div>
-              <div class="radio-option"><input type="radio" name="A3" id="A3-no" value="no"><label for="A3-no">No</label></div>
-              <div class="radio-option"><input type="radio" name="A3" id="A3-unsure" value="unsure"><label for="A3-unsure">Not sure</label></div>
+              <div class="radio-option"><input type="radio" name="A3" id="A3-yes" value="yes"><label for="A3-yes" data-i18n="yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="A3" id="A3-no" value="no"><label for="A3-no" data-i18n="no">No</label></div>
+              <div class="radio-option"><input type="radio" name="A3" id="A3-unsure" value="unsure"><label for="A3-unsure" data-i18n="unsure">Not sure</label></div>
             </div>
           </div>
 
           <div class="question-block" data-q="B5">
-            <div class="question-text">Does your site have structured data for prices and availability specifically (offer / price schema), not just a general property description?</div>
-            <div class="question-helper">Property markup helps an assistant find you. Offer and price markup helps it know what it can book.</div>
+            <div class="question-text" data-i18n="qB5Text">Does your site have structured data for prices and availability specifically (offer / price schema), not just a general property description?</div>
+            <div class="question-helper" data-i18n="qB5Helper">Property markup helps an assistant find you. Offer and price markup helps it know what it can book.</div>
             <div class="radio-group">
-              <div class="radio-option"><input type="radio" name="B5" id="B5-yes" value="yes"><label for="B5-yes">Yes</label></div>
-              <div class="radio-option"><input type="radio" name="B5" id="B5-no" value="no"><label for="B5-no">No</label></div>
-              <div class="radio-option"><input type="radio" name="B5" id="B5-unsure" value="unsure"><label for="B5-unsure">Not sure</label></div>
+              <div class="radio-option"><input type="radio" name="B5" id="B5-yes" value="yes"><label for="B5-yes" data-i18n="yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="B5" id="B5-no" value="no"><label for="B5-no" data-i18n="no">No</label></div>
+              <div class="radio-option"><input type="radio" name="B5" id="B5-unsure" value="unsure"><label for="B5-unsure" data-i18n="unsure">Not sure</label></div>
             </div>
           </div>
         </div>
 
-        <button type="submit" class="submit-btn">Run audit</button>
+        <button type="submit" class="submit-btn" data-i18n="runAudit">Run audit</button>
       </form>
 
       <div class="deep-dive-panel" id="deep-dive-panel">
-        <div class="deep-dive-title">Deep dive: read my real site</div>
-        <p class="deep-dive-intro">This checks your actual website the way an AI does. It reads the first raw version of your page and reports what is there.</p>
-        <p class="deep-dive-privacy">This one check is different from the rest of the tool. To read your site, the address you enter is sent to a small server that fetches the page. Nothing else about you is sent or stored. The rest of the audit still runs entirely in your browser.</p>
-        <label class="field-label" for="deep-dive-url">Your website address</label>
+        <div class="deep-dive-title" data-i18n="deepDiveTitle">Deep dive: read my real site</div>
+        <p class="deep-dive-intro" data-i18n="deepDiveIntro">This checks your actual website the way an AI does. It reads the first raw version of your page and reports what is there.</p>
+        <p class="deep-dive-privacy" data-i18n="deepDivePrivacy">This one check is different from the rest of the tool. To read your site, the address you enter is sent to a small server that fetches the page. Nothing else about you is sent or stored. The rest of the audit still runs entirely in your browser.</p>
+        <label class="field-label" for="deep-dive-url" data-i18n="deepDiveUrlLabel">Your website address</label>
         <input type="url" class="url-input" id="deep-dive-url" placeholder="https://www.yourproperty.com" autocomplete="url">
-        <button type="button" class="deep-dive-btn" id="deep-dive-run-btn">Run deep dive</button>
+        <button type="button" class="deep-dive-btn" id="deep-dive-run-btn" data-i18n="deepDiveRunBtn">Run deep dive</button>
         <div class="deep-dive-msg hidden" id="deep-dive-msg"></div>
         <div class="deep-dive-results hidden" id="deep-dive-results"></div>
       </div>
@@ -1132,37 +1185,37 @@
     <div id="output-state" class="hidden">
       <div class="score-panel" id="score-panel"></div>
       <div class="output-block hidden" id="deep-dive-output-block">
-        <div class="output-block-title">Deep dive results</div>
+        <div class="output-block-title" data-i18n="deepDiveOutputTitle">Deep dive results</div>
         <div id="deep-dive-output-results"></div>
       </div>
 
       <div class="output-block">
-        <div class="output-block-title">Where you stand today</div>
+        <div class="output-block-title" data-i18n="standTitle">Where you stand today</div>
         <div id="block-stand"></div>
       </div>
 
       <div class="output-block">
-        <div class="output-block-title">Where AI is passing you by</div>
+        <div class="output-block-title" data-i18n="gapsTitle">Where AI is passing you by</div>
         <div id="block-gaps"></div>
       </div>
 
       <div class="output-block">
-        <div class="output-block-title">What to fix first</div>
+        <div class="output-block-title" data-i18n="fixTitle">What to fix first</div>
         <div id="block-fix"></div>
       </div>
 
-      <p class="output-footer-text">
+      <p class="output-footer-text" data-i18n="outputFooter1">
         Built by Roger Bisschoff. If AI-readiness is something you are working through for a portfolio, the <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">LinkedIn link</a> above is the best way to reach me.
       </p>
-      <p class="output-footer-text">
+      <p class="output-footer-text" data-i18n="outputFooter2">
         <a href="https://rbisschoff.github.io/operator-intelligence-suite/">Back to the Operator Intelligence Suite</a>
       </p>
-      <button type="button" class="secondary-btn" id="start-again-btn">Start again</button>
+      <button type="button" class="secondary-btn" id="start-again-btn" data-i18n="startAgain">Start again</button>
     </div>
   </main>
 
   <footer>
-    <p>AI-Ready Audit - part of the Operator Intelligence Suite by <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">Roger Bisschoff</a></p>
+    <p data-i18n="footerText">Website AI Ready Audit - part of the Operator Intelligence Suite by <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">Roger Bisschoff</a></p>
   </footer>
 
   <script>
@@ -1260,6 +1313,7 @@
     const POLICY_RE = /cancel|refund|policy/i;
 
     let lastDeepDiveResult = null;
+    let currentLang = 'en';
 
     function getAnswer(id) {
       const el = document.querySelector('input[name="' + id + '"]:checked');
@@ -1320,31 +1374,22 @@
     }
 
     function getBand(score, kind) {
-      if (kind === 'visibility') {
-        if (score <= 39) return { label: 'Not yet AI-ready', cls: 'band-red', readout: 'An assistant would struggle to understand or recommend your property from what is published today.' };
-        if (score <= 69) return { label: 'Partially AI-ready', cls: 'band-amber', readout: 'Some recommendation signals are in place, but an assistant still has clear blind spots when surfacing you.' };
-        if (score <= 89) return { label: 'Largely AI-ready', cls: 'band-blue', readout: 'An assistant can mostly find and recommend you, though a few gaps still need attention.' };
-        return { label: 'AI-ready', cls: 'band-green', readout: 'An assistant can find and recommend your property from what is published.' };
-      }
-      if (kind === 'bookability') {
-        if (score <= 39) return { label: 'Not yet AI-ready', cls: 'band-red', readout: 'An assistant would struggle to complete or hand off a booking on your site today.' };
-        if (score <= 69) return { label: 'Partially AI-ready', cls: 'band-amber', readout: 'Some booking signals are visible, but the path to book is still blocked or unclear for an agent.' };
-        if (score <= 89) return { label: 'Largely AI-ready', cls: 'band-blue', readout: 'An assistant can mostly work through a booking, though a few gaps still need attention.' };
-        return { label: 'AI-ready', cls: 'band-green', readout: 'An assistant can reach prices, availability, and a clear booking path.' };
-      }
-      if (score <= 39) return { label: 'Not yet AI-ready', cls: 'band-red', readout: 'Your site has significant gaps that would limit how an assistant can recommend or book it.' };
-      if (score <= 69) return { label: 'Partially AI-ready', cls: 'band-amber', readout: 'Some foundations are in place, but there are clear gaps an assistant would struggle with today.' };
-      if (score <= 89) return { label: 'Largely AI-ready', cls: 'band-blue', readout: 'Your site is in reasonable shape for AI discovery and booking, though a few items still need attention.' };
-      return { label: 'AI-ready', cls: 'band-green', readout: 'Your site covers the structural bases an assistant needs to recommend and book it.' };
+      const pack = I18N[currentLang] || I18N.en;
+      const set = pack.bands[kind] || pack.bands.overall;
+      if (score <= 39) return { label: set.red.label, cls: 'band-red', readout: set.red.readout };
+      if (score <= 69) return { label: set.amber.label, cls: 'band-amber', readout: set.amber.readout };
+      if (score <= 89) return { label: set.blue.label, cls: 'band-blue', readout: set.blue.readout };
+      return { label: set.green.label, cls: 'band-green', readout: set.green.readout };
     }
 
     function runTextChecks(text) {
+      const pack = (I18N[currentLang] || I18N.en).ui;
       const flags = {};
       const trimmed = (text || '').trim();
       const words = trimmed.split(/\s+/).filter(Boolean);
 
       if (words.length > 0 && words.length < 40) {
-        flags.general = 'This description is very short. An AI has little to work with.';
+        flags.general = pack.textFlagGeneral;
       }
 
       const firstSentence = trimmed.split(/[.!?]/)[0] || '';
@@ -1352,15 +1397,15 @@
       const amenityFirst = AMENITY_WORDS.some(function(w) { return lowerFirst.indexOf(w) !== -1; });
       const purposeFirst = PURPOSE_WORDS.some(function(w) { return lowerFirst.indexOf(w) !== -1; });
       if (amenityFirst && !purposeFirst) {
-        flags.B1 = 'Your opening line appears to lead with amenities.';
+        flags.B1 = pack.textFlagB1;
       }
 
       if (trimmed && !DISTANCE_RE.test(trimmed)) {
-        flags.B2 = 'No concrete distances found in the text.';
+        flags.B2 = pack.textFlagB2;
       }
 
       if (trimmed && !POLICY_RE.test(trimmed)) {
-        flags.B3 = 'No cancellation or policy wording found in the text.';
+        flags.B3 = pack.textFlagB3;
       }
 
       return flags;
@@ -1408,6 +1453,7 @@
     }
 
     function renderFixItem(id, rank, barLabel, barKey, points) {
+      const pack = (I18N[currentLang] || I18N.en).ui;
       let html = '<div class="fix-item">';
       html += '<div class="fix-rank">' + rank + '</div>';
       html += '<div class="fix-content">';
@@ -1415,12 +1461,15 @@
       html += '<span class="fix-action">' + META[id].action + '</span>';
       html += '<div class="fix-meta">';
       html += '<span class="bar-pill ' + barPillClass(barKey) + '">' + barLabel + '</span>';
-      html += '<span class="pts-badge">+' + points + ' pts</span>';
+      html += '<span class="pts-badge">' + pack.ptsBadge.replace('{n}', points) + '</span>';
       html += '</div></div></div>';
       return html;
     }
 
-    function renderOutput() {
+    function renderOutput(opts) {
+      opts = opts || {};
+      const pack = (I18N[currentLang] || I18N.en).ui;
+
       const answers = {};
       let allAnswered = true;
       QUESTION_IDS.forEach(function(id) {
@@ -1428,7 +1477,7 @@
         if (!answers[id]) allAnswered = false;
       });
       if (!allAnswered) {
-        alert('Please answer all questions before running the audit.');
+        if (!opts.silent) alert(pack.alertAllQuestions);
         return;
       }
 
@@ -1447,7 +1496,7 @@
       const badgeInfo = computePointBadges(failedIds, score, visPct, bookPct, answers);
 
       let scoreHtml = '<div class="result-hero">';
-      scoreHtml += '<div class="result-hero-label">Overall readiness</div>';
+      scoreHtml += '<div class="result-hero-label">' + pack.resultHeroLabel + '</div>';
       scoreHtml += '<div class="score-number" style="color:' + scoreColor(score) + '">' + score;
       scoreHtml += '<span class="score-number-sub"> / 100</span></div>';
       scoreHtml += '<div class="score-band ' + band.cls + '">' + band.label + '</div>';
@@ -1461,19 +1510,24 @@
 
       scoreHtml += '<div class="result-footer">';
       scoreHtml += '<div class="result-stat-pills">';
-      scoreHtml += '<span class="stat-pill"><strong>' + totalYes + '</strong> of 10 passed</span>';
-      scoreHtml += '<span class="stat-pill">Visibility <strong>' + visPct + '</strong></span>';
-      scoreHtml += '<span class="stat-pill">Bookability <strong>' + bookPct + '</strong></span>';
+      scoreHtml += '<span class="stat-pill">' + pack.statPassed.replace('{n}', totalYes) + '</span>';
+      scoreHtml += '<span class="stat-pill">' + BARS.visibility.label + ' <strong>' + visPct + '</strong></span>';
+      scoreHtml += '<span class="stat-pill">' + BARS.bookability.label + ' <strong>' + bookPct + '</strong></span>';
       scoreHtml += '</div>';
       if (failedIds.length > 0) {
-        scoreHtml += '<p class="potential-line">Fix the items below to reach <strong>' + badgeInfo.potential + ' / 100</strong> (Visibility ' + badgeInfo.potVis + ', Bookability ' + badgeInfo.potBook + ').</p>';
-        scoreHtml += '<p class="potential-footnote">Structural fixes only. Keyword and content choices still matter beyond this checklist.</p>';
+        scoreHtml += '<p class="potential-line">' + pack.potentialLine
+          .replace('{potential}', badgeInfo.potential)
+          .replace('{visLabel}', BARS.visibility.label)
+          .replace('{potVis}', badgeInfo.potVis)
+          .replace('{bookLabel}', BARS.bookability.label)
+          .replace('{potBook}', badgeInfo.potBook) + '</p>';
+        scoreHtml += '<p class="potential-footnote">' + pack.potentialFootnote + '</p>';
       }
       scoreHtml += '</div>';
 
       document.getElementById('score-panel').innerHTML = scoreHtml;
 
-      if (typeof gtag === 'function') {
+      if (typeof gtag === 'function' && !opts.silent) {
         gtag('event', 'audit_complete', {
           visibility_score: visPct,
           bookability_score: bookPct,
@@ -1481,16 +1535,16 @@
         });
       }
 
-      const stronger = visPct > bookPct ? 'Visibility (can AI find and recommend you)' : visPct < bookPct ? 'Bookability (can AI book you)' : 'both bars equally';
-      const weaker = visPct < bookPct ? 'Visibility' : visPct > bookPct ? 'Bookability' : null;
+      const stronger = visPct > bookPct ? pack.standVisLong : visPct < bookPct ? pack.standBookLong : null;
+      const weaker = visPct < bookPct ? BARS.visibility.label : visPct > bookPct ? BARS.bookability.label : null;
 
       let standHtml = '<div class="ios-group"><div class="stand-summary">';
-      standHtml += 'You passed <strong>' + totalYes + ' of 10</strong> checks. ';
+      standHtml += pack.standPassed.replace('{n}', totalYes);
       if (weaker) {
-        standHtml += 'Your stronger side is <strong>' + stronger + '</strong>. ';
-        standHtml += '<strong>' + weaker + '</strong> is where the gaps sit.';
+        standHtml += pack.standStrongerLine.replace('{x}', stronger);
+        standHtml += pack.standWeakerLine.replace('{x}', weaker);
       } else {
-        standHtml += 'Visibility and Bookability are at a similar level.';
+        standHtml += pack.standSimilar;
       }
       standHtml += '</div></div>';
       document.getElementById('block-stand').innerHTML = standHtml;
@@ -1501,23 +1555,21 @@
 
       let gapsHtml = '';
       if (failed.length === 0) {
-        gapsHtml = '<div class="ios-group"><p>No structural gaps flagged. Your site covers the bases this audit checks for.</p></div>';
+        gapsHtml = '<div class="ios-group"><p>' + pack.gapsNone + '</p></div>';
       } else {
         gapsHtml = '<div class="ios-group">';
         definiteNo.forEach(function(id) {
           const barKey = META[id].bar;
-          const barLabel = barKey === 'visibility' ? 'Visibility' : 'Bookability';
-          gapsHtml += renderGapItem(id, barLabel, barKey, textFlags[id] || null);
+          gapsHtml += renderGapItem(id, BARS[barKey].label, barKey, textFlags[id] || null);
         });
         gapsHtml += '</div>';
 
         if (unsureItems.length) {
           gapsHtml += '<div class="ios-group unsure-group">';
-          gapsHtml += '<div class="ios-subheader">Worth checking</div>';
+          gapsHtml += '<div class="ios-subheader">' + pack.gapsWorthChecking + '</div>';
           unsureItems.forEach(function(id) {
             const barKey = META[id].bar;
-            const barLabel = barKey === 'visibility' ? 'Visibility' : 'Bookability';
-            gapsHtml += renderGapItem(id, barLabel, barKey, textFlags[id] || null);
+            gapsHtml += renderGapItem(id, BARS[barKey].label, barKey, textFlags[id] || null);
           });
           gapsHtml += '</div>';
         }
@@ -1530,13 +1582,12 @@
 
       let fixHtml = '';
       if (failedIds.length === 0) {
-        fixHtml = '<div class="ios-group"><p>No priority fixes. You passed all structural checks.</p></div>';
+        fixHtml = '<div class="ios-group"><p>' + pack.fixNone + '</p></div>';
       } else {
         fixHtml = '<div class="ios-group">';
         failedIds.forEach(function(id, i) {
           const barKey = META[id].bar;
-          const barLabel = barKey === 'visibility' ? 'Visibility' : 'Bookability';
-          fixHtml += renderFixItem(id, i + 1, barLabel, barKey, badgeInfo.points[i]);
+          fixHtml += renderFixItem(id, i + 1, BARS[barKey].label, barKey, badgeInfo.points[i]);
         });
         fixHtml += '</div>';
       }
@@ -1556,9 +1607,9 @@
 
       document.getElementById('input-state').classList.add('hidden');
       document.getElementById('output-state').classList.remove('hidden');
-      document.getElementById('hero-title').textContent = 'Your AI-readiness result';
-      document.getElementById('hero-subtitle').textContent = 'A snapshot of how ready your direct booking site is for AI-driven discovery and booking.';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.getElementById('hero-title').textContent = pack.heroTitleOutput;
+      document.getElementById('hero-subtitle').textContent = pack.heroSubtitleOutput;
+      if (!opts.silent) window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     document.getElementById('audit-form').addEventListener('submit', function(e) {
@@ -1567,10 +1618,11 @@
     });
 
     document.getElementById('start-again-btn').addEventListener('click', function() {
+      const pack = (I18N[currentLang] || I18N.en).ui;
       document.getElementById('output-state').classList.add('hidden');
       document.getElementById('input-state').classList.remove('hidden');
-      document.getElementById('hero-title').textContent = 'Is your direct booking site ready for AI?';
-      document.getElementById('hero-subtitle').textContent = 'This audit checks whether an assistant can find and recommend you, and whether it can book you. Answer ten short questions about your site and listing copy.';
+      document.getElementById('hero-title').textContent = pack.heroTitleInput;
+      document.getElementById('hero-subtitle').textContent = pack.heroSubtitleInput;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
@@ -1583,9 +1635,10 @@
 
     // --- Deep dive ---
     function yesNo(val) {
+      const pack = (I18N[currentLang] || I18N.en).ui;
       return val
-        ? '<span class="finding-val-yes">Yes</span>'
-        : '<span class="finding-val-no">No</span>';
+        ? '<span class="finding-val-yes">' + pack.yes + '</span>'
+        : '<span class="finding-val-no">' + pack.no + '</span>';
     }
 
     function deepFindingRow(label, val, extra, why) {
@@ -1612,13 +1665,14 @@
     }
 
     function deepDiveSummary(data) {
+      const dd = (I18N[currentLang] || I18N.en).deepDive;
       const meta = data.meta || {};
       const vis = data.visibility || {};
       const wc = vis.wordCount || 0;
       const bytes = meta.htmlBytes || 0;
 
       if (meta.thinResponse) {
-        return '<div class="deep-dive-summary warn"><strong>We reached the site, but the raw page had very little to read</strong> (' + wc + ' words, ' + bytes + ' bytes of HTML). That often means the real content loads with JavaScript after the first response. An AI would see the same gap. Your self-assessed answers still matter more here.</div>';
+        return '<div class="deep-dive-summary warn">' + dd.summaryThin.replace('{wc}', wc).replace('{bytes}', bytes) + '</div>';
       }
 
       const yesCount = [
@@ -1631,69 +1685,71 @@
         data.bookability && data.bookability.bookingSignal
       ].filter(Boolean).length;
 
-      return '<div class="deep-dive-summary"><strong>Page read successfully.</strong> HTTP ' + (meta.httpStatus || 200) + ', about ' + wc + ' words in the raw text. ' + yesCount + ' of 7 checks passed. "No" means a fixable gap in what AI can see, not that the tool failed.</div>';
+      return '<div class="deep-dive-summary">' + dd.summaryOk.replace('{status}', meta.httpStatus || 200).replace('{wc}', wc).replace('{yesCount}', yesCount) + '</div>';
     }
 
     function keywordSummary(keywords) {
-      if (!keywords) return 'None found';
+      const dd = (I18N[currentLang] || I18N.en).deepDive;
+      if (!keywords) return dd.keywordsNone;
       const labels = {
-        parking: 'parking',
-        family: 'families',
-        cancellation: 'cancellation',
-        distance: 'distance to centre'
+        parking: dd.keywordParking,
+        family: dd.keywordFamily,
+        cancellation: dd.keywordCancellation,
+        distance: dd.keywordDistance
       };
       const found = Object.keys(labels).filter(function(k) { return keywords[k]; }).map(function(k) { return labels[k]; });
-      return found.length ? found.join(', ') : 'None of the guest-question keywords found';
+      return found.length ? found.join(', ') : dd.keywordsNoneFound;
     }
 
     function renderDeepDiveFindings(data) {
+      const dd = (I18N[currentLang] || I18N.en).deepDive;
       const vis = data.visibility || {};
       const book = data.bookability || {};
       const types = (vis.schemaTypes && vis.schemaTypes.length)
         ? vis.schemaTypes.join(', ')
-        : 'none found';
+        : dd.typesNone;
 
       let html = deepDiveSummary(data);
 
       html += '<div class="deep-dive-bar-block">';
-      html += '<div class="deep-dive-bar-heading">Visibility</div>';
+      html += '<div class="deep-dive-bar-heading">' + BARS.visibility.label + '</div>';
       html += '<ul class="deep-finding-list">';
-      html += deepFindingRow('Hidden labels (structured data)', vis.structuredDataFound,
-        vis.structuredDataFound ? 'Types: ' + types : '',
+      html += deepFindingRow(dd.hiddenLabelsLabel, vis.structuredDataFound,
+        vis.structuredDataFound ? dd.typesPrefix + types : '',
         vis.structuredDataFound
-          ? 'These labels help an assistant understand what you are without guessing.'
-          : 'Adding property schema is the clearest way to help AI find and recommend you.');
-      html += deepFindingRow('Page description present', vis.metaDescription, '',
+          ? dd.hiddenLabelsWhyYes
+          : dd.hiddenLabelsWhyNo);
+      html += deepFindingRow(dd.pageDescriptionLabel, vis.metaDescription, '',
         vis.metaDescription
-          ? 'A page description gives assistants a short summary to work with.'
-          : 'A short page description gives assistants a ready-made summary of the property.');
-      html += deepFindingTextRow('Readable text on the page', 'About ' + (vis.wordCount || 0) + ' words',
+          ? dd.pageDescriptionWhyYes
+          : dd.pageDescriptionWhyNo);
+      html += deepFindingTextRow(dd.readableTextLabel, dd.readableTextValue.replace('{wc}', vis.wordCount || 0),
         (vis.wordCount || 0) < 80
-          ? 'That is thin for an assistant. More plain text about the property would help.'
-          : 'Enough text for an assistant to work with, as long as the important facts are in it.');
-      html += deepFindingTextRow('Guest-question keywords', keywordSummary(vis.keywords),
-        'Assistants recommend sites that answer parking, families, distance, and cancellation in plain words.');
+          ? dd.readableTextWhyThin
+          : dd.readableTextWhyOk);
+      html += deepFindingTextRow(dd.guestKeywordsLabel, keywordSummary(vis.keywords),
+        dd.guestKeywordsWhy);
       html += '</ul></div>';
 
       html += '<div class="deep-dive-bar-block">';
-      html += '<div class="deep-dive-bar-heading">Bookability</div>';
+      html += '<div class="deep-dive-bar-heading">' + BARS.bookability.label + '</div>';
       html += '<ul class="deep-finding-list">';
-      html += deepFindingRow('Price visible in the raw text', book.priceInRawText, '',
+      html += deepFindingRow(dd.priceVisibleLabel, book.priceInRawText, '',
         book.priceInRawText
-          ? 'Prices that sit in the first raw version are visible to AI.'
-          : 'If prices only appear after the page loads in a browser, an AI often cannot see them.');
-      html += deepFindingRow('Price labels (offer / price schema)', book.priceSchemaFound, '',
+          ? dd.priceVisibleWhyYes
+          : dd.priceVisibleWhyNo);
+      html += deepFindingRow(dd.priceLabelsLabel, book.priceSchemaFound, '',
         book.priceSchemaFound
-          ? 'Offer and price labels tell an agent what can actually be booked.'
-          : 'Offer or price schema helps an agent understand rates and availability without guessing.');
-      html += deepFindingRow('Booking link or form in raw HTML', book.bookingSignal, '',
+          ? dd.priceLabelsWhyYes
+          : dd.priceLabelsWhyNo);
+      html += deepFindingRow(dd.bookingSignalLabel, book.bookingSignal, '',
         book.bookingSignal
-          ? 'A booking signal in the first raw version gives an agent somewhere concrete to go.'
-          : 'A clear book / reserve path in the first raw HTML is what an agent needs to hand a guest to.');
+          ? dd.bookingSignalWhyYes
+          : dd.bookingSignalWhyNo);
       html += '</ul></div>';
 
-      html += '<p class="deep-dive-caveat">Some sites block automated reads or hide everything behind late-loading code. When that happens the deep dive sees little, which is itself a signal, because an AI would see little too. The self-assessed audit is the reliable fallback.</p>';
-      html += '<button type="button" class="secondary-btn prefill-btn" id="prefill-audit-btn">Use these findings to fill the audit</button>';
+      html += '<p class="deep-dive-caveat">' + dd.caveat + '</p>';
+      html += '<button type="button" class="secondary-btn prefill-btn" id="prefill-audit-btn">' + dd.prefillBtn + '</button>';
 
       return html;
     }
@@ -1735,19 +1791,31 @@
       msg.textContent = '';
     }
 
+    function attachPrefillHandler(container) {
+      const prefillBtn = container.querySelector('#prefill-audit-btn');
+      if (prefillBtn) {
+        prefillBtn.addEventListener('click', function() {
+          prefillFromDeepDive(lastDeepDiveResult);
+          showDeepDiveMessage((I18N[currentLang] || I18N.en).ui.deepDivePrefilled, '');
+          document.getElementById('audit-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+    }
+
     async function runDeepDive() {
+      const pack = (I18N[currentLang] || I18N.en).ui;
       const urlInput = document.getElementById('deep-dive-url');
       const url = (urlInput.value || '').trim();
       const btn = document.getElementById('deep-dive-run-btn');
       const resultsEl = document.getElementById('deep-dive-results');
 
       if (!/^https?:\/\//i.test(url)) {
-        showDeepDiveMessage('Please enter a full address starting with http:// or https://.', 'error');
+        showDeepDiveMessage(pack.deepDiveErrInvalidUrl, 'error');
         return;
       }
 
       if (!DEEP_DIVE_ENDPOINT) {
-        showDeepDiveMessage('The deep dive is not connected yet. Deploy the worker (see deep-dive-worker.js) and paste its URL into DEEP_DIVE_ENDPOINT.', 'error');
+        showDeepDiveMessage(pack.deepDiveErrNotConnected, 'error');
         return;
       }
 
@@ -1755,7 +1823,7 @@
       resultsEl.classList.add('hidden');
       resultsEl.innerHTML = '';
       btn.disabled = true;
-      showDeepDiveMessage('Reading your site...', 'loading');
+      showDeepDiveMessage(pack.deepDiveReading, 'loading');
 
       if (typeof gtag === 'function') {
         gtag('event', 'deep_dive_run');
@@ -1770,7 +1838,7 @@
         const data = await resp.json().catch(function() { return null; });
 
         if (!resp.ok || !data || data.error) {
-          showDeepDiveMessage('We could not read this site. It may block automated reads, or it may be down. Your self-assessed score still stands.', 'error');
+          showDeepDiveMessage(pack.deepDiveErrCouldNotRead, 'error');
           lastDeepDiveResult = null;
           return;
         }
@@ -1784,16 +1852,9 @@
           gtag('event', 'deep_dive_success');
         }
 
-        const prefillBtn = document.getElementById('prefill-audit-btn');
-        if (prefillBtn) {
-          prefillBtn.addEventListener('click', function() {
-            prefillFromDeepDive(lastDeepDiveResult);
-            showDeepDiveMessage('Answers filled from what we found. Review them, then run the audit.', '');
-            document.getElementById('audit-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
-          });
-        }
+        attachPrefillHandler(resultsEl);
       } catch (err) {
-        showDeepDiveMessage('We could not read this site. It may block automated reads, or it may be down. Your self-assessed score still stands.', 'error');
+        showDeepDiveMessage(pack.deepDiveErrCouldNotRead, 'error');
         lastDeepDiveResult = null;
       } finally {
         btn.disabled = false;
@@ -1801,6 +1862,547 @@
     }
 
     document.getElementById('deep-dive-run-btn').addEventListener('click', runDeepDive);
+
+    // --- i18n ---
+    const HTML_I18N_KEYS = ['outputFooter1', 'outputFooter2', 'footerText'];
+
+    const I18N = {
+      en: {
+        ui: {
+          brandTitle: 'Website AI Ready Audit',
+          brandSubtitle: 'Operator Intelligence Suite',
+          headerLink: 'Suite Hub',
+          heroEyebrow: 'Operator Series · Website Audit',
+          heroTitleInput: 'Is your direct booking site ready for AI?',
+          heroSubtitleInput: 'This audit checks whether an assistant can find and recommend you, and whether it can book you. Answer ten short questions about your site and listing copy.',
+          heroTitleOutput: 'Your AI-readiness result',
+          heroSubtitleOutput: 'A snapshot of how ready your direct booking site is for AI-driven discovery and booking.',
+          explainerToggle: 'How AI reads your site',
+          explainerLayer1Title: '1. The raw text a site sends first.',
+          explainerLayer1Text: 'This is the version an AI reads. It is the site stripped of its looks, just the words and the structure underneath.',
+          explainerLayer2Title: '2. The hidden labels.',
+          explainerLayer2Text: 'A tidy block of information tucked into the page that spells out plainly what the place is, what it costs, and where it is. AI relies on these, because it does not have to guess. This is what mostly decides whether AI can find and recommend you.',
+          explainerLayer3Title: '3. The stuff that loads late.',
+          explainerLayer3Text: 'Some sites only show the price and the calendar after extra code runs. That late content is often invisible to AI, because AI usually sees only the first raw version. This is what decides whether AI can actually book you.',
+          explainerBridge: 'The two scores below follow from this. Visibility is about the first two layers. Bookability is about whether your prices and booking sit in the raw version or load too late.',
+          visLabel: 'Visibility',
+          visTagline: 'Can AI find and recommend you?',
+          visExplain: 'These checks cover whether an assistant can understand your property and surface it in a natural-language answer.',
+          qA1Text: 'Does your site have structured data markup (schema.org) describing the property and rooms?',
+          qA1Helper: 'This is how an AI understands what you are without guessing.',
+          qB4Text: 'Is your core content (what the place is, where it is, what makes it suitable) in plain crawlable text rather than locked inside images or a graphic?',
+          qB4Helper: 'If it is only in a photo or design, the machine does not have it. The copy should also make sense on its own without relying on visuals to fill gaps.',
+          qA4Text: 'Does your site directly answer the natural questions a guest asks an assistant: is it suitable for families, is there parking, how far to the centre, what is the cancellation policy?',
+          qA4Helper: 'AI recommends the sites that actually answer the question being asked.',
+          listingLabel: 'Paste the main description text from one of your listings or property pages.',
+          listingPlaceholder: 'Paste your listing description here…',
+          qB1Text: 'Does the description lead with what the place is and who it suits, rather than opening with a list of amenities?',
+          qB1Helper: 'An AI summarises the opening. A feature-first opening gives it nothing to recommend on.',
+          qB2Text: 'Does the copy state concrete facts (location context, capacity, key amenities, distances) in clear sentences rather than marketing adjectives?',
+          qB2Helper: '"Cosy and charming" is invisible to a machine. "Sleeps four, ten minutes from the station" is not.',
+          qB3Text: 'Is the cancellation and booking policy stated in the text itself?',
+          qB3Helper: 'It is one of the first things an assistant checks before recommending.',
+          bookLabel: 'Bookability',
+          bookTagline: 'Can AI book you?',
+          bookExplain: 'These checks cover whether an agent can see prices and availability and follow a real path to book.',
+          qA2Text: 'Are your prices and live availability visible as text on the page, rather than only inside a booking widget or calendar that loads separately?',
+          qA2Helper: 'An agent cannot read what is locked in an embedded widget.',
+          qA5Text: 'Can the booking flow (from choosing dates to confirming) be followed without steps that only a human can complete, and without depending on multiple JavaScript-only clicks?',
+          qA5Helper: 'An assistant needs a concrete path it can work through or hand a guest to.',
+          qA3Text: 'Is the essential booking information reachable in the first HTML response, rather than only after the page fully renders in a browser?',
+          qA3Helper: 'Agents often see the initial HTML, not the rendered page.',
+          qB5Text: 'Does your site have structured data for prices and availability specifically (offer / price schema), not just a general property description?',
+          qB5Helper: 'Property markup helps an assistant find you. Offer and price markup helps it know what it can book.',
+          yes: 'Yes',
+          no: 'No',
+          unsure: 'Not sure',
+          runAudit: 'Run audit',
+          deepDiveTitle: 'Deep dive: read my real site',
+          deepDiveIntro: 'This checks your actual website the way an AI does. It reads the first raw version of your page and reports what is there.',
+          deepDivePrivacy: 'This one check is different from the rest of the tool. To read your site, the address you enter is sent to a small server that fetches the page. Nothing else about you is sent or stored. The rest of the audit still runs entirely in your browser.',
+          deepDiveUrlLabel: 'Your website address',
+          deepDiveRunBtn: 'Run deep dive',
+          deepDiveOutputTitle: 'Deep dive results',
+          standTitle: 'Where you stand today',
+          gapsTitle: 'Where AI is passing you by',
+          fixTitle: 'What to fix first',
+          outputFooter1: 'Built by Roger Bisschoff. If AI-readiness is something you are working through for a portfolio, the <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">LinkedIn link</a> above is the best way to reach me.',
+          outputFooter2: '<a href="https://rbisschoff.github.io/operator-intelligence-suite/">Back to the Operator Intelligence Suite</a>',
+          startAgain: 'Start again',
+          footerText: 'Website AI Ready Audit - part of the Operator Intelligence Suite by <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">Roger Bisschoff</a>',
+          resultHeroLabel: 'Overall readiness',
+          statPassed: '<strong>{n}</strong> of 10 passed',
+          potentialLine: 'Fix the items below to reach <strong>{potential} / 100</strong> ({visLabel} {potVis}, {bookLabel} {potBook}).',
+          potentialFootnote: 'Structural fixes only. Keyword and content choices still matter beyond this checklist.',
+          standVisLong: 'Visibility (can AI find and recommend you)',
+          standBookLong: 'Bookability (can AI book you)',
+          standPassed: 'You passed <strong>{n} of 10</strong> checks. ',
+          standStrongerLine: 'Your stronger side is <strong>{x}</strong>. ',
+          standWeakerLine: '<strong>{x}</strong> is where the gaps sit.',
+          standSimilar: 'Visibility and Bookability are at a similar level.',
+          gapsNone: 'No structural gaps flagged. Your site covers the bases this audit checks for.',
+          gapsWorthChecking: 'Worth checking',
+          fixNone: 'No priority fixes. You passed all structural checks.',
+          ptsBadge: '+{n} pts',
+          alertAllQuestions: 'Please answer all questions before running the audit.',
+          textFlagGeneral: 'This description is very short. An AI has little to work with.',
+          textFlagB1: 'Your opening line appears to lead with amenities.',
+          textFlagB2: 'No concrete distances found in the text.',
+          textFlagB3: 'No cancellation or policy wording found in the text.',
+          deepDiveErrInvalidUrl: 'Please enter a full address starting with http:// or https://.',
+          deepDiveErrNotConnected: 'The deep dive is not connected yet. Deploy the worker (see deep-dive-worker.js) and paste its URL into DEEP_DIVE_ENDPOINT.',
+          deepDiveReading: 'Reading your site...',
+          deepDiveErrCouldNotRead: 'We could not read this site. It may block automated reads, or it may be down. Your self-assessed score still stands.',
+          deepDivePrefilled: 'Answers filled from what we found. Review them, then run the audit.'
+        },
+        meta: {
+          A1: { short: 'Property and room structured data', gap: 'Without schema.org markup for the property and rooms, an assistant has to guess what you offer rather than reading it directly.', action: 'Add schema.org structured data for your property and room types. Most site builders have a plugin or a settings panel for this.' },
+          B4: { short: 'Core content in crawlable text', gap: 'If what the place is, where it is, and who it suits only exist in images or graphics, an assistant cannot use them.', action: 'Move the core property facts into plain text on the page so they make sense without photos or design.' },
+          A4: { short: 'Answers to natural guest questions', gap: 'Assistants recommend sites that answer the question being asked: parking, families, location, policy.', action: 'Add a short FAQ section in plain text covering the questions guests ask before they book.' },
+          B1: { short: 'Purpose-led opening', gap: 'A feature-first opening gives an AI nothing to summarise or recommend on.', action: 'Rewrite the first sentence to say what the place is and who it suits, before listing amenities.' },
+          B2: { short: 'Concrete facts in copy', gap: 'Marketing adjectives are invisible to a machine; concrete facts are what get quoted and recommended.', action: 'Replace vague phrases with specific details: capacity, distances, transport links, and key amenities in clear sentences.' },
+          B3: { short: 'Policy stated in text', gap: 'An assistant checks cancellation and booking terms before recommending. If they are missing, it moves on.', action: 'Add your cancellation and booking policy as readable text in the listing description itself.' },
+          A2: { short: 'Readable prices and availability', gap: 'If prices and availability sit inside an embedded widget, an agent often cannot see them at all.', action: 'Ensure prices and live availability appear as plain text in the page HTML, not only inside a third-party booking widget.' },
+          A5: { short: 'Bookable flow without human-only steps', gap: 'A booking path that needs human-only steps or many JavaScript-only clicks gives an agent nowhere reliable to complete or hand off a booking.', action: 'Simplify the booking path so dates, confirmation, and a clear next step work without pop-up mazes or human-only hurdles.' },
+          A3: { short: 'Booking info in the first HTML', gap: 'If essential booking information only appears after the page fully renders, many agents never see it.', action: 'Make sure booking essentials are present in the initial HTML response, not only after scripts run in a browser.' },
+          B5: { short: 'Offer and price structured data', gap: 'General property markup is not enough to book. Without offer or price schema, an agent still lacks machine-readable rates and availability.', action: 'Add structured data for offers, prices, and availability, not only a general property description.' }
+        },
+        bands: {
+          visibility: {
+            red: { label: 'Not yet AI-ready', readout: 'An assistant would struggle to understand or recommend your property from what is published today.' },
+            amber: { label: 'Partially AI-ready', readout: 'Some recommendation signals are in place, but an assistant still has clear blind spots when surfacing you.' },
+            blue: { label: 'Largely AI-ready', readout: 'An assistant can mostly find and recommend you, though a few gaps still need attention.' },
+            green: { label: 'AI-ready', readout: 'An assistant can find and recommend your property from what is published.' }
+          },
+          bookability: {
+            red: { label: 'Not yet AI-ready', readout: 'An assistant would struggle to complete or hand off a booking on your site today.' },
+            amber: { label: 'Partially AI-ready', readout: 'Some booking signals are visible, but the path to book is still blocked or unclear for an agent.' },
+            blue: { label: 'Largely AI-ready', readout: 'An assistant can mostly work through a booking, though a few gaps still need attention.' },
+            green: { label: 'AI-ready', readout: 'An assistant can reach prices, availability, and a clear booking path.' }
+          },
+          overall: {
+            red: { label: 'Not yet AI-ready', readout: 'Your site has significant gaps that would limit how an assistant can recommend or book it.' },
+            amber: { label: 'Partially AI-ready', readout: 'Some foundations are in place, but there are clear gaps an assistant would struggle with today.' },
+            blue: { label: 'Largely AI-ready', readout: 'Your site is in reasonable shape for AI discovery and booking, though a few items still need attention.' },
+            green: { label: 'AI-ready', readout: 'Your site covers the structural bases an assistant needs to recommend and book it.' }
+          }
+        },
+        deepDive: {
+          hiddenLabelsLabel: 'Hidden labels (structured data)',
+          typesPrefix: 'Types: ',
+          typesNone: 'none found',
+          hiddenLabelsWhyYes: 'These labels help an assistant understand what you are without guessing.',
+          hiddenLabelsWhyNo: 'Adding property schema is the clearest way to help AI find and recommend you.',
+          pageDescriptionLabel: 'Page description present',
+          pageDescriptionWhyYes: 'A page description gives assistants a short summary to work with.',
+          pageDescriptionWhyNo: 'A short page description gives assistants a ready-made summary of the property.',
+          readableTextLabel: 'Readable text on the page',
+          readableTextValue: 'About {wc} words',
+          readableTextWhyThin: 'That is thin for an assistant. More plain text about the property would help.',
+          readableTextWhyOk: 'Enough text for an assistant to work with, as long as the important facts are in it.',
+          guestKeywordsLabel: 'Guest-question keywords',
+          guestKeywordsWhy: 'Assistants recommend sites that answer parking, families, distance, and cancellation in plain words.',
+          priceVisibleLabel: 'Price visible in the raw text',
+          priceVisibleWhyYes: 'Prices that sit in the first raw version are visible to AI.',
+          priceVisibleWhyNo: 'If prices only appear after the page loads in a browser, an AI often cannot see them.',
+          priceLabelsLabel: 'Price labels (offer / price schema)',
+          priceLabelsWhyYes: 'Offer and price labels tell an agent what can actually be booked.',
+          priceLabelsWhyNo: 'Offer or price schema helps an agent understand rates and availability without guessing.',
+          bookingSignalLabel: 'Booking link or form in raw HTML',
+          bookingSignalWhyYes: 'A booking signal in the first raw version gives an agent somewhere concrete to go.',
+          bookingSignalWhyNo: 'A clear book / reserve path in the first raw HTML is what an agent needs to hand a guest to.',
+          caveat: 'Some sites block automated reads or hide everything behind late-loading code. When that happens the deep dive sees little, which is itself a signal, because an AI would see little too. The self-assessed audit is the reliable fallback.',
+          prefillBtn: 'Use these findings to fill the audit',
+          keywordParking: 'parking',
+          keywordFamily: 'families',
+          keywordCancellation: 'cancellation',
+          keywordDistance: 'distance to centre',
+          keywordsNone: 'None found',
+          keywordsNoneFound: 'None of the guest-question keywords found',
+          summaryThin: '<strong>We reached the site, but the raw page had very little to read</strong> ({wc} words, {bytes} bytes of HTML). That often means the real content loads with JavaScript after the first response. An AI would see the same gap. Your self-assessed answers still matter more here.',
+          summaryOk: '<strong>Page read successfully.</strong> HTTP {status}, about {wc} words in the raw text. {yesCount} of 7 checks passed. "No" means a fixable gap in what AI can see, not that the tool failed.'
+        }
+      },
+      it: {
+        ui: {
+          brandTitle: 'Website AI Ready Audit',
+          brandSubtitle: 'Operator Intelligence Suite',
+          headerLink: 'Hub Suite',
+          heroEyebrow: 'Operator Series · Controllo del sito',
+          heroTitleInput: 'Il tuo sito di prenotazione diretta è pronto per l’AI?',
+          heroSubtitleInput: 'Questo controllo verifica se un assistente può trovarti e raccomandarti, e se può prenotarti. Rispondi a dieci brevi domande sul tuo sito e sui testi dell’annuncio.',
+          heroTitleOutput: 'Il tuo risultato di AI-readiness',
+          heroSubtitleOutput: 'Una fotografia di quanto il tuo sito di prenotazione diretta sia pronto per la scoperta e la prenotazione guidate dall’AI.',
+          explainerToggle: 'Come l’AI legge il tuo sito',
+          explainerLayer1Title: '1. Il testo grezzo che un sito invia per primo.',
+          explainerLayer1Text: 'È la versione che un’AI legge. È il sito spogliato del suo aspetto, solo le parole e la struttura sottostante.',
+          explainerLayer2Title: '2. Le etichette nascoste.',
+          explainerLayer2Text: 'Un blocco ordinato di informazioni nascosto nella pagina che indica chiaramente cos’è il posto, quanto costa e dove si trova. L’AI si basa su queste etichette perché non deve indovinare. È ciò che decide soprattutto se l’AI può trovarti e raccomandarti.',
+          explainerLayer3Title: '3. Ciò che si carica in ritardo.',
+          explainerLayer3Text: 'Alcuni siti mostrano prezzo e calendario solo dopo l’esecuzione di codice aggiuntivo. Quel contenuto tardivo è spesso invisibile all’AI, perché di solito l’AI vede solo la prima versione grezza. È ciò che decide se l’AI può davvero prenotarti.',
+          explainerBridge: 'I due punteggi qui sotto derivano da questo. Visibilità riguarda i primi due livelli. Prenotabilità riguarda se i tuoi prezzi e la prenotazione si trovano nella versione grezza o si caricano troppo tardi.',
+          visLabel: 'Visibilità',
+          visTagline: 'L’AI può trovarti e raccomandarti?',
+          visExplain: 'Questi controlli verificano se un assistente può capire la tua struttura e proporla in una risposta in linguaggio naturale.',
+          qA1Text: 'Il tuo sito ha markup di dati strutturati (schema.org) che descrive la struttura e le camere?',
+          qA1Helper: 'È così che un’AI capisce cosa sei senza dover indovinare.',
+          qB4Text: 'Il contenuto principale (cos’è il posto, dove si trova, cosa lo rende adatto) è in testo semplice e leggibile dai motori, oppure è chiuso dentro immagini o grafiche?',
+          qB4Helper: 'Se è solo in una foto o nel design, la macchina non ce l’ha. Il testo dovrebbe avere senso da solo, senza contare sulle immagini per riempire i vuoti.',
+          qA4Text: 'Il tuo sito risponde direttamente alle domande naturali che un ospite fa a un assistente: è adatto alle famiglie, c’è parcheggio, quanto è distante dal centro, qual è la politica di cancellazione?',
+          qA4Helper: 'L’AI raccomanda i siti che rispondono davvero alla domanda posta.',
+          listingLabel: 'Incolla il testo descrittivo principale di uno dei tuoi annunci o pagine struttura.',
+          listingPlaceholder: 'Incolla qui la descrizione del tuo annuncio…',
+          qB1Text: 'La descrizione inizia dicendo cos’è il posto e a chi si adatta, invece di aprire con un elenco di comfort?',
+          qB1Helper: 'Un’AI riassume l’apertura. Un’apertura incentrata sulle caratteristiche non le dà nulla su cui raccomandare.',
+          qB2Text: 'Il testo indica fatti concreti (contesto della posizione, capacità, comfort principali, distanze) in frasi chiare invece di aggettivi da marketing?',
+          qB2Helper: '"Accogliente e caratteristico" è invisibile per una macchina. "Ospita quattro persone, a dieci minuti dalla stazione" non lo è.',
+          qB3Text: 'La politica di cancellazione e prenotazione è indicata nel testo stesso?',
+          qB3Helper: 'È una delle prime cose che un assistente controlla prima di raccomandare.',
+          bookLabel: 'Prenotabilità',
+          bookTagline: 'L’AI può prenotarti?',
+          bookExplain: 'Questi controlli verificano se un agente può vedere prezzi e disponibilità e seguire un percorso reale per prenotare.',
+          qA2Text: 'I tuoi prezzi e la disponibilità in tempo reale sono visibili come testo nella pagina, oppure solo dentro un widget di prenotazione o un calendario caricato separatamente?',
+          qA2Helper: 'Un agente non può leggere ciò che è chiuso dentro un widget incorporato.',
+          qA5Text: 'Il percorso di prenotazione (dalla scelta delle date alla conferma) può essere seguito senza passaggi che solo un umano può completare, e senza dipendere da più clic possibili solo con JavaScript?',
+          qA5Helper: 'Un assistente ha bisogno di un percorso concreto da seguire o da indicare a un ospite.',
+          qA3Text: 'Le informazioni essenziali per la prenotazione sono raggiungibili nella prima risposta HTML, oppure solo dopo che la pagina si è completamente caricata nel browser?',
+          qA3Helper: 'Gli agenti spesso vedono l’HTML iniziale, non la pagina renderizzata.',
+          qB5Text: 'Il tuo sito ha dati strutturati specifici per prezzi e disponibilità (schema offer / price), non solo una descrizione generale della struttura?',
+          qB5Helper: 'Il markup della struttura aiuta un assistente a trovarti. Il markup di offerta e prezzo lo aiuta a sapere cosa può prenotare.',
+          yes: 'Sì',
+          no: 'No',
+          unsure: 'Non sono sicuro',
+          runAudit: 'Esegui il controllo',
+          deepDiveTitle: 'Approfondimento: leggi il mio sito reale',
+          deepDiveIntro: 'Questo controllo legge il tuo sito reale come farebbe un’AI. Legge la prima versione grezza della tua pagina e riporta cosa trova.',
+          deepDivePrivacy: 'Questo controllo è diverso dal resto dello strumento. Per leggere il tuo sito, l’indirizzo che inserisci viene inviato a un piccolo server che recupera la pagina. Nessun altro dato su di te viene inviato o conservato. Il resto del controllo continua a funzionare interamente nel tuo browser.',
+          deepDiveUrlLabel: 'L’indirizzo del tuo sito',
+          deepDiveRunBtn: 'Esegui l’approfondimento',
+          deepDiveOutputTitle: 'Risultati dell’approfondimento',
+          standTitle: 'Dove ti trovi oggi',
+          gapsTitle: 'Dove l’AI ti sta ignorando',
+          fixTitle: 'Cosa correggere prima',
+          outputFooter1: 'Realizzato da Roger Bisschoff. Se la AI-readiness è qualcosa su cui stai lavorando per un portfolio, il <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">link a LinkedIn</a> sopra è il modo migliore per contattarmi.',
+          outputFooter2: '<a href="https://rbisschoff.github.io/operator-intelligence-suite/">Torna all’Operator Intelligence Suite</a>',
+          startAgain: 'Ricomincia',
+          footerText: 'Website AI Ready Audit - parte dell’Operator Intelligence Suite di <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">Roger Bisschoff</a>',
+          resultHeroLabel: 'Prontezza complessiva',
+          statPassed: '<strong>{n}</strong> su 10 superati',
+          potentialLine: 'Correggi gli elementi qui sotto per raggiungere <strong>{potential} / 100</strong> ({visLabel} {potVis}, {bookLabel} {potBook}).',
+          potentialFootnote: 'Solo correzioni strutturali. Le scelte di parole chiave e contenuti contano ancora oltre questa lista.',
+          standVisLong: 'Visibilità (l’AI può trovarti e raccomandarti)',
+          standBookLong: 'Prenotabilità (l’AI può prenotarti)',
+          standPassed: 'Hai superato <strong>{n} di 10</strong> controlli. ',
+          standStrongerLine: 'Il tuo lato più forte è <strong>{x}</strong>. ',
+          standWeakerLine: '<strong>{x}</strong> è dove si trovano le lacune.',
+          standSimilar: 'Visibilità e Prenotabilità sono a un livello simile.',
+          gapsNone: 'Nessuna lacuna strutturale rilevata. Il tuo sito copre le basi che questo controllo verifica.',
+          gapsWorthChecking: 'Da verificare',
+          fixNone: 'Nessuna correzione prioritaria. Hai superato tutti i controlli strutturali.',
+          ptsBadge: '+{n} punti',
+          alertAllQuestions: 'Rispondi a tutte le domande prima di eseguire il controllo.',
+          textFlagGeneral: 'Questa descrizione è molto breve. Un’AI ha poco materiale su cui lavorare.',
+          textFlagB1: 'La tua frase iniziale sembra partire dai comfort.',
+          textFlagB2: 'Nessuna distanza concreta trovata nel testo.',
+          textFlagB3: 'Nessuna formulazione su cancellazione o politiche trovata nel testo.',
+          deepDiveErrInvalidUrl: 'Inserisci un indirizzo completo che inizi con http:// o https://.',
+          deepDiveErrNotConnected: 'L’approfondimento non è ancora connesso. Distribuisci il worker (vedi deep-dive-worker.js) e incolla il suo URL in DEEP_DIVE_ENDPOINT.',
+          deepDiveReading: 'Lettura del tuo sito in corso...',
+          deepDiveErrCouldNotRead: 'Non siamo riusciti a leggere questo sito. Potrebbe bloccare le letture automatizzate, oppure potrebbe essere offline. Il tuo punteggio autovalutato resta comunque valido.',
+          deepDivePrefilled: 'Risposte compilate in base a quanto trovato. Controllale, poi esegui il controllo.'
+        },
+        meta: {
+          A1: { short: 'Dati strutturati per struttura e camere', gap: 'Senza il markup schema.org per la struttura e le camere, un assistente deve indovinare cosa offri invece di leggerlo direttamente.', action: 'Aggiungi dati strutturati schema.org per la tua struttura e le tipologie di camera. La maggior parte dei costruttori di siti ha un plugin o un pannello impostazioni per questo.' },
+          B4: { short: 'Contenuto principale in testo leggibile', gap: 'Se cos’è il posto, dove si trova e a chi si adatta esistono solo in immagini o grafiche, un assistente non può usarli.', action: 'Sposta i fatti principali della struttura in testo semplice sulla pagina, così hanno senso senza foto o design.' },
+          A4: { short: 'Risposte alle domande naturali degli ospiti', gap: 'Gli assistenti raccomandano i siti che rispondono alla domanda posta: parcheggio, famiglie, posizione, politiche.', action: 'Aggiungi una breve sezione FAQ in testo semplice che copra le domande che gli ospiti fanno prima di prenotare.' },
+          B1: { short: 'Apertura incentrata sullo scopo', gap: 'Un’apertura incentrata sulle caratteristiche non dà a un’AI nulla da riassumere o su cui raccomandare.', action: 'Riscrivi la prima frase per dire cos’è il posto e a chi si adatta, prima di elencare i comfort.' },
+          B2: { short: 'Fatti concreti nel testo', gap: 'Gli aggettivi da marketing sono invisibili per una macchina; i fatti concreti sono ciò che viene citato e raccomandato.', action: 'Sostituisci le frasi vaghe con dettagli specifici: capacità, distanze, collegamenti di trasporto e comfort principali in frasi chiare.' },
+          B3: { short: 'Politica indicata nel testo', gap: 'Un assistente controlla i termini di cancellazione e prenotazione prima di raccomandare. Se mancano, passa oltre.', action: 'Aggiungi la tua politica di cancellazione e prenotazione come testo leggibile nella descrizione dell’annuncio stessa.' },
+          A2: { short: 'Prezzi e disponibilità leggibili', gap: 'Se prezzi e disponibilità si trovano dentro un widget incorporato, spesso un agente non può vederli affatto.', action: 'Assicurati che prezzi e disponibilità in tempo reale appaiano come testo semplice nell’HTML della pagina, non solo dentro un widget di prenotazione di terze parti.' },
+          A5: { short: 'Percorso prenotabile senza passaggi solo umani', gap: 'Un percorso di prenotazione che richiede passaggi solo umani o molti clic possibili solo con JavaScript non dà a un agente un modo affidabile per completare o smistare una prenotazione.', action: 'Semplifica il percorso di prenotazione così che date, conferma e un passo successivo chiaro funzionino senza labirinti di pop-up o ostacoli solo umani.' },
+          A3: { short: 'Informazioni di prenotazione nel primo HTML', gap: 'Se le informazioni essenziali di prenotazione appaiono solo dopo il rendering completo della pagina, molti agenti non le vedono mai.', action: 'Assicurati che gli elementi essenziali di prenotazione siano presenti nella risposta HTML iniziale, non solo dopo l’esecuzione degli script nel browser.' },
+          B5: { short: 'Dati strutturati per offerta e prezzo', gap: 'Il markup generale della struttura non basta per prenotare. Senza schema di offerta o prezzo, un agente manca comunque di tariffe e disponibilità leggibili dalla macchina.', action: 'Aggiungi dati strutturati per offerte, prezzi e disponibilità, non solo una descrizione generale della struttura.' }
+        },
+        bands: {
+          visibility: {
+            red: { label: 'Non ancora pronto per l’AI', readout: 'Un assistente farebbe fatica a capire o raccomandare la tua struttura da quanto pubblicato oggi.' },
+            amber: { label: 'Parzialmente pronto per l’AI', readout: 'Alcuni segnali di raccomandazione sono presenti, ma un assistente ha ancora chiare zone cieche quando ti propone.' },
+            blue: { label: 'Ampiamente pronto per l’AI', readout: 'Un assistente può in gran parte trovarti e raccomandarti, anche se restano alcune lacune da sistemare.' },
+            green: { label: 'Pronto per l’AI', readout: 'Un assistente può trovare e raccomandare la tua struttura da quanto pubblicato.' }
+          },
+          bookability: {
+            red: { label: 'Non ancora pronto per l’AI', readout: 'Un assistente farebbe fatica a completare o smistare una prenotazione sul tuo sito oggi.' },
+            amber: { label: 'Parzialmente pronto per l’AI', readout: 'Alcuni segnali di prenotazione sono visibili, ma il percorso per prenotare è ancora bloccato o poco chiaro per un agente.' },
+            blue: { label: 'Ampiamente pronto per l’AI', readout: 'Un assistente può in gran parte seguire una prenotazione, anche se restano alcune lacune da sistemare.' },
+            green: { label: 'Pronto per l’AI', readout: 'Un assistente può raggiungere prezzi, disponibilità e un percorso di prenotazione chiaro.' }
+          },
+          overall: {
+            red: { label: 'Non ancora pronto per l’AI', readout: 'Il tuo sito ha lacune significative che limiterebbero la capacità di un assistente di raccomandarlo o prenotarlo.' },
+            amber: { label: 'Parzialmente pronto per l’AI', readout: 'Alcune basi sono presenti, ma ci sono lacune chiare con cui un assistente farebbe fatica oggi.' },
+            blue: { label: 'Ampiamente pronto per l’AI', readout: 'Il tuo sito è in condizioni ragionevoli per la scoperta e la prenotazione via AI, anche se alcuni punti richiedono ancora attenzione.' },
+            green: { label: 'Pronto per l’AI', readout: 'Il tuo sito copre le basi strutturali di cui un assistente ha bisogno per raccomandarlo e prenotarlo.' }
+          }
+        },
+        deepDive: {
+          hiddenLabelsLabel: 'Etichette nascoste (dati strutturati)',
+          typesPrefix: 'Tipi: ',
+          typesNone: 'nessuno trovato',
+          hiddenLabelsWhyYes: 'Queste etichette aiutano un assistente a capire cosa sei senza indovinare.',
+          hiddenLabelsWhyNo: 'Aggiungere lo schema della struttura è il modo più chiaro per aiutare l’AI a trovarti e raccomandarti.',
+          pageDescriptionLabel: 'Descrizione della pagina presente',
+          pageDescriptionWhyYes: 'Una descrizione della pagina offre agli assistenti un breve riassunto su cui lavorare.',
+          pageDescriptionWhyNo: 'Una breve descrizione della pagina offre agli assistenti un riassunto già pronto della struttura.',
+          readableTextLabel: 'Testo leggibile nella pagina',
+          readableTextValue: 'Circa {wc} parole',
+          readableTextWhyThin: 'È poco per un assistente. Più testo semplice sulla struttura aiuterebbe.',
+          readableTextWhyOk: 'Testo sufficiente per un assistente, purché contenga i fatti importanti.',
+          guestKeywordsLabel: 'Parole chiave delle domande degli ospiti',
+          guestKeywordsWhy: 'Gli assistenti raccomandano i siti che rispondono a parcheggio, famiglie, distanza e cancellazione in parole semplici.',
+          priceVisibleLabel: 'Prezzo visibile nel testo grezzo',
+          priceVisibleWhyYes: 'I prezzi presenti nella prima versione grezza sono visibili all’AI.',
+          priceVisibleWhyNo: 'Se i prezzi appaiono solo dopo il caricamento della pagina nel browser, spesso un’AI non riesce a vederli.',
+          priceLabelsLabel: 'Etichette di prezzo (schema offer / price)',
+          priceLabelsWhyYes: 'Le etichette di offerta e prezzo indicano a un agente cosa può effettivamente essere prenotato.',
+          priceLabelsWhyNo: 'Lo schema di offerta o prezzo aiuta un agente a capire tariffe e disponibilità senza indovinare.',
+          bookingSignalLabel: 'Link o modulo di prenotazione nell’HTML grezzo',
+          bookingSignalWhyYes: 'Un segnale di prenotazione nella prima versione grezza dà a un agente un punto concreto verso cui andare.',
+          bookingSignalWhyNo: 'Un percorso chiaro di prenotazione nel primo HTML grezzo è ciò che serve a un agente per indirizzare un ospite.',
+          caveat: 'Alcuni siti bloccano le letture automatizzate o nascondono tutto dietro codice a caricamento tardivo. In quel caso l’approfondimento vede poco, il che è di per sé un segnale, perché anche un’AI vedrebbe poco. Il controllo autovalutato resta il riferimento affidabile.',
+          prefillBtn: 'Usa questi risultati per compilare il controllo',
+          keywordParking: 'parcheggio',
+          keywordFamily: 'famiglie',
+          keywordCancellation: 'cancellazione',
+          keywordDistance: 'distanza dal centro',
+          keywordsNone: 'Nessuna trovata',
+          keywordsNoneFound: 'Nessuna delle parole chiave delle domande degli ospiti trovata',
+          summaryThin: '<strong>Abbiamo raggiunto il sito, ma la pagina grezza aveva pochissimo da leggere</strong> ({wc} parole, {bytes} byte di HTML). Questo spesso significa che il contenuto reale si carica con JavaScript dopo la prima risposta. Un’AI vedrebbe la stessa lacuna. Le tue risposte autovalutate contano ancora di più qui.',
+          summaryOk: '<strong>Pagina letta correttamente.</strong> HTTP {status}, circa {wc} parole nel testo grezzo. {yesCount} controlli su 7 superati. "No" significa una lacuna correggibile in ciò che l’AI può vedere, non che lo strumento abbia fallito.'
+        }
+      },
+      de: {
+        ui: {
+          brandTitle: 'Website AI Ready Audit',
+          brandSubtitle: 'Operator Intelligence Suite',
+          headerLink: 'Suite-Hub',
+          heroEyebrow: 'Operator Series · Website-Audit',
+          heroTitleInput: 'Ist Ihre Direktbuchungsseite bereit für KI?',
+          heroSubtitleInput: 'Dieser Check prüft, ob ein Assistent Sie finden und empfehlen kann und ob er bei Ihnen buchen kann. Beantworten Sie zehn kurze Fragen zu Ihrer Website und Ihren Angebotstexten.',
+          heroTitleOutput: 'Ihr KI-Readiness-Ergebnis',
+          heroSubtitleOutput: 'Eine Momentaufnahme, wie bereit Ihre Direktbuchungsseite für KI-gestützte Auffindbarkeit und Buchung ist.',
+          explainerToggle: 'Wie KI Ihre Website liest',
+          explainerLayer1Title: '1. Der Rohtext, den eine Seite zuerst sendet.',
+          explainerLayer1Text: 'Das ist die Version, die eine KI liest. Die Seite ohne ihr Erscheinungsbild, nur die Worte und die Struktur darunter.',
+          explainerLayer2Title: '2. Die versteckten Kennzeichnungen.',
+          explainerLayer2Text: 'Ein ordentlicher Informationsblock, der auf der Seite versteckt ist und klar angibt, was der Ort ist, was er kostet und wo er liegt. KI verlässt sich darauf, weil sie nicht raten muss. Das entscheidet vor allem, ob KI Sie finden und empfehlen kann.',
+          explainerLayer3Title: '3. Das, was spät lädt.',
+          explainerLayer3Text: 'Manche Seiten zeigen Preis und Kalender erst, nachdem zusätzlicher Code ausgeführt wurde. Dieser spät geladene Inhalt ist für KI oft unsichtbar, weil KI meist nur die erste Rohversion sieht. Das entscheidet, ob KI tatsächlich bei Ihnen buchen kann.',
+          explainerBridge: 'Die beiden Werte unten ergeben sich daraus. Sichtbarkeit betrifft die ersten beiden Ebenen. Buchbarkeit betrifft, ob Ihre Preise und die Buchung in der Rohversion stehen oder zu spät laden.',
+          visLabel: 'Sichtbarkeit',
+          visTagline: 'Kann KI Sie finden und empfehlen?',
+          visExplain: 'Diese Checks prüfen, ob ein Assistent Ihre Unterkunft verstehen und in einer Antwort in natürlicher Sprache anzeigen kann.',
+          qA1Text: 'Hat Ihre Website strukturierte Daten (schema.org), die die Unterkunft und die Zimmer beschreiben?',
+          qA1Helper: 'So versteht eine KI, was Sie sind, ohne raten zu müssen.',
+          qB4Text: 'Steht Ihr Kerninhalt (was der Ort ist, wo er liegt, wofür er geeignet ist) als lesbarer Text zur Verfügung, oder ist er in Bildern oder Grafiken eingeschlossen?',
+          qB4Helper: 'Wenn es nur in einem Foto oder Design steht, hat die Maschine es nicht. Der Text sollte auch für sich allein Sinn ergeben, ohne dass Bilder Lücken füllen müssen.',
+          qA4Text: 'Beantwortet Ihre Website direkt die natürlichen Fragen, die ein Gast einem Assistenten stellt: ist es familienfreundlich, gibt es Parkplätze, wie weit ist es zum Zentrum, wie lautet die Stornierungsrichtlinie?',
+          qA4Helper: 'KI empfiehlt die Seiten, die die gestellte Frage tatsächlich beantworten.',
+          listingLabel: 'Fügen Sie den Haupttext einer Ihrer Anzeigen oder Objektseiten ein.',
+          listingPlaceholder: 'Fügen Sie hier Ihre Angebotsbeschreibung ein…',
+          qB1Text: 'Beginnt die Beschreibung damit, was der Ort ist und für wen er geeignet ist, statt mit einer Liste von Annehmlichkeiten zu starten?',
+          qB1Helper: 'Eine KI fasst den Anfang zusammen. Ein Einstieg, der mit Merkmalen beginnt, gibt ihr nichts, worauf sie eine Empfehlung stützen kann.',
+          qB2Text: 'Nennt der Text konkrete Fakten (Lage, Kapazität, wichtige Annehmlichkeiten, Entfernungen) in klaren Sätzen statt Marketing-Adjektiven?',
+          qB2Helper: '"Gemütlich und charmant" ist für eine Maschine unsichtbar. "Schläft vier Personen, zehn Minuten vom Bahnhof" ist es nicht.',
+          qB3Text: 'Steht die Stornierungs- und Buchungsrichtlinie im Text selbst?',
+          qB3Helper: 'Das ist eines der ersten Dinge, die ein Assistent vor einer Empfehlung prüft.',
+          bookLabel: 'Buchbarkeit',
+          bookTagline: 'Kann KI bei Ihnen buchen?',
+          bookExplain: 'Diese Checks prüfen, ob ein Agent Preise und Verfügbarkeit sehen und einen echten Weg zur Buchung verfolgen kann.',
+          qA2Text: 'Sind Ihre Preise und die aktuelle Verfügbarkeit als Text auf der Seite sichtbar, oder nur innerhalb eines separat ladenden Buchungswidgets oder Kalenders?',
+          qA2Helper: 'Ein Agent kann nicht lesen, was in einem eingebetteten Widget eingeschlossen ist.',
+          qA5Text: 'Kann der Buchungsablauf (von der Datumswahl bis zur Bestätigung) ohne Schritte durchlaufen werden, die nur ein Mensch erledigen kann, und ohne von mehreren nur per JavaScript möglichen Klicks abhängig zu sein?',
+          qA5Helper: 'Ein Assistent braucht einen konkreten Weg, den er durchlaufen oder einem Gast weitergeben kann.',
+          qA3Text: 'Sind die wesentlichen Buchungsinformationen bereits in der ersten HTML-Antwort erreichbar, oder erst nachdem die Seite im Browser vollständig geladen wurde?',
+          qA3Helper: 'Agenten sehen oft das ursprüngliche HTML, nicht die gerenderte Seite.',
+          qB5Text: 'Hat Ihre Website strukturierte Daten speziell für Preise und Verfügbarkeit (Offer- / Price-Schema), nicht nur eine allgemeine Objektbeschreibung?',
+          qB5Helper: 'Objekt-Markup hilft einem Assistenten, Sie zu finden. Angebots- und Preis-Markup hilft ihm zu wissen, was er buchen kann.',
+          yes: 'Ja',
+          no: 'Nein',
+          unsure: 'Nicht sicher',
+          runAudit: 'Audit starten',
+          deepDiveTitle: 'Deep Dive: meine echte Website lesen',
+          deepDiveIntro: 'Dieser Check liest Ihre echte Website so, wie es eine KI tut. Er liest die erste Rohversion Ihrer Seite und berichtet, was dort steht.',
+          deepDivePrivacy: 'Dieser eine Check unterscheidet sich vom Rest des Tools. Um Ihre Website zu lesen, wird die eingegebene Adresse an einen kleinen Server gesendet, der die Seite abruft. Sonst wird nichts über Sie gesendet oder gespeichert. Der Rest des Audits läuft weiterhin vollständig in Ihrem Browser.',
+          deepDiveUrlLabel: 'Ihre Website-Adresse',
+          deepDiveRunBtn: 'Deep Dive starten',
+          deepDiveOutputTitle: 'Deep-Dive-Ergebnisse',
+          standTitle: 'Wo Sie heute stehen',
+          gapsTitle: 'Wo KI an Ihnen vorbeigeht',
+          fixTitle: 'Was Sie zuerst beheben sollten',
+          outputFooter1: 'Erstellt von Roger Bisschoff. Wenn KI-Readiness etwas ist, an dem Sie für ein Portfolio arbeiten, ist der <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">LinkedIn-Link</a> oben der beste Weg, mich zu erreichen.',
+          outputFooter2: '<a href="https://rbisschoff.github.io/operator-intelligence-suite/">Zurück zur Operator Intelligence Suite</a>',
+          startAgain: 'Neu starten',
+          footerText: 'Website AI Ready Audit - Teil der Operator Intelligence Suite von <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">Roger Bisschoff</a>',
+          resultHeroLabel: 'Gesamtbereitschaft',
+          statPassed: '<strong>{n}</strong> von 10 bestanden',
+          potentialLine: 'Beheben Sie die folgenden Punkte, um <strong>{potential} / 100</strong> zu erreichen ({visLabel} {potVis}, {bookLabel} {potBook}).',
+          potentialFootnote: 'Nur strukturelle Korrekturen. Keyword- und Inhaltsentscheidungen zählen weiterhin über diese Checkliste hinaus.',
+          standVisLong: 'Sichtbarkeit (kann KI Sie finden und empfehlen)',
+          standBookLong: 'Buchbarkeit (kann KI bei Ihnen buchen)',
+          standPassed: 'Sie haben <strong>{n} von 10</strong> Prüfungen bestanden. ',
+          standStrongerLine: 'Ihre stärkere Seite ist <strong>{x}</strong>. ',
+          standWeakerLine: '<strong>{x}</strong> ist dort, wo die Lücken liegen.',
+          standSimilar: 'Sichtbarkeit und Buchbarkeit liegen auf einem ähnlichen Niveau.',
+          gapsNone: 'Keine strukturellen Lücken festgestellt. Ihre Website deckt die Grundlagen ab, die dieser Audit prüft.',
+          gapsWorthChecking: 'Wert einer Prüfung',
+          fixNone: 'Keine vorrangigen Korrekturen. Sie haben alle strukturellen Prüfungen bestanden.',
+          ptsBadge: '+{n} Punkte',
+          alertAllQuestions: 'Bitte beantworten Sie alle Fragen, bevor Sie das Audit starten.',
+          textFlagGeneral: 'Diese Beschreibung ist sehr kurz. Eine KI hat wenig, mit dem sie arbeiten kann.',
+          textFlagB1: 'Ihr Einstiegssatz scheint mit Annehmlichkeiten zu beginnen.',
+          textFlagB2: 'Keine konkreten Entfernungen im Text gefunden.',
+          textFlagB3: 'Keine Formulierung zu Stornierung oder Richtlinien im Text gefunden.',
+          deepDiveErrInvalidUrl: 'Bitte geben Sie eine vollständige Adresse ein, die mit http:// oder https:// beginnt.',
+          deepDiveErrNotConnected: 'Der Deep Dive ist noch nicht verbunden. Stellen Sie den Worker bereit (siehe deep-dive-worker.js) und fügen Sie dessen URL in DEEP_DIVE_ENDPOINT ein.',
+          deepDiveReading: 'Ihre Website wird gelesen...',
+          deepDiveErrCouldNotRead: 'Wir konnten diese Website nicht lesen. Sie blockiert möglicherweise automatisierte Zugriffe oder ist nicht erreichbar. Ihre selbst eingeschätzte Bewertung bleibt trotzdem gültig.',
+          deepDivePrefilled: 'Antworten anhand der Ergebnisse ausgefüllt. Überprüfen Sie sie und starten Sie dann das Audit.'
+        },
+        meta: {
+          A1: { short: 'Strukturierte Daten für Objekt und Zimmer', gap: 'Ohne schema.org-Markup für Objekt und Zimmer muss ein Assistent raten, was Sie anbieten, statt es direkt zu lesen.', action: 'Fügen Sie schema.org-strukturierte Daten für Ihr Objekt und Ihre Zimmertypen hinzu. Die meisten Website-Baukästen haben dafür ein Plugin oder ein Einstellungsfeld.' },
+          B4: { short: 'Kerninhalt als lesbarer Text', gap: 'Wenn was der Ort ist, wo er liegt und für wen er geeignet ist, nur in Bildern oder Grafiken existiert, kann ein Assistent das nicht nutzen.', action: 'Verschieben Sie die zentralen Objektfakten in lesbaren Text auf der Seite, damit sie ohne Fotos oder Design Sinn ergeben.' },
+          A4: { short: 'Antworten auf natürliche Gästefragen', gap: 'Assistenten empfehlen Seiten, die die gestellte Frage beantworten: Parkplatz, Familien, Lage, Richtlinien.', action: 'Fügen Sie einen kurzen FAQ-Abschnitt in einfachem Text hinzu, der die Fragen abdeckt, die Gäste vor der Buchung stellen.' },
+          B1: { short: 'Zweckorientierter Einstieg', gap: 'Ein Einstieg, der mit Merkmalen beginnt, gibt einer KI nichts, was sie zusammenfassen oder worauf sie empfehlen kann.', action: 'Schreiben Sie den ersten Satz so um, dass er sagt, was der Ort ist und für wen er geeignet ist, bevor Annehmlichkeiten aufgelistet werden.' },
+          B2: { short: 'Konkrete Fakten im Text', gap: 'Marketing-Adjektive sind für eine Maschine unsichtbar; konkrete Fakten sind das, was zitiert und empfohlen wird.', action: 'Ersetzen Sie vage Formulierungen durch konkrete Details: Kapazität, Entfernungen, Verkehrsanbindung und wichtige Annehmlichkeiten in klaren Sätzen.' },
+          B3: { short: 'Richtlinie im Text angegeben', gap: 'Ein Assistent prüft Stornierungs- und Buchungsbedingungen vor einer Empfehlung. Fehlen sie, geht er weiter.', action: 'Fügen Sie Ihre Stornierungs- und Buchungsrichtlinie als lesbaren Text direkt in die Angebotsbeschreibung ein.' },
+          A2: { short: 'Lesbare Preise und Verfügbarkeit', gap: 'Wenn Preise und Verfügbarkeit in einem eingebetteten Widget stecken, kann ein Agent sie oft überhaupt nicht sehen.', action: 'Stellen Sie sicher, dass Preise und aktuelle Verfügbarkeit als einfacher Text im Seiten-HTML erscheinen, nicht nur in einem Drittanbieter-Buchungswidget.' },
+          A5: { short: 'Buchbarer Ablauf ohne rein menschliche Schritte', gap: 'Ein Buchungsweg, der rein menschliche Schritte oder viele nur per JavaScript mögliche Klicks erfordert, gibt einem Agenten keinen verlässlichen Weg, eine Buchung abzuschließen oder weiterzugeben.', action: 'Vereinfachen Sie den Buchungsweg, damit Datum, Bestätigung und ein klarer nächster Schritt ohne Pop-up-Labyrinthe oder rein menschliche Hürden funktionieren.' },
+          A3: { short: 'Buchungsinformationen im ersten HTML', gap: 'Wenn wesentliche Buchungsinformationen erst nach dem vollständigen Rendern der Seite erscheinen, sehen viele Agenten sie nie.', action: 'Stellen Sie sicher, dass Buchungsgrundlagen in der ursprünglichen HTML-Antwort vorhanden sind, nicht erst nachdem Skripte im Browser ausgeführt wurden.' },
+          B5: { short: 'Strukturierte Daten für Angebot und Preis', gap: 'Allgemeines Objekt-Markup reicht zum Buchen nicht aus. Ohne Offer- oder Price-Schema fehlen einem Agenten weiterhin maschinenlesbare Tarife und Verfügbarkeit.', action: 'Fügen Sie strukturierte Daten für Angebote, Preise und Verfügbarkeit hinzu, nicht nur eine allgemeine Objektbeschreibung.' }
+        },
+        bands: {
+          visibility: {
+            red: { label: 'Noch nicht KI-bereit', readout: 'Ein Assistent hätte Schwierigkeiten, Ihre Unterkunft aus dem heute Veröffentlichten zu verstehen oder zu empfehlen.' },
+            amber: { label: 'Teilweise KI-bereit', readout: 'Einige Empfehlungssignale sind vorhanden, aber ein Assistent hat noch deutliche blinde Flecken, wenn er Sie anzeigt.' },
+            blue: { label: 'Weitgehend KI-bereit', readout: 'Ein Assistent kann Sie größtenteils finden und empfehlen, auch wenn einige Lücken noch Aufmerksamkeit brauchen.' },
+            green: { label: 'KI-bereit', readout: 'Ein Assistent kann Ihre Unterkunft aus dem Veröffentlichten finden und empfehlen.' }
+          },
+          bookability: {
+            red: { label: 'Noch nicht KI-bereit', readout: 'Ein Assistent hätte heute Schwierigkeiten, eine Buchung auf Ihrer Seite abzuschließen oder weiterzugeben.' },
+            amber: { label: 'Teilweise KI-bereit', readout: 'Einige Buchungssignale sind sichtbar, aber der Weg zur Buchung ist für einen Agenten noch blockiert oder unklar.' },
+            blue: { label: 'Weitgehend KI-bereit', readout: 'Ein Assistent kann eine Buchung größtenteils durchlaufen, auch wenn einige Lücken noch Aufmerksamkeit brauchen.' },
+            green: { label: 'KI-bereit', readout: 'Ein Assistent kann Preise, Verfügbarkeit und einen klaren Buchungsweg erreichen.' }
+          },
+          overall: {
+            red: { label: 'Noch nicht KI-bereit', readout: 'Ihre Website hat erhebliche Lücken, die einschränken würden, wie ein Assistent sie empfehlen oder buchen kann.' },
+            amber: { label: 'Teilweise KI-bereit', readout: 'Einige Grundlagen sind vorhanden, aber es gibt deutliche Lücken, mit denen ein Assistent heute Schwierigkeiten hätte.' },
+            blue: { label: 'Weitgehend KI-bereit', readout: 'Ihre Website ist in angemessenem Zustand für KI-Auffindbarkeit und -Buchung, auch wenn einige Punkte noch Aufmerksamkeit brauchen.' },
+            green: { label: 'KI-bereit', readout: 'Ihre Website deckt die strukturellen Grundlagen ab, die ein Assistent zum Empfehlen und Buchen braucht.' }
+          }
+        },
+        deepDive: {
+          hiddenLabelsLabel: 'Versteckte Kennzeichnungen (strukturierte Daten)',
+          typesPrefix: 'Typen: ',
+          typesNone: 'keine gefunden',
+          hiddenLabelsWhyYes: 'Diese Kennzeichnungen helfen einem Assistenten zu verstehen, was Sie sind, ohne zu raten.',
+          hiddenLabelsWhyNo: 'Das Hinzufügen von Objekt-Schema ist der klarste Weg, KI zu helfen, Sie zu finden und zu empfehlen.',
+          pageDescriptionLabel: 'Seitenbeschreibung vorhanden',
+          pageDescriptionWhyYes: 'Eine Seitenbeschreibung gibt Assistenten eine kurze Zusammenfassung, mit der sie arbeiten können.',
+          pageDescriptionWhyNo: 'Eine kurze Seitenbeschreibung gibt Assistenten eine fertige Zusammenfassung der Unterkunft.',
+          readableTextLabel: 'Lesbarer Text auf der Seite',
+          readableTextValue: 'Etwa {wc} Wörter',
+          readableTextWhyThin: 'Das ist wenig für einen Assistenten. Mehr einfacher Text zur Unterkunft würde helfen.',
+          readableTextWhyOk: 'Genug Text, mit dem ein Assistent arbeiten kann, solange die wichtigen Fakten enthalten sind.',
+          guestKeywordsLabel: 'Schlüsselwörter zu Gästefragen',
+          guestKeywordsWhy: 'Assistenten empfehlen Seiten, die Parkplatz, Familien, Entfernung und Stornierung in einfachen Worten beantworten.',
+          priceVisibleLabel: 'Preis im Rohtext sichtbar',
+          priceVisibleWhyYes: 'Preise, die in der ersten Rohversion stehen, sind für KI sichtbar.',
+          priceVisibleWhyNo: 'Wenn Preise erst nach dem Laden der Seite im Browser erscheinen, kann eine KI sie oft nicht sehen.',
+          priceLabelsLabel: 'Preis-Kennzeichnungen (Offer- / Price-Schema)',
+          priceLabelsWhyYes: 'Angebots- und Preis-Kennzeichnungen sagen einem Agenten, was tatsächlich gebucht werden kann.',
+          priceLabelsWhyNo: 'Offer- oder Price-Schema hilft einem Agenten, Preise und Verfügbarkeit zu verstehen, ohne zu raten.',
+          bookingSignalLabel: 'Buchungslink oder -formular im Roh-HTML',
+          bookingSignalWhyYes: 'Ein Buchungssignal in der ersten Rohversion gibt einem Agenten einen konkreten Ansatzpunkt.',
+          bookingSignalWhyNo: 'Ein klarer Buchungspfad im ersten Roh-HTML ist es, was ein Agent braucht, um einen Gast weiterzuleiten.',
+          caveat: 'Manche Seiten blockieren automatisierte Zugriffe oder verstecken alles hinter spät ladendem Code. In diesem Fall sieht der Deep Dive wenig, was selbst ein Signal ist, weil auch eine KI wenig sehen würde. Das selbst eingeschätzte Audit ist der verlässliche Rückgriff.',
+          prefillBtn: 'Diese Ergebnisse zum Ausfüllen des Audits verwenden',
+          keywordParking: 'Parkplatz',
+          keywordFamily: 'Familien',
+          keywordCancellation: 'Stornierung',
+          keywordDistance: 'Entfernung zum Zentrum',
+          keywordsNone: 'Keine gefunden',
+          keywordsNoneFound: 'Keines der Schlüsselwörter zu Gästefragen gefunden',
+          summaryThin: '<strong>Wir haben die Website erreicht, aber die Rohseite hatte sehr wenig zu lesen</strong> ({wc} Wörter, {bytes} Bytes HTML). Das bedeutet oft, dass der eigentliche Inhalt erst nach der ersten Antwort per JavaScript geladen wird. Eine KI würde die gleiche Lücke sehen. Ihre selbst eingeschätzten Antworten zählen hier noch mehr.',
+          summaryOk: '<strong>Seite erfolgreich gelesen.</strong> HTTP {status}, etwa {wc} Wörter im Rohtext. {yesCount} von 7 Prüfungen bestanden. "Nein" bedeutet eine behebbare Lücke in dem, was KI sehen kann, nicht dass das Tool versagt hat.'
+        }
+      }
+    };
+
+    function applyLang(lang) {
+      currentLang = I18N[lang] ? lang : 'en';
+      const pack = I18N[currentLang];
+      document.documentElement.lang = currentLang;
+
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        const key = el.getAttribute('data-i18n');
+        const val = pack.ui[key];
+        if (val === undefined) return;
+        if (HTML_I18N_KEYS.indexOf(key) !== -1) el.innerHTML = val;
+        else el.textContent = val;
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+        const key = el.getAttribute('data-i18n-placeholder');
+        const val = pack.ui[key];
+        if (val !== undefined) el.setAttribute('placeholder', val);
+      });
+
+      QUESTION_IDS.forEach(function(id) {
+        if (pack.meta[id]) {
+          META[id].short = pack.meta[id].short;
+          META[id].gap = pack.meta[id].gap;
+          META[id].action = pack.meta[id].action;
+        }
+      });
+
+      BARS.visibility.label = pack.ui.visLabel;
+      BARS.visibility.tagline = pack.ui.visTagline;
+      BARS.bookability.label = pack.ui.bookLabel;
+      BARS.bookability.tagline = pack.ui.bookTagline;
+
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        const on = btn.getAttribute('data-lang') === currentLang;
+        btn.classList.toggle('active', on);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+
+      try { localStorage.setItem('ois-lang', currentLang); } catch (e) {}
+
+      const outputVisible = !document.getElementById('output-state').classList.contains('hidden');
+      if (outputVisible) {
+        renderOutput({ silent: true });
+      }
+
+      if (lastDeepDiveResult) {
+        const inputResultsEl = document.getElementById('deep-dive-results');
+        if (inputResultsEl && !inputResultsEl.classList.contains('hidden')) {
+          inputResultsEl.innerHTML = renderDeepDiveFindings(lastDeepDiveResult);
+          attachPrefillHandler(inputResultsEl);
+        }
+      }
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        applyLang(btn.getAttribute('data-lang'));
+      });
+    });
+
+    var startLang = 'en';
+    try {
+      var saved = localStorage.getItem('ois-lang');
+      if (saved && I18N[saved]) startLang = saved;
+    } catch (e) {}
+    applyLang(startLang);
   </script>
 </body>
 </html>
