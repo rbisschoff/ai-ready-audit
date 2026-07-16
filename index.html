@@ -1332,7 +1332,7 @@
 
       <form id="audit-form" novalidate>
         <div class="panel step-panel" id="step-1-panel">
-          <div class="step-kicker"><span class="step-number">1</span><span data-i18n="step1Label">Step 1</span></div>
+          <div class="step-kicker"><span class="step-number">1</span></div>
           <div class="step-title" data-i18n="step1Title">Your website</div>
 
           <div class="path-options" role="group" aria-label="Step 1 path" data-i18n-aria-label="step1PathGroupLabel">
@@ -1360,7 +1360,7 @@
               </div>
               <label class="field-label" for="deep-dive-url" data-i18n="deepDiveUrlLabel">Your website address</label>
               <input type="url" class="url-input" id="deep-dive-url" placeholder="www.yourproperty.com" data-i18n-placeholder="deepDiveUrlPlaceholder" autocomplete="url">
-              <button type="button" class="deep-dive-btn" id="deep-dive-run-btn" data-i18n="deepDiveRunBtn">Run deep dive</button>
+              <button type="button" class="deep-dive-btn" id="deep-dive-run-btn" data-i18n="deepDiveRunBtn">Check my site</button>
               <div class="deep-dive-msg hidden" id="deep-dive-msg"></div>
               <div class="deep-dive-results hidden" id="deep-dive-results"></div>
             </div>
@@ -1378,11 +1378,6 @@
             <div class="measured-list" id="step1-manual-list"></div>
             <div class="manual-fallback-note hidden" id="manual-fallback-note"></div>
           </div>
-        </div>
-
-        <div class="panel step-panel" id="step-2-panel">
-          <div class="step-kicker"><span class="step-number">2</span><span data-i18n="step2Label">Step 2</span></div>
-          <div class="step-title" data-i18n="step2Title">Your booking flow</div>
 
           <div class="question-block" data-q="A5">
             <div class="question-text" data-i18n="qA5Text">Can a guest get from choosing dates to a confirmed booking without a step only a human can complete?</div>
@@ -1395,10 +1390,9 @@
           </div>
         </div>
 
-        <div class="panel step-panel" id="step-3-panel">
-          <div class="step-kicker"><span class="step-number">3</span><span data-i18n="step3Label">Step 3</span></div>
-          <div class="step-title" data-i18n="step3Title">Your listing copy</div>
-          <p class="step-desc" data-i18n="step3Desc">Paste one description, then answer three questions.</p>
+        <div class="panel step-panel" id="step-2-panel">
+          <div class="step-kicker"><span class="step-number">2</span></div>
+          <div class="step-title" data-i18n="step2Title">Your listing copy</div>
 
           <label class="field-label" for="listingText" data-i18n="listingLabel">Paste the main description text from one of your listings or property pages.</label>
           <textarea id="listingText" name="listingText" placeholder="Paste your listing description here…" data-i18n-placeholder="listingPlaceholder"></textarea>
@@ -1434,12 +1428,7 @@
           </div>
         </div>
 
-        <div class="panel step-panel" id="step-4-panel">
-          <div class="step-kicker"><span class="step-number">4</span><span data-i18n="step4Label">Step 4</span></div>
-          <div class="step-title" data-i18n="step4Title">Run the audit</div>
-
-          <button type="submit" class="submit-btn" data-i18n="runAudit">Run audit</button>
-        </div>
+        <button type="submit" class="submit-btn" data-i18n="runAudit">Run audit</button>
 
         <div class="question-block hidden" data-q="A1">
           <div class="question-text" data-i18n="qA1Text">Does your site have structured data markup (schema.org) describing the property and rooms?</div>
@@ -1505,8 +1494,8 @@
 
     <div id="output-state" class="hidden">
       <div class="score-panel" id="score-panel"></div>
-      <div class="output-block hidden" id="deep-dive-output-block">
-        <div class="output-block-title" data-i18n="deepDiveOutputTitle">Deep dive results</div>
+        <div class="output-block hidden" id="deep-dive-output-block">
+        <div class="output-block-title" data-i18n="deepDiveOutputTitle">What we found on your site</div>
         <div id="deep-dive-output-results"></div>
       </div>
 
@@ -2356,7 +2345,6 @@
           heroSubtitleInput: 'This audit checks whether an assistant can find, recommend and book you.',
           heroTitleOutput: 'Your AI-readiness result',
           heroSubtitleOutput: 'A snapshot of how ready your direct booking site is for AI-driven discovery and booking.',
-          step1Label: 'Step 1',
           step1PathGroupLabel: 'Step 1 path',
           step1Title: 'Your website',
           pathAutoTitle: 'Check my site automatically',
@@ -2369,13 +2357,7 @@
           measuredChanged: 'Changed',
           measuredNote: 'Measured answer: {answer}. You can change this if needed.',
           measuredChangedNote: 'You changed this answer to {answer}. Your answer will be used in the score.',
-          step2Label: 'Step 2',
-          step2Title: 'Your booking flow',
-          step3Label: 'Step 3',
-          step3Title: 'Your listing copy',
-          step3Desc: 'Paste one description, then answer three questions.',
-          step4Label: 'Step 4',
-          step4Title: 'Run the audit',
+          step2Title: 'Your listing copy',
           explainerToggle: 'How AI reads your site',
           explainerLayer1Title: '1. The raw text a site sends first.',
           explainerLayer1Text: 'This is the version an AI reads. It is the site stripped of its looks, just the words and the structure underneath.',
@@ -2421,12 +2403,12 @@
           deepDivePrivacy: 'This one check is different from the rest of the tool. To read your site, the address you enter is sent to a small server that fetches the page. Nothing else about you is sent or stored. The rest of the audit still runs entirely in your browser.',
           deepDiveUrlLabel: 'Your website address',
           deepDiveUrlPlaceholder: 'www.yourproperty.com',
-          deepDiveRunBtn: 'Run deep dive',
-          deepDiveOutputTitle: 'Deep dive results',
+          deepDiveRunBtn: 'Check my site',
+          deepDiveOutputTitle: 'What we found on your site',
           standTitle: 'Where you stand today',
           gapsTitle: 'Where AI is passing you by',
           fixTitle: 'What to fix first',
-          outputFooter1: 'Built by Roger Bisschoff. If AI-readiness is something you are working through for a portfolio, the <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">LinkedIn link</a> above is the best way to reach me.',
+          outputFooter1: 'Built by Roger Bisschoff. If you are working through this for a portfolio, <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">LinkedIn</a> is the best way to reach me.',
           outputFooter2: '<a href="https://rbisschoff.github.io/operator-intelligence-suite/">Back to the Operator Intelligence Suite</a>',
           startAgain: 'Start again',
           footerText: 'Website AI Ready Audit - part of the Operator Intelligence Suite by <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">Roger Bisschoff</a>',
@@ -2450,7 +2432,7 @@
           textFlagB2: 'No concrete distances found in the text.',
           textFlagB3: 'No cancellation or policy wording found in the text.',
           deepDiveErrInvalidUrl: 'Please enter a full address starting with http:// or https://.',
-          deepDiveErrNotConnected: 'The deep dive is not connected yet. Deploy the worker (see deep-dive-worker.js) and paste its URL into DEEP_DIVE_ENDPOINT.',
+          deepDiveErrNotConnected: 'The site check is not connected yet. Deploy the worker (see deep-dive-worker.js) and paste its URL into DEEP_DIVE_ENDPOINT.',
           deepDiveReading: 'Reading your site...',
           deepDiveErrCouldNotRead: 'We could not read this site. It may block automated reads, or it may be down. Your self-assessed score still stands.',
           deepDivePrefilled: 'We filled the six website checks from what we found. Review them, change any if needed, then run the audit.',
@@ -2513,7 +2495,7 @@
           bookingSignalLabel: 'Booking link or form in raw HTML',
           bookingSignalWhyYes: 'A booking signal in the first raw version gives an agent somewhere concrete to go.',
           bookingSignalWhyNo: 'A clear book / reserve path in the first raw HTML is what an agent needs to hand a guest to.',
-          caveat: 'Some sites block automated reads or hide everything behind late-loading code. When that happens the deep dive sees little, which is itself a signal, because an AI would see little too. The self-assessed audit is the reliable fallback.',
+          caveat: 'Some sites block automated reads or hide everything behind late-loading code. When that happens the site check sees little, which is itself a signal, because an AI would see little too. The self-assessed audit is the reliable fallback.',
           prefillBtn: 'Use these findings to fill the audit',
           keywordParking: 'parking',
           keywordFamily: 'families',
@@ -2536,7 +2518,6 @@
           heroSubtitleInput: 'Questo controllo verifica se un assistente può trovarti, raccomandarti e prenotarti.',
           heroTitleOutput: 'Il tuo risultato di AI-readiness',
           heroSubtitleOutput: 'Una fotografia di quanto il tuo sito di prenotazione diretta sia pronto per la scoperta e la prenotazione guidate dall’AI.',
-          step1Label: 'Passo 1',
           step1PathGroupLabel: 'Percorso del passo 1',
           step1Title: 'Il tuo sito web',
           pathAutoTitle: 'Controlla il mio sito automaticamente',
@@ -2549,13 +2530,7 @@
           measuredChanged: 'Modificato',
           measuredNote: 'Risposta misurata: {answer}. Puoi cambiarla se serve.',
           measuredChangedNote: 'Hai cambiato questa risposta in {answer}. Nel punteggio useremo la tua risposta.',
-          step2Label: 'Passo 2',
-          step2Title: 'Il tuo percorso di prenotazione',
-          step3Label: 'Passo 3',
-          step3Title: 'Il testo del tuo annuncio',
-          step3Desc: 'Incolla una descrizione, poi rispondi a tre domande.',
-          step4Label: 'Passo 4',
-          step4Title: 'Esegui il controllo',
+          step2Title: 'Il testo del tuo annuncio',
           explainerToggle: 'Come l’AI legge il tuo sito',
           explainerLayer1Title: '1. Il testo grezzo che un sito invia per primo.',
           explainerLayer1Text: 'È la versione che un’AI legge. È il sito spogliato del suo aspetto, solo le parole e la struttura sottostante.',
@@ -2601,12 +2576,12 @@
           deepDivePrivacy: 'Questo controllo è diverso dal resto dello strumento. Per leggere il tuo sito, l’indirizzo che inserisci viene inviato a un piccolo server che recupera la pagina. Nessun altro dato su di te viene inviato o conservato. Il resto del controllo continua a funzionare interamente nel tuo browser.',
           deepDiveUrlLabel: 'L’indirizzo del tuo sito',
           deepDiveUrlPlaceholder: 'www.la-tua-struttura.it',
-          deepDiveRunBtn: 'Esegui l’approfondimento',
-          deepDiveOutputTitle: 'Risultati dell’approfondimento',
+          deepDiveRunBtn: 'Controlla il mio sito',
+          deepDiveOutputTitle: 'Cosa abbiamo trovato sul tuo sito',
           standTitle: 'Dove ti trovi oggi',
           gapsTitle: 'Dove l’AI ti sta ignorando',
           fixTitle: 'Cosa correggere prima',
-          outputFooter1: 'Realizzato da Roger Bisschoff. Se la AI-readiness è qualcosa su cui stai lavorando per un portfolio, il <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">link a LinkedIn</a> sopra è il modo migliore per contattarmi.',
+          outputFooter1: 'Realizzato da Roger Bisschoff. Se stai lavorando su questo per un portfolio, <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">LinkedIn</a> è il modo migliore per contattarmi.',
           outputFooter2: '<a href="https://rbisschoff.github.io/operator-intelligence-suite/">Torna all’Operator Intelligence Suite</a>',
           startAgain: 'Ricomincia',
           footerText: 'Website AI Ready Audit - parte dell’Operator Intelligence Suite di <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">Roger Bisschoff</a>',
@@ -2630,7 +2605,7 @@
           textFlagB2: 'Nessuna distanza concreta trovata nel testo.',
           textFlagB3: 'Nessuna formulazione su cancellazione o politiche trovata nel testo.',
           deepDiveErrInvalidUrl: 'Inserisci un indirizzo completo che inizi con http:// o https://.',
-          deepDiveErrNotConnected: 'L’approfondimento non è ancora connesso. Distribuisci il worker (vedi deep-dive-worker.js) e incolla il suo URL in DEEP_DIVE_ENDPOINT.',
+          deepDiveErrNotConnected: 'Il controllo del sito non è ancora connesso. Distribuisci il worker (vedi deep-dive-worker.js) e incolla il suo URL in DEEP_DIVE_ENDPOINT.',
           deepDiveReading: 'Lettura del tuo sito in corso...',
           deepDiveErrCouldNotRead: 'Non siamo riusciti a leggere questo sito. Potrebbe bloccare le letture automatizzate, oppure potrebbe essere offline. Il tuo punteggio autovalutato resta comunque valido.',
           deepDivePrefilled: 'Abbiamo compilato i sei controlli del sito in base a quanto trovato. Controllali, cambia ciò che serve, poi esegui il controllo.',
@@ -2693,7 +2668,7 @@
           bookingSignalLabel: 'Link o modulo di prenotazione nell’HTML grezzo',
           bookingSignalWhyYes: 'Un segnale di prenotazione nella prima versione grezza dà a un agente un punto concreto verso cui andare.',
           bookingSignalWhyNo: 'Un percorso chiaro di prenotazione nel primo HTML grezzo è ciò che serve a un agente per indirizzare un ospite.',
-          caveat: 'Alcuni siti bloccano le letture automatizzate o nascondono tutto dietro codice a caricamento tardivo. In quel caso l’approfondimento vede poco, il che è di per sé un segnale, perché anche un’AI vedrebbe poco. Il controllo autovalutato resta il riferimento affidabile.',
+          caveat: 'Alcuni siti bloccano le letture automatizzate o nascondono tutto dietro codice a caricamento tardivo. In quel caso il controllo del sito vede poco, il che è di per sé un segnale, perché anche un’AI vedrebbe poco. Il controllo autovalutato resta il riferimento affidabile.',
           prefillBtn: 'Usa questi risultati per compilare il controllo',
           keywordParking: 'parcheggio',
           keywordFamily: 'famiglie',
@@ -2716,7 +2691,6 @@
           heroSubtitleInput: 'Dieser Check prüft, ob ein Assistent Sie finden, empfehlen und bei Ihnen buchen kann.',
           heroTitleOutput: 'Ihr KI-Readiness-Ergebnis',
           heroSubtitleOutput: 'Eine Momentaufnahme, wie bereit Ihre Direktbuchungsseite für KI-gestützte Auffindbarkeit und Buchung ist.',
-          step1Label: 'Schritt 1',
           step1PathGroupLabel: 'Pfad für Schritt 1',
           step1Title: 'Ihre Website',
           pathAutoTitle: 'Meine Website automatisch prüfen',
@@ -2729,13 +2703,7 @@
           measuredChanged: 'Geändert',
           measuredNote: 'Gemessene Antwort: {answer}. Sie können das bei Bedarf ändern.',
           measuredChangedNote: 'Sie haben diese Antwort auf {answer} geändert. Für die Bewertung wird Ihre Antwort verwendet.',
-          step2Label: 'Schritt 2',
-          step2Title: 'Ihr Buchungsablauf',
-          step3Label: 'Schritt 3',
-          step3Title: 'Ihr Angebotstext',
-          step3Desc: 'Fügen Sie eine Beschreibung ein und beantworten Sie drei Fragen.',
-          step4Label: 'Schritt 4',
-          step4Title: 'Audit starten',
+          step2Title: 'Ihr Angebotstext',
           explainerToggle: 'Wie KI Ihre Website liest',
           explainerLayer1Title: '1. Der Rohtext, den eine Seite zuerst sendet.',
           explainerLayer1Text: 'Das ist die Version, die eine KI liest. Die Seite ohne ihr Erscheinungsbild, nur die Worte und die Struktur darunter.',
@@ -2781,12 +2749,12 @@
           deepDivePrivacy: 'Dieser eine Check unterscheidet sich vom Rest des Tools. Um Ihre Website zu lesen, wird die eingegebene Adresse an einen kleinen Server gesendet, der die Seite abruft. Sonst wird nichts über Sie gesendet oder gespeichert. Der Rest des Audits läuft weiterhin vollständig in Ihrem Browser.',
           deepDiveUrlLabel: 'Ihre Website-Adresse',
           deepDiveUrlPlaceholder: 'www.ihre-unterkunft.de',
-          deepDiveRunBtn: 'Deep Dive starten',
-          deepDiveOutputTitle: 'Deep-Dive-Ergebnisse',
+          deepDiveRunBtn: 'Meine Website prüfen',
+          deepDiveOutputTitle: 'Was wir auf Ihrer Website gefunden haben',
           standTitle: 'Wo Sie heute stehen',
           gapsTitle: 'Wo KI an Ihnen vorbeigeht',
           fixTitle: 'Was Sie zuerst beheben sollten',
-          outputFooter1: 'Erstellt von Roger Bisschoff. Wenn KI-Readiness etwas ist, an dem Sie für ein Portfolio arbeiten, ist der <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">LinkedIn-Link</a> oben der beste Weg, mich zu erreichen.',
+          outputFooter1: 'Erstellt von Roger Bisschoff. Wenn Sie das für ein Portfolio durcharbeiten, ist <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">LinkedIn</a> der beste Weg, mich zu erreichen.',
           outputFooter2: '<a href="https://rbisschoff.github.io/operator-intelligence-suite/">Zurück zur Operator Intelligence Suite</a>',
           startAgain: 'Neu starten',
           footerText: 'Website AI Ready Audit - Teil der Operator Intelligence Suite von <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">Roger Bisschoff</a>',
@@ -2810,7 +2778,7 @@
           textFlagB2: 'Keine konkreten Entfernungen im Text gefunden.',
           textFlagB3: 'Keine Formulierung zu Stornierung oder Richtlinien im Text gefunden.',
           deepDiveErrInvalidUrl: 'Bitte geben Sie eine vollständige Adresse ein, die mit http:// oder https:// beginnt.',
-          deepDiveErrNotConnected: 'Der Deep Dive ist noch nicht verbunden. Stellen Sie den Worker bereit (siehe deep-dive-worker.js) und fügen Sie dessen URL in DEEP_DIVE_ENDPOINT ein.',
+          deepDiveErrNotConnected: 'Die Website-Prüfung ist noch nicht verbunden. Stellen Sie den Worker bereit (siehe deep-dive-worker.js) und fügen Sie dessen URL in DEEP_DIVE_ENDPOINT ein.',
           deepDiveReading: 'Ihre Website wird gelesen...',
           deepDiveErrCouldNotRead: 'Wir konnten diese Website nicht lesen. Sie blockiert möglicherweise automatisierte Zugriffe oder ist nicht erreichbar. Ihre selbst eingeschätzte Bewertung bleibt trotzdem gültig.',
           deepDivePrefilled: 'Wir haben die sechs Website-Prüfungen anhand der Ergebnisse ausgefüllt. Prüfen Sie sie, ändern Sie bei Bedarf etwas und starten Sie dann das Audit.',
@@ -2873,7 +2841,7 @@
           bookingSignalLabel: 'Buchungslink oder -formular im Roh-HTML',
           bookingSignalWhyYes: 'Ein Buchungssignal in der ersten Rohversion gibt einem Agenten einen konkreten Ansatzpunkt.',
           bookingSignalWhyNo: 'Ein klarer Buchungspfad im ersten Roh-HTML ist es, was ein Agent braucht, um einen Gast weiterzuleiten.',
-          caveat: 'Manche Seiten blockieren automatisierte Zugriffe oder verstecken alles hinter spät ladendem Code. In diesem Fall sieht der Deep Dive wenig, was selbst ein Signal ist, weil auch eine KI wenig sehen würde. Das selbst eingeschätzte Audit ist der verlässliche Rückgriff.',
+          caveat: 'Manche Seiten blockieren automatisierte Zugriffe oder verstecken alles hinter spät ladendem Code. In diesem Fall sieht die Website-Prüfung wenig, was selbst ein Signal ist, weil auch eine KI wenig sehen würde. Das selbst eingeschätzte Audit ist der verlässliche Rückgriff.',
           prefillBtn: 'Diese Ergebnisse zum Ausfüllen des Audits verwenden',
           keywordParking: 'Parkplatz',
           keywordFamily: 'Familien',
