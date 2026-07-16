@@ -1014,29 +1014,14 @@
       margin-top: 0;
     }
 
-    .deep-dive-title {
-      font-size: clamp(18px, 3vw, 20px);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      margin-bottom: 6px;
-    }
-
-    .deep-dive-intro {
-      font-size: 13px;
-      color: var(--ink2);
-      line-height: 1.55;
-      margin-bottom: 12px;
-    }
-
-    .deep-dive-privacy {
+    .deep-dive-privacy-inline {
       font-size: 12px;
       color: var(--muted);
       line-height: 1.55;
-      background: var(--bg);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-sm);
-      padding: 10px 12px;
+      margin-bottom: 10px;
+    }
+
+    .privacy-explainer {
       margin-bottom: 14px;
     }
 
@@ -1316,7 +1301,7 @@
       <div class="hero-eyebrow" data-i18n="heroEyebrow">Operator Series · Website Audit</div>
       <h1 id="hero-title" data-i18n="heroTitleInput">Is your direct booking site ready for AI?</h1>
       <p class="hero-subtitle" id="hero-subtitle" data-i18n="heroSubtitleInput">
-        This audit checks whether an assistant can find, recommend and book you. Paste your website address and we measure most of it for you. You answer four questions and paste one listing description.
+        This audit checks whether an assistant can find, recommend and book you.
       </p>
     </div>
   </section>
@@ -1349,24 +1334,30 @@
         <div class="panel step-panel" id="step-1-panel">
           <div class="step-kicker"><span class="step-number">1</span><span data-i18n="step1Label">Step 1</span></div>
           <div class="step-title" data-i18n="step1Title">Your website</div>
-          <p class="step-desc" data-i18n="step1Desc">Choose how to answer the website checks. You can measure them from your site first, or skip that and answer them yourself.</p>
 
           <div class="path-options" role="group" aria-label="Step 1 path" data-i18n-aria-label="step1PathGroupLabel">
             <button type="button" class="path-option active" id="path-auto-btn">
               <span class="path-option-title" data-i18n="pathAutoTitle">Check my site automatically</span>
-              <span class="path-option-text" data-i18n="pathAutoText">Paste your website address and we measure the checks a machine can judge.</span>
+              <span class="path-option-text" data-i18n="pathAutoText">We read your page and measure six of the checks for you.</span>
             </button>
             <button type="button" class="path-option" id="path-manual-btn">
               <span class="path-option-title" data-i18n="pathManualTitle">Answer manually instead</span>
-              <span class="path-option-text" data-i18n="pathManualText">Keep everything on your device and answer the website questions yourself.</span>
+              <span class="path-option-text" data-i18n="pathManualText">Nothing leaves your device. You answer the six yourself.</span>
             </button>
           </div>
 
           <div id="step1-auto-branch" class="step1-branch">
             <div class="deep-dive-panel" id="deep-dive-panel">
-              <div class="deep-dive-title" data-i18n="deepDiveTitle">Deep dive: read my real site</div>
-              <p class="deep-dive-intro" data-i18n="deepDiveIntro">This checks your actual website the way an AI does. It reads the first raw version of your page and reports what is there.</p>
-              <p class="deep-dive-privacy" data-i18n="deepDivePrivacy">This one check is different from the rest of the tool. To read your site, the address you enter is sent to a small server that fetches the page. Nothing else about you is sent or stored. The rest of the audit still runs entirely in your browser.</p>
+              <p class="deep-dive-privacy-inline" data-i18n="deepDivePrivacyInline">Your address is sent to a server to fetch the page. Nothing else is sent or stored.</p>
+              <div class="explainer privacy-explainer" id="privacy-explainer">
+                <button type="button" class="explainer-toggle" id="privacy-toggle" aria-expanded="false" aria-controls="privacy-body">
+                  <span class="explainer-toggle-text" data-i18n="deepDivePrivacyToggle">Why this check is different</span>
+                  <span class="explainer-chevron" aria-hidden="true">&#9660;</span>
+                </button>
+                <div class="explainer-body" id="privacy-body">
+                  <p class="explainer-layer-text" data-i18n="deepDivePrivacy">This one check is different from the rest of the tool. To read your site, the address you enter is sent to a small server that fetches the page. Nothing else about you is sent or stored. The rest of the audit still runs entirely in your browser.</p>
+                </div>
+              </div>
               <label class="field-label" for="deep-dive-url" data-i18n="deepDiveUrlLabel">Your website address</label>
               <input type="url" class="url-input" id="deep-dive-url" placeholder="https://www.yourproperty.com" autocomplete="url">
               <button type="button" class="deep-dive-btn" id="deep-dive-run-btn" data-i18n="deepDiveRunBtn">Run deep dive</button>
@@ -1377,17 +1368,13 @@
             <div class="measured-wrap hidden" id="step1-measured-wrap">
               <div class="measured-header">
                 <div class="measured-title" data-i18n="measuredTitle">What we measured</div>
-                <p class="measured-desc" data-i18n="measuredDesc">These six answers came from your website check. You can change any of them if you know the page contains something the check did not read.</p>
+                <p class="measured-desc" data-i18n="measuredDesc">Change any answer if the check missed something on your page.</p>
               </div>
               <div class="measured-list" id="step1-measured-list"></div>
             </div>
           </div>
 
           <div id="step1-manual-branch" class="step1-branch hidden">
-            <div class="measured-header">
-              <div class="measured-title" data-i18n="manualTitle">Answer the website questions manually</div>
-              <p class="measured-desc" data-i18n="manualDesc">Use this path if you do not want to send your website address to the server check.</p>
-            </div>
             <div class="measured-list" id="step1-manual-list"></div>
             <div class="manual-fallback-note hidden" id="manual-fallback-note"></div>
           </div>
@@ -1396,7 +1383,6 @@
         <div class="panel step-panel" id="step-2-panel">
           <div class="step-kicker"><span class="step-number">2</span><span data-i18n="step2Label">Step 2</span></div>
           <div class="step-title" data-i18n="step2Title">Your booking flow</div>
-          <p class="step-desc" data-i18n="step2Desc">Answer the part a crawler cannot settle from the page alone.</p>
 
           <div class="question-block" data-q="A5">
             <div class="question-text" data-i18n="qA5Text">Can a guest get from choosing dates to a confirmed booking without a step only a human can complete?</div>
@@ -1412,7 +1398,7 @@
         <div class="panel step-panel" id="step-3-panel">
           <div class="step-kicker"><span class="step-number">3</span><span data-i18n="step3Label">Step 3</span></div>
           <div class="step-title" data-i18n="step3Title">Your listing copy</div>
-          <p class="step-desc" data-i18n="step3Desc">Paste one description, then answer the copy questions below. The same on-device text checks still run.</p>
+          <p class="step-desc" data-i18n="step3Desc">Paste one description, then answer three questions.</p>
 
           <label class="field-label" for="listingText" data-i18n="listingLabel">Paste the main description text from one of your listings or property pages.</label>
           <textarea id="listingText" name="listingText" placeholder="Paste your listing description here…" data-i18n-placeholder="listingPlaceholder"></textarea>
@@ -1451,7 +1437,6 @@
         <div class="panel step-panel" id="step-4-panel">
           <div class="step-kicker"><span class="step-number">4</span><span data-i18n="step4Label">Step 4</span></div>
           <div class="step-title" data-i18n="step4Title">Run the audit</div>
-          <p class="step-desc" data-i18n="step4Desc">Run the same score and report once your answers are ready.</p>
 
           <button type="submit" class="submit-btn" data-i18n="runAudit">Run audit</button>
         </div>
@@ -1972,6 +1957,12 @@
       this.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
 
+    document.getElementById('privacy-toggle').addEventListener('click', function() {
+      const box = document.getElementById('privacy-explainer');
+      const open = box.classList.toggle('is-open');
+      this.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
     // --- Deep dive ---
     function yesNo(val) {
       const pack = (I18N[currentLang] || I18N.en).ui;
@@ -2346,34 +2337,29 @@
           headerLink: 'Suite Hub',
           heroEyebrow: 'Operator Series · Website Audit',
           heroTitleInput: 'Is your direct booking site ready for AI?',
-          heroSubtitleInput: 'This audit checks whether an assistant can find, recommend and book you. Paste your website address and we measure most of it for you. You answer four questions and paste one listing description.',
+          heroSubtitleInput: 'This audit checks whether an assistant can find, recommend and book you.',
           heroTitleOutput: 'Your AI-readiness result',
           heroSubtitleOutput: 'A snapshot of how ready your direct booking site is for AI-driven discovery and booking.',
           step1Label: 'Step 1',
           step1PathGroupLabel: 'Step 1 path',
           step1Title: 'Your website',
-          step1Desc: 'Choose how to answer the website checks. You can measure them from your site first, or skip that and answer them yourself.',
           pathAutoTitle: 'Check my site automatically',
-          pathAutoText: 'Paste your website address and we measure the checks a machine can judge.',
+          pathAutoText: 'We read your page and measure six of the checks for you.',
           pathManualTitle: 'Answer manually instead',
-          pathManualText: 'Keep everything on your device and answer the website questions yourself.',
+          pathManualText: 'Nothing leaves your device. You answer the six yourself.',
           measuredTitle: 'What we measured',
-          measuredDesc: 'These six answers came from your website check. You can change any of them if you know the page contains something the check did not read.',
-          manualTitle: 'Answer the website questions manually',
-          manualDesc: 'Use this path if you do not want to send your website address to the server check.',
+          measuredDesc: 'Change any answer if the check missed something on your page.',
           measuredLabel: 'Measured',
           measuredChanged: 'Changed',
           measuredNote: 'Measured answer: {answer}. You can change this if needed.',
           measuredChangedNote: 'You changed this answer to {answer}. Your answer will be used in the score.',
           step2Label: 'Step 2',
           step2Title: 'Your booking flow',
-          step2Desc: 'Answer the part a crawler cannot settle from the page alone.',
           step3Label: 'Step 3',
           step3Title: 'Your listing copy',
-          step3Desc: 'Paste one description, then answer the copy questions below. The same on-device text checks still run.',
+          step3Desc: 'Paste one description, then answer three questions.',
           step4Label: 'Step 4',
           step4Title: 'Run the audit',
-          step4Desc: 'Run the same score and report once your answers are ready.',
           explainerToggle: 'How AI reads your site',
           explainerLayer1Title: '1. The raw text a site sends first.',
           explainerLayer1Text: 'This is the version an AI reads. It is the site stripped of its looks, just the words and the structure underneath.',
@@ -2414,8 +2400,8 @@
           no: 'No',
           unsure: 'Not sure',
           runAudit: 'Run audit',
-          deepDiveTitle: 'Deep dive: read my real site',
-          deepDiveIntro: 'This checks your actual website the way an AI does. It reads the first raw version of your page and reports what is there.',
+          deepDivePrivacyInline: 'Your address is sent to a server to fetch the page. Nothing else is sent or stored.',
+          deepDivePrivacyToggle: 'Why this check is different',
           deepDivePrivacy: 'This one check is different from the rest of the tool. To read your site, the address you enter is sent to a small server that fetches the page. Nothing else about you is sent or stored. The rest of the audit still runs entirely in your browser.',
           deepDiveUrlLabel: 'Your website address',
           deepDiveRunBtn: 'Run deep dive',
@@ -2518,7 +2504,7 @@
           keywordDistance: 'distance to centre',
           keywordsNone: 'None found',
           keywordsNoneFound: 'None of the guest-question keywords found',
-          summaryThin: '<strong>We reached the site, but the raw page had very little to read</strong> ({wc} words, {bytes} bytes of HTML). That often means the real content loads with JavaScript after the first response. An AI would see the same gap. Your self-assessed answers still matter more here.',
+          summaryThin: '<strong>We reached the site, but the raw page had very little to read</strong> ({wc} words, {bytes} bytes of HTML). That often means the real content loads with JavaScript after the first response. An AI would see that gap. Your self-assessed answers still matter more here.',
           summaryOk: '<strong>Page read successfully.</strong> HTTP {status}, about {wc} words in the raw text. {yesCount} of 7 checks passed. "No" means a fixable gap in what AI can see, not that the tool failed.'
         }
       },
@@ -2530,34 +2516,29 @@
           headerLink: 'Hub Suite',
           heroEyebrow: 'Operator Series · Controllo del sito',
           heroTitleInput: 'Il tuo sito di prenotazione diretta è pronto per l’AI?',
-          heroSubtitleInput: 'Questo controllo verifica se un assistente può trovarti, raccomandarti e prenotarti. Incolla l’indirizzo del tuo sito e ne misuriamo gran parte per te. Tu rispondi a quattro domande e incolli una descrizione dell’annuncio.',
+          heroSubtitleInput: 'Questo controllo verifica se un assistente può trovarti, raccomandarti e prenotarti.',
           heroTitleOutput: 'Il tuo risultato di AI-readiness',
           heroSubtitleOutput: 'Una fotografia di quanto il tuo sito di prenotazione diretta sia pronto per la scoperta e la prenotazione guidate dall’AI.',
           step1Label: 'Passo 1',
           step1PathGroupLabel: 'Percorso del passo 1',
           step1Title: 'Il tuo sito web',
-          step1Desc: 'Scegli come rispondere ai controlli del sito. Puoi misurarli prima dal tuo sito oppure saltare questo passaggio e rispondere tu.',
           pathAutoTitle: 'Controlla il mio sito automaticamente',
-          pathAutoText: 'Incolla l’indirizzo del tuo sito e misuriamo i controlli che una macchina può giudicare.',
+          pathAutoText: 'Leggiamo la tua pagina e misuriamo sei dei controlli per te.',
           pathManualTitle: 'Rispondi manualmente invece',
-          pathManualText: 'Tieni tutto sul tuo dispositivo e rispondi tu alle domande sul sito.',
+          pathManualText: 'Niente lascia il tuo dispositivo. Rispondi tu alle sei domande.',
           measuredTitle: 'Cosa abbiamo misurato',
-          measuredDesc: 'Queste sei risposte arrivano dal controllo del tuo sito. Puoi cambiarne una se sai che la pagina contiene qualcosa che il controllo non ha letto.',
-          manualTitle: 'Rispondi manualmente alle domande sul sito',
-          manualDesc: 'Usa questo percorso se non vuoi inviare l’indirizzo del tuo sito al controllo sul server.',
+          measuredDesc: 'Cambia una risposta se il controllo non ha letto qualcosa sulla tua pagina.',
           measuredLabel: 'Misurato',
           measuredChanged: 'Modificato',
           measuredNote: 'Risposta misurata: {answer}. Puoi cambiarla se serve.',
           measuredChangedNote: 'Hai cambiato questa risposta in {answer}. Nel punteggio useremo la tua risposta.',
           step2Label: 'Passo 2',
           step2Title: 'Il tuo percorso di prenotazione',
-          step2Desc: 'Rispondi alla parte che un crawler non può stabilire dalla sola pagina.',
           step3Label: 'Passo 3',
           step3Title: 'Il testo del tuo annuncio',
-          step3Desc: 'Incolla una descrizione, poi rispondi alle domande sul testo qui sotto. Gli stessi controlli deterministici sul dispositivo continuano a funzionare.',
+          step3Desc: 'Incolla una descrizione, poi rispondi a tre domande.',
           step4Label: 'Passo 4',
           step4Title: 'Esegui il controllo',
-          step4Desc: 'Esegui lo stesso punteggio e lo stesso report quando le risposte sono pronte.',
           explainerToggle: 'Come l’AI legge il tuo sito',
           explainerLayer1Title: '1. Il testo grezzo che un sito invia per primo.',
           explainerLayer1Text: 'È la versione che un’AI legge. È il sito spogliato del suo aspetto, solo le parole e la struttura sottostante.',
@@ -2598,8 +2579,8 @@
           no: 'No',
           unsure: 'Non sono sicuro',
           runAudit: 'Esegui il controllo',
-          deepDiveTitle: 'Approfondimento: leggi il mio sito reale',
-          deepDiveIntro: 'Questo controllo legge il tuo sito reale come farebbe un’AI. Legge la prima versione grezza della tua pagina e riporta cosa trova.',
+          deepDivePrivacyInline: 'Il tuo indirizzo viene inviato a un server per recuperare la pagina. Nessun altro dato viene inviato o conservato.',
+          deepDivePrivacyToggle: 'Perché questo controllo è diverso',
           deepDivePrivacy: 'Questo controllo è diverso dal resto dello strumento. Per leggere il tuo sito, l’indirizzo che inserisci viene inviato a un piccolo server che recupera la pagina. Nessun altro dato su di te viene inviato o conservato. Il resto del controllo continua a funzionare interamente nel tuo browser.',
           deepDiveUrlLabel: 'L’indirizzo del tuo sito',
           deepDiveRunBtn: 'Esegui l’approfondimento',
@@ -2702,7 +2683,7 @@
           keywordDistance: 'distanza dal centro',
           keywordsNone: 'Nessuna trovata',
           keywordsNoneFound: 'Nessuna delle parole chiave delle domande degli ospiti trovata',
-          summaryThin: '<strong>Abbiamo raggiunto il sito, ma la pagina grezza aveva pochissimo da leggere</strong> ({wc} parole, {bytes} byte di HTML). Questo spesso significa che il contenuto reale si carica con JavaScript dopo la prima risposta. Un’AI vedrebbe la stessa lacuna. Le tue risposte autovalutate contano ancora di più qui.',
+          summaryThin: '<strong>Abbiamo raggiunto il sito, ma la pagina grezza aveva pochissimo da leggere</strong> ({wc} parole, {bytes} byte di HTML). Questo spesso significa che il contenuto reale si carica con JavaScript dopo la prima risposta. Un’AI vedrebbe questa lacuna. Le tue risposte autovalutate contano ancora di più qui.',
           summaryOk: '<strong>Pagina letta correttamente.</strong> HTTP {status}, circa {wc} parole nel testo grezzo. {yesCount} controlli su 7 superati. "No" significa una lacuna correggibile in ciò che l’AI può vedere, non che lo strumento abbia fallito.'
         }
       },
@@ -2714,34 +2695,29 @@
           headerLink: 'Suite-Hub',
           heroEyebrow: 'Operator Series · Website-Audit',
           heroTitleInput: 'Ist Ihre Direktbuchungsseite bereit für KI?',
-          heroSubtitleInput: 'Dieser Check prüft, ob ein Assistent Sie finden, empfehlen und bei Ihnen buchen kann. Fügen Sie Ihre Website-Adresse ein und wir messen den größten Teil davon für Sie. Sie beantworten vier Fragen und fügen eine Angebotsbeschreibung ein.',
+          heroSubtitleInput: 'Dieser Check prüft, ob ein Assistent Sie finden, empfehlen und bei Ihnen buchen kann.',
           heroTitleOutput: 'Ihr KI-Readiness-Ergebnis',
           heroSubtitleOutput: 'Eine Momentaufnahme, wie bereit Ihre Direktbuchungsseite für KI-gestützte Auffindbarkeit und Buchung ist.',
           step1Label: 'Schritt 1',
           step1PathGroupLabel: 'Pfad für Schritt 1',
           step1Title: 'Ihre Website',
-          step1Desc: 'Wählen Sie, wie Sie die Website-Prüfungen beantworten möchten. Sie können sie zuerst auf Ihrer Website messen oder das überspringen und selbst antworten.',
           pathAutoTitle: 'Meine Website automatisch prüfen',
-          pathAutoText: 'Fügen Sie Ihre Website-Adresse ein und wir messen die Punkte, die eine Maschine beurteilen kann.',
+          pathAutoText: 'Wir lesen Ihre Seite und messen sechs der Prüfungen für Sie.',
           pathManualTitle: 'Stattdessen manuell antworten',
-          pathManualText: 'Behalten Sie alles auf Ihrem Gerät und beantworten Sie die Website-Fragen selbst.',
+          pathManualText: 'Nichts verlässt Ihr Gerät. Sie beantworten die sechs selbst.',
           measuredTitle: 'Was wir gemessen haben',
-          measuredDesc: 'Diese sechs Antworten stammen aus Ihrer Website-Prüfung. Sie können jede davon ändern, wenn Sie wissen, dass die Seite etwas enthält, das der Check nicht gelesen hat.',
-          manualTitle: 'Die Website-Fragen manuell beantworten',
-          manualDesc: 'Nutzen Sie diesen Weg, wenn Sie Ihre Website-Adresse nicht an den Server-Check senden möchten.',
+          measuredDesc: 'Ändern Sie eine Antwort, wenn der Check etwas auf Ihrer Seite übersehen hat.',
           measuredLabel: 'Gemessen',
           measuredChanged: 'Geändert',
           measuredNote: 'Gemessene Antwort: {answer}. Sie können das bei Bedarf ändern.',
           measuredChangedNote: 'Sie haben diese Antwort auf {answer} geändert. Für die Bewertung wird Ihre Antwort verwendet.',
           step2Label: 'Schritt 2',
           step2Title: 'Ihr Buchungsablauf',
-          step2Desc: 'Beantworten Sie den Teil, den ein Crawler nicht allein aus der Seite ableiten kann.',
           step3Label: 'Schritt 3',
           step3Title: 'Ihr Angebotstext',
-          step3Desc: 'Fügen Sie eine Beschreibung ein und beantworten Sie dann die Textfragen darunter. Dieselben Prüfungen auf dem Gerät laufen weiter.',
+          step3Desc: 'Fügen Sie eine Beschreibung ein und beantworten Sie drei Fragen.',
           step4Label: 'Schritt 4',
           step4Title: 'Audit starten',
-          step4Desc: 'Starten Sie dieselbe Bewertung und denselben Bericht, sobald Ihre Antworten bereit sind.',
           explainerToggle: 'Wie KI Ihre Website liest',
           explainerLayer1Title: '1. Der Rohtext, den eine Seite zuerst sendet.',
           explainerLayer1Text: 'Das ist die Version, die eine KI liest. Die Seite ohne ihr Erscheinungsbild, nur die Worte und die Struktur darunter.',
@@ -2782,8 +2758,8 @@
           no: 'Nein',
           unsure: 'Nicht sicher',
           runAudit: 'Audit starten',
-          deepDiveTitle: 'Deep Dive: meine echte Website lesen',
-          deepDiveIntro: 'Dieser Check liest Ihre echte Website so, wie es eine KI tut. Er liest die erste Rohversion Ihrer Seite und berichtet, was dort steht.',
+          deepDivePrivacyInline: 'Ihre Adresse wird an einen Server gesendet, der die Seite abruft. Sonst wird nichts gesendet oder gespeichert.',
+          deepDivePrivacyToggle: 'Warum dieser Check anders ist',
           deepDivePrivacy: 'Dieser eine Check unterscheidet sich vom Rest des Tools. Um Ihre Website zu lesen, wird die eingegebene Adresse an einen kleinen Server gesendet, der die Seite abruft. Sonst wird nichts über Sie gesendet oder gespeichert. Der Rest des Audits läuft weiterhin vollständig in Ihrem Browser.',
           deepDiveUrlLabel: 'Ihre Website-Adresse',
           deepDiveRunBtn: 'Deep Dive starten',
@@ -2886,7 +2862,7 @@
           keywordDistance: 'Entfernung zum Zentrum',
           keywordsNone: 'Keine gefunden',
           keywordsNoneFound: 'Keines der Schlüsselwörter zu Gästefragen gefunden',
-          summaryThin: '<strong>Wir haben die Website erreicht, aber die Rohseite hatte sehr wenig zu lesen</strong> ({wc} Wörter, {bytes} Bytes HTML). Das bedeutet oft, dass der eigentliche Inhalt erst nach der ersten Antwort per JavaScript geladen wird. Eine KI würde die gleiche Lücke sehen. Ihre selbst eingeschätzten Antworten zählen hier noch mehr.',
+          summaryThin: '<strong>Wir haben die Website erreicht, aber die Rohseite hatte sehr wenig zu lesen</strong> ({wc} Wörter, {bytes} Bytes HTML). Das bedeutet oft, dass der eigentliche Inhalt erst nach der ersten Antwort per JavaScript geladen wird. Eine KI würde diese Lücke sehen. Ihre selbst eingeschätzten Antworten zählen hier noch mehr.',
           summaryOk: '<strong>Seite erfolgreich gelesen.</strong> HTTP {status}, etwa {wc} Wörter im Rohtext. {yesCount} von 7 Prüfungen bestanden. "Nein" bedeutet eine behebbare Lücke in dem, was KI sehen kann, nicht dass das Tool versagt hat.'
         }
       }
