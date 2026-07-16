@@ -1569,7 +1569,7 @@
       </div>
 
       <p class="output-footer-text" data-i18n="outputFooter1">
-        Built by Roger Bisschoff. If AI-readiness is something you are working through for a portfolio, the <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">LinkedIn link</a> above is the best way to reach me.
+        Closing the gaps that keep assistants from finding and booking you is the work I do with operators. If you want to talk it through: <a href="mailto:rbisschoff@gmail.com?subject=Website%20AI%20Ready%20Audit" data-contact-tool="ai-ready-audit">rbisschoff@gmail.com</a>
       </p>
       <p class="output-footer-text" data-i18n="outputFooter2">
         <a href="https://rbisschoff.github.io/operator-intelligence-suite/">Back to the Operator Intelligence Suite</a>
@@ -1579,7 +1579,7 @@
   </main>
 
   <footer>
-    <p data-i18n="footerText">Website AI Ready Audit - part of the Operator Intelligence Suite by <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">Roger Bisschoff</a></p>
+    <p data-i18n="footerText">Website AI Ready Audit - part of the Operator Intelligence Suite by <a href="https://linkedin.com/in/roger-bisschoff" target="_blank" rel="noopener noreferrer">Roger Bisschoff</a></p>
   </footer>
 
   <script>
@@ -2005,6 +2005,14 @@
       else body.setAttribute('hidden', '');
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       btn.textContent = open ? btn.getAttribute('data-hide-label') : btn.getAttribute('data-show-label');
+    });
+
+    document.addEventListener('click', function(e) {
+      const a = e.target.closest('a[data-contact-tool]');
+      if (!a) return;
+      if (typeof gtag === 'function') {
+        gtag('event', 'contact_click', { tool: a.getAttribute('data-contact-tool') });
+      }
     });
 
     document.getElementById('start-again-btn').addEventListener('click', function() {
@@ -2486,10 +2494,10 @@
           standTitle: 'Where you stand today',
           gapsTitle: 'Where AI is passing you by',
           fixTitle: 'What to fix first',
-          outputFooter1: 'Built by Roger Bisschoff. If you are working through this for a portfolio, <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">LinkedIn</a> is the best way to reach me.',
+          outputFooter1: 'Closing the gaps that keep assistants from finding and booking you is the work I do with operators. If you want to talk it through: <a href="mailto:rbisschoff@gmail.com?subject=Website%20AI%20Ready%20Audit" data-contact-tool="ai-ready-audit">rbisschoff@gmail.com</a>',
           outputFooter2: '<a href="https://rbisschoff.github.io/operator-intelligence-suite/">Back to the Operator Intelligence Suite</a>',
           startAgain: 'Start again',
-          footerText: 'Website AI Ready Audit - part of the Operator Intelligence Suite by <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">Roger Bisschoff</a>',
+          footerText: 'Website AI Ready Audit - part of the Operator Intelligence Suite by <a href="https://linkedin.com/in/roger-bisschoff" target="_blank" rel="noopener noreferrer">Roger Bisschoff</a>',
           resultHeroLabel: 'Overall readiness',
           statPassed: '<strong>{n}</strong> of 10 passed',
           potentialLine: 'Fix the items below to reach <strong>{potential} / 100</strong> ({visLabel} {potVis}, {bookLabel} {potBook}).',
@@ -2661,10 +2669,10 @@
           standTitle: 'Dove ti trovi oggi',
           gapsTitle: 'Dove l’AI ti sta ignorando',
           fixTitle: 'Cosa correggere prima',
-          outputFooter1: 'Realizzato da Roger Bisschoff. Se stai lavorando su questo per un portfolio, <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">LinkedIn</a> è il modo migliore per contattarmi.',
+          outputFooter1: 'Chiudere le lacune che impediscono agli assistenti di trovarti e prenotarti è il lavoro che faccio con gli operatori. Se vuoi parlarne: <a href="mailto:rbisschoff@gmail.com?subject=Website%20AI%20Ready%20Audit" data-contact-tool="ai-ready-audit">rbisschoff@gmail.com</a>',
           outputFooter2: '<a href="https://rbisschoff.github.io/operator-intelligence-suite/">Torna all’Operator Intelligence Suite</a>',
           startAgain: 'Ricomincia',
-          footerText: 'Website AI Ready Audit - parte dell’Operator Intelligence Suite di <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">Roger Bisschoff</a>',
+          footerText: 'Website AI Ready Audit - parte dell’Operator Intelligence Suite di <a href="https://linkedin.com/in/roger-bisschoff" target="_blank" rel="noopener noreferrer">Roger Bisschoff</a>',
           resultHeroLabel: 'Prontezza complessiva',
           statPassed: '<strong>{n}</strong> su 10 superati',
           potentialLine: 'Correggi gli elementi qui sotto per raggiungere <strong>{potential} / 100</strong> ({visLabel} {potVis}, {bookLabel} {potBook}).',
@@ -2836,10 +2844,10 @@
           standTitle: 'Wo Sie heute stehen',
           gapsTitle: 'Wo KI an Ihnen vorbeigeht',
           fixTitle: 'Was Sie zuerst beheben sollten',
-          outputFooter1: 'Erstellt von Roger Bisschoff. Wenn Sie das für ein Portfolio durcharbeiten, ist <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">LinkedIn</a> der beste Weg, mich zu erreichen.',
+          outputFooter1: 'Die Lücken zu schließen, die Assistenten daran hindern, Sie zu finden und zu buchen, ist meine Arbeit mit Betreibern. Wenn Sie darüber sprechen möchten: <a href="mailto:rbisschoff@gmail.com?subject=Website%20AI%20Ready%20Audit" data-contact-tool="ai-ready-audit">rbisschoff@gmail.com</a>',
           outputFooter2: '<a href="https://rbisschoff.github.io/operator-intelligence-suite/">Zurück zur Operator Intelligence Suite</a>',
           startAgain: 'Neu starten',
-          footerText: 'Website AI Ready Audit - Teil der Operator Intelligence Suite von <a href="https://linkedin.com/in/rogerbisschoff" target="_blank" rel="noopener noreferrer">Roger Bisschoff</a>',
+          footerText: 'Website AI Ready Audit - Teil der Operator Intelligence Suite von <a href="https://linkedin.com/in/roger-bisschoff" target="_blank" rel="noopener noreferrer">Roger Bisschoff</a>',
           resultHeroLabel: 'Gesamtbereitschaft',
           statPassed: '<strong>{n}</strong> von 10 bestanden',
           potentialLine: 'Beheben Sie die folgenden Punkte, um <strong>{potential} / 100</strong> zu erreichen ({visLabel} {potVis}, {bookLabel} {potBook}).',
