@@ -1359,7 +1359,7 @@
                 </div>
               </div>
               <label class="field-label" for="deep-dive-url" data-i18n="deepDiveUrlLabel">Your website address</label>
-              <input type="url" class="url-input" id="deep-dive-url" placeholder="https://www.yourproperty.com" autocomplete="url">
+              <input type="url" class="url-input" id="deep-dive-url" placeholder="www.yourproperty.com" data-i18n-placeholder="deepDiveUrlPlaceholder" autocomplete="url">
               <button type="button" class="deep-dive-btn" id="deep-dive-run-btn" data-i18n="deepDiveRunBtn">Run deep dive</button>
               <div class="deep-dive-msg hidden" id="deep-dive-msg"></div>
               <div class="deep-dive-results hidden" id="deep-dive-results"></div>
@@ -2235,19 +2235,37 @@
       }
     }
 
+    function normalizeDeepDiveUrl(raw) {
+      let url = (raw || '').trim();
+      if (!url) return null;
+      if (!/^https?:\/\//i.test(url)) {
+        url = 'https://' + url;
+      }
+      try {
+        const parsed = new URL(url);
+        const host = parsed.hostname;
+        if (!host || /\s/.test(host) || host.indexOf('.') === -1) return null;
+        if (!/^[a-z0-9.-]+$/i.test(host)) return null;
+        return url;
+      } catch (e) {
+        return null;
+      }
+    }
+
     async function runDeepDive() {
       const pack = (I18N[currentLang] || I18N.en).ui;
       const urlInput = document.getElementById('deep-dive-url');
-      const url = (urlInput.value || '').trim();
+      const rawUrl = (urlInput.value || '').trim();
+      const url = normalizeDeepDiveUrl(rawUrl);
       const btn = document.getElementById('deep-dive-run-btn');
       const resultsEl = document.getElementById('deep-dive-results');
 
-      if (!/^https?:\/\//i.test(url)) {
+      if (!url) {
         showDeepDiveMessage(pack.deepDiveErrInvalidUrl, 'error');
-        setInputMode('manual');
-        showManualFallback(pack.manualFallbackInvalid);
         return;
       }
+
+      urlInput.value = url;
 
       if (!DEEP_DIVE_ENDPOINT) {
         showDeepDiveMessage(pack.deepDiveErrNotConnected, 'error');
@@ -2322,8 +2340,6 @@
         });
       });
     });
-    mountStep1Questions();
-    setInputMode('auto');
 
     // --- i18n ---
     const HTML_I18N_KEYS = ['outputFooter1', 'outputFooter2', 'footerText'];
@@ -2404,6 +2420,7 @@
           deepDivePrivacyToggle: 'Why this check is different',
           deepDivePrivacy: 'This one check is different from the rest of the tool. To read your site, the address you enter is sent to a small server that fetches the page. Nothing else about you is sent or stored. The rest of the audit still runs entirely in your browser.',
           deepDiveUrlLabel: 'Your website address',
+          deepDiveUrlPlaceholder: 'www.yourproperty.com',
           deepDiveRunBtn: 'Run deep dive',
           deepDiveOutputTitle: 'Deep dive results',
           standTitle: 'Where you stand today',
@@ -2583,6 +2600,7 @@
           deepDivePrivacyToggle: 'Perché questo controllo è diverso',
           deepDivePrivacy: 'Questo controllo è diverso dal resto dello strumento. Per leggere il tuo sito, l’indirizzo che inserisci viene inviato a un piccolo server che recupera la pagina. Nessun altro dato su di te viene inviato o conservato. Il resto del controllo continua a funzionare interamente nel tuo browser.',
           deepDiveUrlLabel: 'L’indirizzo del tuo sito',
+          deepDiveUrlPlaceholder: 'www.la-tua-struttura.it',
           deepDiveRunBtn: 'Esegui l’approfondimento',
           deepDiveOutputTitle: 'Risultati dell’approfondimento',
           standTitle: 'Dove ti trovi oggi',
@@ -2762,6 +2780,7 @@
           deepDivePrivacyToggle: 'Warum dieser Check anders ist',
           deepDivePrivacy: 'Dieser eine Check unterscheidet sich vom Rest des Tools. Um Ihre Website zu lesen, wird die eingegebene Adresse an einen kleinen Server gesendet, der die Seite abruft. Sonst wird nichts über Sie gesendet oder gespeichert. Der Rest des Audits läuft weiterhin vollständig in Ihrem Browser.',
           deepDiveUrlLabel: 'Ihre Website-Adresse',
+          deepDiveUrlPlaceholder: 'www.ihre-unterkunft.de',
           deepDiveRunBtn: 'Deep Dive starten',
           deepDiveOutputTitle: 'Deep-Dive-Ergebnisse',
           standTitle: 'Wo Sie heute stehen',
@@ -2941,6 +2960,8 @@
     });
 
     applyLang(window.__oisInitialLang || 'en');
+    mountStep1Questions();
+    setInputMode('auto');
   </script>
 </body>
 </html>
