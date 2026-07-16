@@ -887,6 +887,60 @@
       flex-wrap: wrap;
     }
 
+    .example-toggle {
+      margin-top: 10px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--accent);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .example-toggle:hover {
+      text-decoration: underline;
+    }
+
+    .example-body {
+      margin-top: 10px;
+      padding: 12px 14px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      font-size: 13px;
+      color: var(--ink2);
+      line-height: 1.55;
+    }
+
+    .example-body strong {
+      color: var(--ink);
+    }
+
+    .example-body code,
+    .example-body pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+    }
+
+    .example-body code {
+      background: rgba(31, 41, 55, 0.06);
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
+
+    .example-body pre {
+      margin: 8px 0 0;
+      padding: 10px 12px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      background: var(--card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      color: var(--ink);
+    }
+
     .pts-badge {
       font-size: 12px;
       font-weight: 600;
@@ -1559,61 +1613,71 @@
         bar: 'visibility',
         short: 'Property and room structured data',
         gap: 'Without schema.org markup for the property and rooms, an assistant has to guess what you offer rather than reading it directly.',
-        action: 'Add schema.org structured data for your property and room types. Most site builders have a plugin or a settings panel for this.'
+        action: 'Add schema.org structured data for your property and room types. Most site builders have a plugin or a settings panel for this.',
+        example: '<strong>Copy, paste, edit:</strong><pre><code>{\n  "@context": "https://schema.org",\n  "@type": "LodgingBusiness",\n  "name": "Example Stay",\n  "url": "https://www.example.com",\n  "address": {"@type": "PostalAddress", "addressLocality": "Florence"},\n  "containsPlace": {\n    "@type": "HotelRoom",\n    "name": "Garden Room",\n    "occupancy": {"@type": "QuantitativeValue", "maxValue": 2}\n  }\n}</code></pre>'
       },
       B4: {
         bar: 'visibility',
         short: 'Core content in crawlable text',
         gap: 'If what the place is, where it is, and who it suits only exist in images or graphics, an assistant cannot use them.',
-        action: 'Move the core property facts into plain text on the page so they make sense without photos or design.'
+        action: 'Move the core property facts into plain text on the page so they make sense without photos or design.',
+        example: '<strong>Example paragraph:</strong> Family-run two-bedroom apartment in central Florence, a 10-minute walk from the Duomo. Sleeps four, includes a full kitchen and one parking space, and suits couples or small families visiting the city.'
       },
       A4: {
         bar: 'visibility',
         short: 'Answers to natural guest questions',
         gap: 'Assistants recommend sites that answer the question being asked: parking, families, location, policy.',
-        action: 'Add a short FAQ section in plain text covering the questions guests ask before they book.'
+        action: 'Add a short FAQ section in plain text covering the questions guests ask before they book.',
+        example: '<strong>Example FAQ:</strong><br>Is it family-friendly? Yes, we provide a cot and high chair.<br>Is there parking? One on-site space is included.<br>How far is the centre? About 10 minutes on foot.<br>What is the cancellation policy? Free cancellation up to 7 days before arrival.'
       },
       B1: {
         bar: 'visibility',
         short: 'Purpose-led opening',
         gap: 'A feature-first opening gives an AI nothing to summarise or recommend on.',
-        action: 'Rewrite the first sentence to say what the place is and who it suits, before listing amenities.'
+        action: 'Rewrite the first sentence to say what the place is and who it suits, before listing amenities.',
+        example: '<strong>Before:</strong> Wi-Fi, air conditioning and a private balcony make this a lovely stay.<br><strong>After:</strong> Bright one-bedroom apartment for couples who want a quiet base near the historic centre.'
       },
       B2: {
         bar: 'visibility',
         short: 'Concrete facts in copy',
         gap: 'Marketing adjectives are invisible to a machine; concrete facts are what get quoted and recommended.',
-        action: 'Replace vague phrases with specific details: capacity, distances, transport links, and key amenities in clear sentences.'
+        action: 'Replace vague phrases with specific details: capacity, distances, transport links, and key amenities in clear sentences.',
+        example: '<strong>Before:</strong> Cosy and charming with everything you need for a perfect stay.<br><strong>After:</strong> Sleeps four, includes two bedrooms, one parking space, and is 8 minutes from the station on foot.'
       },
       B3: {
         bar: 'visibility',
         short: 'Policy stated in text',
         gap: 'An assistant checks cancellation and booking terms before recommending. If they are missing, it moves on.',
-        action: 'Add your cancellation and booking policy as readable text in the listing description itself.'
+        action: 'Add your cancellation and booking policy as readable text in the listing description itself.',
+        example: '<strong>Ready-to-paste line:</strong> Free cancellation up to 7 days before arrival. After that, the first night is charged.'
       },
       A2: {
         bar: 'bookability',
         short: 'Readable prices and availability',
         gap: 'If prices and availability sit inside an embedded widget, an agent often cannot see them at all.',
-        action: 'Ensure prices and live availability appear as plain text in the page HTML, not only inside a third-party booking widget.'
+        action: 'Ensure prices and live availability appear as plain text in the page HTML, not only inside a third-party booking widget.',
+        example: '<strong>Add one plain-text line near the booking button:</strong> <code>From EUR120 per night.</code><br>That gives an assistant a number to quote even if your live rates stay inside the widget.'
       },
       A5: {
         bar: 'bookability',
         short: 'Bookable flow without human-only steps',
         gap: 'A booking path that needs human-only steps or many JavaScript-only clicks gives an agent nowhere reliable to complete or hand off a booking.',
-        action: 'Simplify the booking path so dates, confirmation, and a clear next step work without pop-up mazes or human-only hurdles.'
+        action: 'Simplify the booking path so dates, confirmation, and a clear next step work without pop-up mazes or human-only hurdles.',
+        example: '<strong>Use clear CTA copy:</strong> <code>Check dates and book</code><br><strong>Path:</strong> room page -> dates -> price -> guest details -> confirmation. Avoid pop-ups, phone-only steps, or "request to book" detours where possible.'
       },
       A3: {
         bar: 'bookability',
         short: 'Booking info in the first HTML',
         gap: 'If essential booking information only appears after the page fully renders, many agents never see it.',
-        action: 'Make sure booking essentials are present in the initial HTML response, not only after scripts run in a browser.'
+        action: 'Make sure booking essentials are present in the initial HTML response, not only after scripts run in a browser.',
+        example: '<strong>Make sure lines like these are visible in the page source:</strong><br><code>From EUR120 per night</code><br><code>Free cancellation up to 7 days before arrival</code><br><code>Check-in from 15:00, check-out by 10:00</code>'
       },
       B5: {
         bar: 'bookability',
         short: 'Offer and price structured data',
         gap: 'General property markup is not enough to book. Without offer or price schema, an agent still lacks machine-readable rates and availability.',
-        action: 'Add structured data for offers, prices, and availability, not only a general property description.'
+        action: 'Add structured data for offers, prices, and availability, not only a general property description.',
+        example: '<strong>Offer snippet:</strong><pre><code>{\n  "@context": "https://schema.org",\n  "@type": "Offer",\n  "priceCurrency": "EUR",\n  "price": "120",\n  "availability": "https://schema.org/InStock",\n  "url": "https://www.example.com/book"\n}</code></pre>'
       }
     };
 
@@ -1771,6 +1835,8 @@
       html += '<div class="fix-content">';
       html += '<div class="item-title">' + META[id].short + '</div>';
       html += '<span class="fix-action">' + META[id].action + '</span>';
+      html += '<button type="button" class="example-toggle" data-example-toggle aria-expanded="false" data-show-label="' + pack.showMe + '" data-hide-label="' + pack.hideMe + '">' + pack.showMe + '</button>';
+      html += '<div class="example-body" data-example-body hidden>' + META[id].example + '</div>';
       html += '<div class="fix-meta">';
       html += '<span class="bar-pill ' + barPillClass(barKey) + '">' + barLabel + '</span>';
       html += '<span class="pts-badge">' + pack.ptsBadge.replace('{n}', points) + '</span>';
@@ -1927,6 +1993,18 @@
     document.getElementById('audit-form').addEventListener('submit', function(e) {
       e.preventDefault();
       renderOutput();
+    });
+
+    document.getElementById('block-fix').addEventListener('click', function(e) {
+      const btn = e.target.closest('[data-example-toggle]');
+      if (!btn) return;
+      const body = btn.parentElement.querySelector('[data-example-body]');
+      if (!body) return;
+      const open = body.hasAttribute('hidden');
+      if (open) body.removeAttribute('hidden');
+      else body.setAttribute('hidden', '');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? btn.getAttribute('data-hide-label') : btn.getAttribute('data-show-label');
     });
 
     document.getElementById('start-again-btn').addEventListener('click', function() {
@@ -2426,6 +2504,8 @@
           gapsWorthChecking: 'Worth checking',
           fixNone: 'No priority fixes. You passed all structural checks.',
           ptsBadge: '+{n} pts',
+          showMe: 'Show me',
+          hideMe: 'Hide example',
           alertAllQuestions: 'Please answer all questions before running the audit.',
           textFlagGeneral: 'This description is very short. An AI has little to work with.',
           textFlagB1: 'Your opening line appears to lead with amenities.',
@@ -2440,16 +2520,16 @@
           manualFallbackCheck: 'We could not read that site, so the website questions are open below for manual answers.'
         },
         meta: {
-          A1: { short: 'Property and room structured data', gap: 'Without schema.org markup for the property and rooms, an assistant has to guess what you offer rather than reading it directly.', action: 'Add schema.org structured data for your property and room types. Most site builders have a plugin or a settings panel for this.' },
-          B4: { short: 'Core content in crawlable text', gap: 'If what the place is, where it is, and who it suits only exist in images or graphics, an assistant cannot use them.', action: 'Move the core property facts into plain text on the page so they make sense without photos or design.' },
-          A4: { short: 'Answers to natural guest questions', gap: 'Assistants recommend sites that answer the question being asked: parking, families, location, policy.', action: 'Add a short FAQ section in plain text covering the questions guests ask before they book.' },
-          B1: { short: 'Purpose-led opening', gap: 'A feature-first opening gives an AI nothing to summarise or recommend on.', action: 'Rewrite the first sentence to say what the place is and who it suits, before listing amenities.' },
-          B2: { short: 'Concrete facts in copy', gap: 'Marketing adjectives are invisible to a machine; concrete facts are what get quoted and recommended.', action: 'Replace vague phrases with specific details: capacity, distances, transport links, and key amenities in clear sentences.' },
-          B3: { short: 'Policy stated in text', gap: 'An assistant checks cancellation and booking terms before recommending. If they are missing, it moves on.', action: 'Add your cancellation and booking policy as readable text in the listing description itself.' },
-          A2: { short: 'Readable prices and availability', gap: 'If prices and availability sit inside an embedded widget, an agent often cannot see them at all.', action: 'Ensure prices and live availability appear as plain text in the page HTML, not only inside a third-party booking widget.' },
-          A5: { short: 'Bookable flow without human-only steps', gap: 'A booking path that needs human-only steps or many JavaScript-only clicks gives an agent nowhere reliable to complete or hand off a booking.', action: 'Simplify the booking path so dates, confirmation, and a clear next step work without pop-up mazes or human-only hurdles.' },
-          A3: { short: 'Booking info in the first HTML', gap: 'If essential booking information only appears after the page fully renders, many agents never see it.', action: 'Make sure booking essentials are present in the initial HTML response, not only after scripts run in a browser.' },
-          B5: { short: 'Offer and price structured data', gap: 'General property markup is not enough to book. Without offer or price schema, an agent still lacks machine-readable rates and availability.', action: 'Add structured data for offers, prices, and availability, not only a general property description.' }
+          A1: { short: 'Property and room structured data', gap: 'Without schema.org markup for the property and rooms, an assistant has to guess what you offer rather than reading it directly.', action: 'Add schema.org structured data for your property and room types. Most site builders have a plugin or a settings panel for this.', example: '<strong>Copy, paste, edit:</strong><pre><code>{\n  "@context": "https://schema.org",\n  "@type": "LodgingBusiness",\n  "name": "Example Stay",\n  "url": "https://www.example.com",\n  "address": {"@type": "PostalAddress", "addressLocality": "Florence"},\n  "containsPlace": {\n    "@type": "HotelRoom",\n    "name": "Garden Room",\n    "occupancy": {"@type": "QuantitativeValue", "maxValue": 2}\n  }\n}</code></pre>' },
+          B4: { short: 'Core content in crawlable text', gap: 'If what the place is, where it is, and who it suits only exist in images or graphics, an assistant cannot use them.', action: 'Move the core property facts into plain text on the page so they make sense without photos or design.', example: '<strong>Example paragraph:</strong> Family-run two-bedroom apartment in central Florence, a 10-minute walk from the Duomo. Sleeps four, includes a full kitchen and one parking space, and suits couples or small families visiting the city.' },
+          A4: { short: 'Answers to natural guest questions', gap: 'Assistants recommend sites that answer the question being asked: parking, families, location, policy.', action: 'Add a short FAQ section in plain text covering the questions guests ask before they book.', example: '<strong>Example FAQ:</strong><br>Is it family-friendly? Yes, we provide a cot and high chair.<br>Is there parking? One on-site space is included.<br>How far is the centre? About 10 minutes on foot.<br>What is the cancellation policy? Free cancellation up to 7 days before arrival.' },
+          B1: { short: 'Purpose-led opening', gap: 'A feature-first opening gives an AI nothing to summarise or recommend on.', action: 'Rewrite the first sentence to say what the place is and who it suits, before listing amenities.', example: '<strong>Before:</strong> Wi-Fi, air conditioning and a private balcony make this a lovely stay.<br><strong>After:</strong> Bright one-bedroom apartment for couples who want a quiet base near the historic centre.' },
+          B2: { short: 'Concrete facts in copy', gap: 'Marketing adjectives are invisible to a machine; concrete facts are what get quoted and recommended.', action: 'Replace vague phrases with specific details: capacity, distances, transport links, and key amenities in clear sentences.', example: '<strong>Before:</strong> Cosy and charming with everything you need for a perfect stay.<br><strong>After:</strong> Sleeps four, includes two bedrooms, one parking space, and is 8 minutes from the station on foot.' },
+          B3: { short: 'Policy stated in text', gap: 'An assistant checks cancellation and booking terms before recommending. If they are missing, it moves on.', action: 'Add your cancellation and booking policy as readable text in the listing description itself.', example: '<strong>Ready-to-paste line:</strong> Free cancellation up to 7 days before arrival. After that, the first night is charged.' },
+          A2: { short: 'Readable prices and availability', gap: 'If prices and availability sit inside an embedded widget, an agent often cannot see them at all.', action: 'Ensure prices and live availability appear as plain text in the page HTML, not only inside a third-party booking widget.', example: '<strong>Add one plain-text line near the booking button:</strong> <code>From EUR120 per night.</code><br>That gives an assistant a number to quote even if your live rates stay inside the widget.' },
+          A5: { short: 'Bookable flow without human-only steps', gap: 'A booking path that needs human-only steps or many JavaScript-only clicks gives an agent nowhere reliable to complete or hand off a booking.', action: 'Simplify the booking path so dates, confirmation, and a clear next step work without pop-up mazes or human-only hurdles.', example: '<strong>Use clear CTA copy:</strong> <code>Check dates and book</code><br><strong>Path:</strong> room page -> dates -> price -> guest details -> confirmation. Avoid pop-ups, phone-only steps, or "request to book" detours where possible.' },
+          A3: { short: 'Booking info in the first HTML', gap: 'If essential booking information only appears after the page fully renders, many agents never see it.', action: 'Make sure booking essentials are present in the initial HTML response, not only after scripts run in a browser.', example: '<strong>Make sure lines like these are visible in the page source:</strong><br><code>From EUR120 per night</code><br><code>Free cancellation up to 7 days before arrival</code><br><code>Check-in from 15:00, check-out by 10:00</code>' },
+          B5: { short: 'Offer and price structured data', gap: 'General property markup is not enough to book. Without offer or price schema, an agent still lacks machine-readable rates and availability.', action: 'Add structured data for offers, prices, and availability, not only a general property description.', example: '<strong>Offer snippet:</strong><pre><code>{\n  "@context": "https://schema.org",\n  "@type": "Offer",\n  "priceCurrency": "EUR",\n  "price": "120",\n  "availability": "https://schema.org/InStock",\n  "url": "https://www.example.com/book"\n}</code></pre>' }
         },
         bands: {
           visibility: {
@@ -2599,6 +2679,8 @@
           gapsWorthChecking: 'Da verificare',
           fixNone: 'Nessuna correzione prioritaria. Hai superato tutti i controlli strutturali.',
           ptsBadge: '+{n} punti',
+          showMe: 'Fammi vedere',
+          hideMe: 'Nascondi esempio',
           alertAllQuestions: 'Rispondi a tutte le domande prima di eseguire il controllo.',
           textFlagGeneral: 'Questa descrizione è molto breve. Un’AI ha poco materiale su cui lavorare.',
           textFlagB1: 'La tua frase iniziale sembra partire dai comfort.',
@@ -2613,16 +2695,16 @@
           manualFallbackCheck: 'Non siamo riusciti a leggere quel sito, quindi qui sotto trovi aperte le domande sul sito da compilare manualmente.'
         },
         meta: {
-          A1: { short: 'Dati strutturati per struttura e camere', gap: 'Senza il markup schema.org per la struttura e le camere, un assistente deve indovinare cosa offri invece di leggerlo direttamente.', action: 'Aggiungi dati strutturati schema.org per la tua struttura e le tipologie di camera. La maggior parte dei costruttori di siti ha un plugin o un pannello impostazioni per questo.' },
-          B4: { short: 'Contenuto principale in testo leggibile', gap: 'Se cos’è il posto, dove si trova e a chi si adatta esistono solo in immagini o grafiche, un assistente non può usarli.', action: 'Sposta i fatti principali della struttura in testo semplice sulla pagina, così hanno senso senza foto o design.' },
-          A4: { short: 'Risposte alle domande naturali degli ospiti', gap: 'Gli assistenti raccomandano i siti che rispondono alla domanda posta: parcheggio, famiglie, posizione, politiche.', action: 'Aggiungi una breve sezione FAQ in testo semplice che copra le domande che gli ospiti fanno prima di prenotare.' },
-          B1: { short: 'Apertura incentrata sullo scopo', gap: 'Un’apertura incentrata sulle caratteristiche non dà a un’AI nulla da riassumere o su cui raccomandare.', action: 'Riscrivi la prima frase per dire cos’è il posto e a chi si adatta, prima di elencare i comfort.' },
-          B2: { short: 'Fatti concreti nel testo', gap: 'Gli aggettivi da marketing sono invisibili per una macchina; i fatti concreti sono ciò che viene citato e raccomandato.', action: 'Sostituisci le frasi vaghe con dettagli specifici: capacità, distanze, collegamenti di trasporto e comfort principali in frasi chiare.' },
-          B3: { short: 'Politica indicata nel testo', gap: 'Un assistente controlla i termini di cancellazione e prenotazione prima di raccomandare. Se mancano, passa oltre.', action: 'Aggiungi la tua politica di cancellazione e prenotazione come testo leggibile nella descrizione dell’annuncio stessa.' },
-          A2: { short: 'Prezzi e disponibilità leggibili', gap: 'Se prezzi e disponibilità si trovano dentro un widget incorporato, spesso un agente non può vederli affatto.', action: 'Assicurati che prezzi e disponibilità in tempo reale appaiano come testo semplice nell’HTML della pagina, non solo dentro un widget di prenotazione di terze parti.' },
-          A5: { short: 'Percorso prenotabile senza passaggi solo umani', gap: 'Un percorso di prenotazione che richiede passaggi solo umani o molti clic possibili solo con JavaScript non dà a un agente un modo affidabile per completare o smistare una prenotazione.', action: 'Semplifica il percorso di prenotazione così che date, conferma e un passo successivo chiaro funzionino senza labirinti di pop-up o ostacoli solo umani.' },
-          A3: { short: 'Informazioni di prenotazione nel primo HTML', gap: 'Se le informazioni essenziali di prenotazione appaiono solo dopo il rendering completo della pagina, molti agenti non le vedono mai.', action: 'Assicurati che gli elementi essenziali di prenotazione siano presenti nella risposta HTML iniziale, non solo dopo l’esecuzione degli script nel browser.' },
-          B5: { short: 'Dati strutturati per offerta e prezzo', gap: 'Il markup generale della struttura non basta per prenotare. Senza schema di offerta o prezzo, un agente manca comunque di tariffe e disponibilità leggibili dalla macchina.', action: 'Aggiungi dati strutturati per offerte, prezzi e disponibilità, non solo una descrizione generale della struttura.' }
+          A1: { short: 'Dati strutturati per struttura e camere', gap: 'Senza il markup schema.org per la struttura e le camere, un assistente deve indovinare cosa offri invece di leggerlo direttamente.', action: 'Aggiungi dati strutturati schema.org per la tua struttura e le tipologie di camera. La maggior parte dei costruttori di siti ha un plugin o un pannello impostazioni per questo.', example: '<strong>Copia, incolla, modifica:</strong><pre><code>{\n  "@context": "https://schema.org",\n  "@type": "LodgingBusiness",\n  "name": "Example Stay",\n  "url": "https://www.example.com",\n  "address": {"@type": "PostalAddress", "addressLocality": "Florence"},\n  "containsPlace": {\n    "@type": "HotelRoom",\n    "name": "Garden Room",\n    "occupancy": {"@type": "QuantitativeValue", "maxValue": 2}\n  }\n}</code></pre>' },
+          B4: { short: 'Contenuto principale in testo leggibile', gap: 'Se cos’è il posto, dove si trova e a chi si adatta esistono solo in immagini o grafiche, un assistente non può usarli.', action: 'Sposta i fatti principali della struttura in testo semplice sulla pagina, così hanno senso senza foto o design.', example: '<strong>Esempio di paragrafo:</strong> Appartamento con due camere da letto nel centro di Firenze, a 10 minuti a piedi dal Duomo. Ospita quattro persone, include una cucina completa e un posto auto, ed è adatto a coppie o piccole famiglie.' },
+          A4: { short: 'Risposte alle domande naturali degli ospiti', gap: 'Gli assistenti raccomandano i siti che rispondono alla domanda posta: parcheggio, famiglie, posizione, politiche.', action: 'Aggiungi una breve sezione FAQ in testo semplice che copra le domande che gli ospiti fanno prima di prenotare.', example: '<strong>Esempio FAQ:</strong><br>E adatto alle famiglie? Sì, forniamo culla e seggiolone.<br>C è parcheggio? Un posto auto in struttura è incluso.<br>Quanto dista dal centro? Circa 10 minuti a piedi.<br>Qual è la politica di cancellazione? Cancellazione gratuita fino a 7 giorni prima dell arrivo.' },
+          B1: { short: 'Apertura incentrata sullo scopo', gap: 'Un’apertura incentrata sulle caratteristiche non dà a un’AI nulla da riassumere o su cui raccomandare.', action: 'Riscrivi la prima frase per dire cos’è il posto e a chi si adatta, prima di elencare i comfort.', example: '<strong>Prima:</strong> Wi-Fi, aria condizionata e balcone privato rendono questo soggiorno perfetto.<br><strong>Dopo:</strong> Luminoso appartamento con una camera da letto per coppie che cercano una base tranquilla vicino al centro storico.' },
+          B2: { short: 'Fatti concreti nel testo', gap: 'Gli aggettivi da marketing sono invisibili per una macchina; i fatti concreti sono ciò che viene citato e raccomandato.', action: 'Sostituisci le frasi vaghe con dettagli specifici: capacità, distanze, collegamenti di trasporto e comfort principali in frasi chiare.', example: '<strong>Prima:</strong> Accogliente e pieno di charme, con tutto ciò che serve per un soggiorno perfetto.<br><strong>Dopo:</strong> Ospita quattro persone, include due camere da letto, un posto auto ed è a 8 minuti a piedi dalla stazione.' },
+          B3: { short: 'Politica indicata nel testo', gap: 'Un assistente controlla i termini di cancellazione e prenotazione prima di raccomandare. Se mancano, passa oltre.', action: 'Aggiungi la tua politica di cancellazione e prenotazione come testo leggibile nella descrizione dell’annuncio stessa.', example: '<strong>Frase pronta da incollare:</strong> Cancellazione gratuita fino a 7 giorni prima dell arrivo. Dopo quel termine viene addebitata la prima notte.' },
+          A2: { short: 'Prezzi e disponibilità leggibili', gap: 'Se prezzi e disponibilità si trovano dentro un widget incorporato, spesso un agente non può vederli affatto.', action: 'Assicurati che prezzi e disponibilità in tempo reale appaiano come testo semplice nell’HTML della pagina, non solo dentro un widget di prenotazione di terze parti.', example: '<strong>Aggiungi una riga di testo semplice vicino al pulsante di prenotazione:</strong> <code>Da EUR120 a notte.</code><br>Questo dà a un assistente un numero da citare anche se le tariffe live restano nel widget.' },
+          A5: { short: 'Percorso prenotabile senza passaggi solo umani', gap: 'Un percorso di prenotazione che richiede passaggi solo umani o molti clic possibili solo con JavaScript non dà a un agente un modo affidabile per completare o smistare una prenotazione.', action: 'Semplifica il percorso di prenotazione così che date, conferma e un passo successivo chiaro funzionino senza labirinti di pop-up o ostacoli solo umani.', example: '<strong>Usa un CTA chiaro:</strong> <code>Controlla le date e prenota</code><br><strong>Percorso:</strong> pagina camera -> date -> prezzo -> dati ospite -> conferma. Evita pop-up, passaggi solo telefonici o deviazioni tipo richiesta di prenotazione quando possibile.' },
+          A3: { short: 'Informazioni di prenotazione nel primo HTML', gap: 'Se le informazioni essenziali di prenotazione appaiono solo dopo il rendering completo della pagina, molti agenti non le vedono mai.', action: 'Assicurati che gli elementi essenziali di prenotazione siano presenti nella risposta HTML iniziale, non solo dopo l’esecuzione degli script nel browser.', example: '<strong>Assicurati che nel sorgente pagina compaiano righe come queste:</strong><br><code>Da EUR120 a notte</code><br><code>Cancellazione gratuita fino a 7 giorni prima dell arrivo</code><br><code>Check-in dalle 15:00, check-out entro le 10:00</code>' },
+          B5: { short: 'Dati strutturati per offerta e prezzo', gap: 'Il markup generale della struttura non basta per prenotare. Senza schema di offerta o prezzo, un agente manca comunque di tariffe e disponibilità leggibili dalla macchina.', action: 'Aggiungi dati strutturati per offerte, prezzi e disponibilità, non solo una descrizione generale della struttura.', example: '<strong>Snippet offerta:</strong><pre><code>{\n  "@context": "https://schema.org",\n  "@type": "Offer",\n  "priceCurrency": "EUR",\n  "price": "120",\n  "availability": "https://schema.org/InStock",\n  "url": "https://www.example.com/book"\n}</code></pre>' }
         },
         bands: {
           visibility: {
@@ -2772,6 +2854,8 @@
           gapsWorthChecking: 'Wert einer Prüfung',
           fixNone: 'Keine vorrangigen Korrekturen. Sie haben alle strukturellen Prüfungen bestanden.',
           ptsBadge: '+{n} Punkte',
+          showMe: 'Zeig es mir',
+          hideMe: 'Beispiel ausblenden',
           alertAllQuestions: 'Bitte beantworten Sie alle Fragen, bevor Sie das Audit starten.',
           textFlagGeneral: 'Diese Beschreibung ist sehr kurz. Eine KI hat wenig, mit dem sie arbeiten kann.',
           textFlagB1: 'Ihr Einstiegssatz scheint mit Annehmlichkeiten zu beginnen.',
@@ -2786,16 +2870,16 @@
           manualFallbackCheck: 'Wir konnten diese Website nicht lesen, daher sind die Website-Fragen unten für manuelle Antworten geöffnet.'
         },
         meta: {
-          A1: { short: 'Strukturierte Daten für Objekt und Zimmer', gap: 'Ohne schema.org-Markup für Objekt und Zimmer muss ein Assistent raten, was Sie anbieten, statt es direkt zu lesen.', action: 'Fügen Sie schema.org-strukturierte Daten für Ihr Objekt und Ihre Zimmertypen hinzu. Die meisten Website-Baukästen haben dafür ein Plugin oder ein Einstellungsfeld.' },
-          B4: { short: 'Kerninhalt als lesbarer Text', gap: 'Wenn was der Ort ist, wo er liegt und für wen er geeignet ist, nur in Bildern oder Grafiken existiert, kann ein Assistent das nicht nutzen.', action: 'Verschieben Sie die zentralen Objektfakten in lesbaren Text auf der Seite, damit sie ohne Fotos oder Design Sinn ergeben.' },
-          A4: { short: 'Antworten auf natürliche Gästefragen', gap: 'Assistenten empfehlen Seiten, die die gestellte Frage beantworten: Parkplatz, Familien, Lage, Richtlinien.', action: 'Fügen Sie einen kurzen FAQ-Abschnitt in einfachem Text hinzu, der die Fragen abdeckt, die Gäste vor der Buchung stellen.' },
-          B1: { short: 'Zweckorientierter Einstieg', gap: 'Ein Einstieg, der mit Merkmalen beginnt, gibt einer KI nichts, was sie zusammenfassen oder worauf sie empfehlen kann.', action: 'Schreiben Sie den ersten Satz so um, dass er sagt, was der Ort ist und für wen er geeignet ist, bevor Annehmlichkeiten aufgelistet werden.' },
-          B2: { short: 'Konkrete Fakten im Text', gap: 'Marketing-Adjektive sind für eine Maschine unsichtbar; konkrete Fakten sind das, was zitiert und empfohlen wird.', action: 'Ersetzen Sie vage Formulierungen durch konkrete Details: Kapazität, Entfernungen, Verkehrsanbindung und wichtige Annehmlichkeiten in klaren Sätzen.' },
-          B3: { short: 'Richtlinie im Text angegeben', gap: 'Ein Assistent prüft Stornierungs- und Buchungsbedingungen vor einer Empfehlung. Fehlen sie, geht er weiter.', action: 'Fügen Sie Ihre Stornierungs- und Buchungsrichtlinie als lesbaren Text direkt in die Angebotsbeschreibung ein.' },
-          A2: { short: 'Lesbare Preise und Verfügbarkeit', gap: 'Wenn Preise und Verfügbarkeit in einem eingebetteten Widget stecken, kann ein Agent sie oft überhaupt nicht sehen.', action: 'Stellen Sie sicher, dass Preise und aktuelle Verfügbarkeit als einfacher Text im Seiten-HTML erscheinen, nicht nur in einem Drittanbieter-Buchungswidget.' },
-          A5: { short: 'Buchbarer Ablauf ohne rein menschliche Schritte', gap: 'Ein Buchungsweg, der rein menschliche Schritte oder viele nur per JavaScript mögliche Klicks erfordert, gibt einem Agenten keinen verlässlichen Weg, eine Buchung abzuschließen oder weiterzugeben.', action: 'Vereinfachen Sie den Buchungsweg, damit Datum, Bestätigung und ein klarer nächster Schritt ohne Pop-up-Labyrinthe oder rein menschliche Hürden funktionieren.' },
-          A3: { short: 'Buchungsinformationen im ersten HTML', gap: 'Wenn wesentliche Buchungsinformationen erst nach dem vollständigen Rendern der Seite erscheinen, sehen viele Agenten sie nie.', action: 'Stellen Sie sicher, dass Buchungsgrundlagen in der ursprünglichen HTML-Antwort vorhanden sind, nicht erst nachdem Skripte im Browser ausgeführt wurden.' },
-          B5: { short: 'Strukturierte Daten für Angebot und Preis', gap: 'Allgemeines Objekt-Markup reicht zum Buchen nicht aus. Ohne Offer- oder Price-Schema fehlen einem Agenten weiterhin maschinenlesbare Tarife und Verfügbarkeit.', action: 'Fügen Sie strukturierte Daten für Angebote, Preise und Verfügbarkeit hinzu, nicht nur eine allgemeine Objektbeschreibung.' }
+          A1: { short: 'Strukturierte Daten für Objekt und Zimmer', gap: 'Ohne schema.org-Markup für Objekt und Zimmer muss ein Assistent raten, was Sie anbieten, statt es direkt zu lesen.', action: 'Fügen Sie schema.org-strukturierte Daten für Ihr Objekt und Ihre Zimmertypen hinzu. Die meisten Website-Baukästen haben dafür ein Plugin oder ein Einstellungsfeld.', example: '<strong>Kopieren, einfügen, anpassen:</strong><pre><code>{\n  "@context": "https://schema.org",\n  "@type": "LodgingBusiness",\n  "name": "Example Stay",\n  "url": "https://www.example.com",\n  "address": {"@type": "PostalAddress", "addressLocality": "Florence"},\n  "containsPlace": {\n    "@type": "HotelRoom",\n    "name": "Garden Room",\n    "occupancy": {"@type": "QuantitativeValue", "maxValue": 2}\n  }\n}</code></pre>' },
+          B4: { short: 'Kerninhalt als lesbarer Text', gap: 'Wenn was der Ort ist, wo er liegt und für wen er geeignet ist, nur in Bildern oder Grafiken existiert, kann ein Assistent das nicht nutzen.', action: 'Verschieben Sie die zentralen Objektfakten in lesbaren Text auf der Seite, damit sie ohne Fotos oder Design Sinn ergeben.', example: '<strong>Beispielabsatz:</strong> Familiengeführtes Apartment mit zwei Schlafzimmern im Zentrum von Florenz, 10 Gehminuten vom Dom entfernt. Platz für vier Personen, mit kompletter Küche und einem Parkplatz, ideal für Paare oder kleine Familien.' },
+          A4: { short: 'Antworten auf natürliche Gästefragen', gap: 'Assistenten empfehlen Seiten, die die gestellte Frage beantworten: Parkplatz, Familien, Lage, Richtlinien.', action: 'Fügen Sie einen kurzen FAQ-Abschnitt in einfachem Text hinzu, der die Fragen abdeckt, die Gäste vor der Buchung stellen.', example: '<strong>Beispiel-FAQ:</strong><br>Ist es familienfreundlich? Ja, wir stellen Babybett und Hochstuhl bereit.<br>Gibt es Parkplätze? Ein Stellplatz auf dem Gelände ist inklusive.<br>Wie weit ist es ins Zentrum? Etwa 10 Minuten zu Fuss.<br>Wie lautet die Stornierungsrichtlinie? Kostenlose Stornierung bis 7 Tage vor Anreise.' },
+          B1: { short: 'Zweckorientierter Einstieg', gap: 'Ein Einstieg, der mit Merkmalen beginnt, gibt einer KI nichts, was sie zusammenfassen oder worauf sie empfehlen kann.', action: 'Schreiben Sie den ersten Satz so um, dass er sagt, was der Ort ist und für wen er geeignet ist, bevor Annehmlichkeiten aufgelistet werden.', example: '<strong>Vorher:</strong> WLAN, Klimaanlage und ein privater Balkon machen diesen Aufenthalt besonders angenehm.<br><strong>Nachher:</strong> Helles Apartment mit einem Schlafzimmer fuer Paare, die eine ruhige Basis nahe der Altstadt suchen.' },
+          B2: { short: 'Konkrete Fakten im Text', gap: 'Marketing-Adjektive sind für eine Maschine unsichtbar; konkrete Fakten sind das, was zitiert und empfohlen wird.', action: 'Ersetzen Sie vage Formulierungen durch konkrete Details: Kapazität, Entfernungen, Verkehrsanbindung und wichtige Annehmlichkeiten in klaren Sätzen.', example: '<strong>Vorher:</strong> Gemuetlich und charmant, mit allem fuer einen perfekten Aufenthalt.<br><strong>Nachher:</strong> Platz fuer vier Personen, zwei Schlafzimmer, ein Parkplatz und 8 Gehminuten vom Bahnhof entfernt.' },
+          B3: { short: 'Richtlinie im Text angegeben', gap: 'Ein Assistent prüft Stornierungs- und Buchungsbedingungen vor einer Empfehlung. Fehlen sie, geht er weiter.', action: 'Fügen Sie Ihre Stornierungs- und Buchungsrichtlinie als lesbaren Text direkt in die Angebotsbeschreibung ein.', example: '<strong>Fertig zum Einfuegen:</strong> Kostenlose Stornierung bis 7 Tage vor Anreise. Danach wird die erste Nacht berechnet.' },
+          A2: { short: 'Lesbare Preise und Verfügbarkeit', gap: 'Wenn Preise und Verfügbarkeit in einem eingebetteten Widget stecken, kann ein Agent sie oft überhaupt nicht sehen.', action: 'Stellen Sie sicher, dass Preise und aktuelle Verfügbarkeit als einfacher Text im Seiten-HTML erscheinen, nicht nur in einem Drittanbieter-Buchungswidget.', example: '<strong>Fuegen Sie eine Klartextzeile nahe dem Buchungsbutton ein:</strong> <code>Ab EUR120 pro Nacht.</code><br>So hat ein Assistent eine Zahl zum Zitieren, auch wenn die Live-Raten im Widget bleiben.' },
+          A5: { short: 'Buchbarer Ablauf ohne rein menschliche Schritte', gap: 'Ein Buchungsweg, der rein menschliche Schritte oder viele nur per JavaScript mögliche Klicks erfordert, gibt einem Agenten keinen verlässlichen Weg, eine Buchung abzuschließen oder weiterzugeben.', action: 'Vereinfachen Sie den Buchungsweg, damit Datum, Bestätigung und ein klarer nächster Schritt ohne Pop-up-Labyrinthe oder rein menschliche Hürden funktionieren.', example: '<strong>Klare CTA-Kopie:</strong> <code>Daten pruefen und buchen</code><br><strong>Pfad:</strong> Zimmerseite -> Daten -> Preis -> Gastdaten -> Bestaetigung. Vermeiden Sie Pop-ups, reine Telefonschritte oder Umwege wie "Buchung anfragen", wo moeglich.' },
+          A3: { short: 'Buchungsinformationen im ersten HTML', gap: 'Wenn wesentliche Buchungsinformationen erst nach dem vollständigen Rendern der Seite erscheinen, sehen viele Agenten sie nie.', action: 'Stellen Sie sicher, dass Buchungsgrundlagen in der ursprünglichen HTML-Antwort vorhanden sind, nicht erst nachdem Skripte im Browser ausgeführt wurden.', example: '<strong>Stellen Sie sicher, dass solche Zeilen im Seitenquelltext sichtbar sind:</strong><br><code>Ab EUR120 pro Nacht</code><br><code>Kostenlose Stornierung bis 7 Tage vor Anreise</code><br><code>Check-in ab 15:00, Check-out bis 10:00</code>' },
+          B5: { short: 'Strukturierte Daten für Angebot und Preis', gap: 'Allgemeines Objekt-Markup reicht zum Buchen nicht aus. Ohne Offer- oder Price-Schema fehlen einem Agenten weiterhin maschinenlesbare Tarife und Verfügbarkeit.', action: 'Fügen Sie strukturierte Daten für Angebote, Preise und Verfügbarkeit hinzu, nicht nur eine allgemeine Objektbeschreibung.', example: '<strong>Angebots-Snippet:</strong><pre><code>{\n  "@context": "https://schema.org",\n  "@type": "Offer",\n  "priceCurrency": "EUR",\n  "price": "120",\n  "availability": "https://schema.org/InStock",\n  "url": "https://www.example.com/book"\n}</code></pre>' }
         },
         bands: {
           visibility: {
@@ -2886,6 +2970,7 @@
           META[id].short = pack.meta[id].short;
           META[id].gap = pack.meta[id].gap;
           META[id].action = pack.meta[id].action;
+          META[id].example = pack.meta[id].example;
         }
       });
 
