@@ -272,6 +272,196 @@
     .question-block { margin-bottom: 20px; }
     .question-block:last-child { margin-bottom: 0; }
 
+    .step-panel {
+      margin-bottom: 14px;
+    }
+
+    .step-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .step-title {
+      font-size: clamp(22px, 4vw, 26px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.55;
+      max-width: 620px;
+    }
+
+    .path-options {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+      margin-bottom: 16px;
+    }
+
+    .path-option {
+      width: 100%;
+      text-align: left;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--bg);
+      color: var(--ink);
+      padding: 16px;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s, transform 0.15s;
+    }
+
+    .path-option:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .path-option.active {
+      border-color: var(--accent);
+      background: rgba(0, 122, 255, 0.08);
+      box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.08);
+    }
+
+    .path-option-title {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .path-option-text {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .step1-branch {
+      margin-top: 10px;
+    }
+
+    .measured-wrap {
+      margin-top: 16px;
+    }
+
+    .measured-header {
+      margin-bottom: 14px;
+    }
+
+    .measured-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .measured-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .measured-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .question-block.is-measured {
+      background: var(--bg);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      margin-bottom: 0;
+    }
+
+    .question-block.is-measured .question-helper {
+      margin-bottom: 8px;
+    }
+
+    .question-topline {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .question-status {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 999px;
+      padding: 5px 9px;
+      background: rgba(0, 122, 255, 0.12);
+      color: var(--accent);
+    }
+
+    .question-status:empty {
+      display: none;
+    }
+
+    .question-block.is-overridden .question-status {
+      background: rgba(255, 149, 0, 0.14);
+      color: #C93400;
+    }
+
+    .question-status-note {
+      display: none;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.45;
+      margin-top: 8px;
+    }
+
+    .question-block.is-measured .question-status-note {
+      display: block;
+    }
+
+    .manual-fallback-note {
+      margin-top: 14px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--ink2);
+      background: rgba(255, 149, 0, 0.08);
+      border: 1px solid rgba(255, 149, 0, 0.2);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+    }
+
     .question-text {
       font-size: 14px; font-weight: 600;
       color: var(--ink); margin-bottom: 4px; line-height: 1.45;
@@ -821,7 +1011,7 @@
       background: var(--card);
       box-shadow: var(--shadow-sm);
       padding: 20px 22px;
-      margin-top: 14px;
+      margin-top: 0;
     }
 
     .deep-dive-title {
@@ -1050,6 +1240,7 @@
       .panel { padding: 16px; }
       .result-bars-grid { grid-template-columns: 1fr; }
       .result-bar-card { border-bottom: 1px solid var(--border-light); }
+      .path-options { grid-template-columns: 1fr; }
       .brand-title { font-size: 13px; }
       .header-inner {
         padding: 10px 12px;
@@ -1069,6 +1260,7 @@
         display: inline-flex;
         align-items: center;
       }
+      .question-topline { flex-direction: column; align-items: flex-start; }
       .radio-group { flex-direction: column; }
       .radio-option { width: 100%; }
       .radio-option label {
@@ -1109,7 +1301,7 @@
         </div>
       </div>
       <div class="header-actions">
-        <div class="lang-switch" role="group" aria-label="Language">
+        <div class="lang-switch" role="group" aria-label="Language" data-i18n-aria-label="languageGroupLabel">
           <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true"><span class="lang-flag" aria-hidden="true">🇬🇧</span> EN</button>
           <button type="button" class="lang-btn" data-lang="it" aria-pressed="false"><span class="lang-flag" aria-hidden="true">🇮🇹</span> IT</button>
           <button type="button" class="lang-btn" data-lang="de" aria-pressed="false"><span class="lang-flag" aria-hidden="true">🇩🇪</span> DE</button>
@@ -1124,7 +1316,7 @@
       <div class="hero-eyebrow" data-i18n="heroEyebrow">Operator Series · Website Audit</div>
       <h1 id="hero-title" data-i18n="heroTitleInput">Is your direct booking site ready for AI?</h1>
       <p class="hero-subtitle" id="hero-subtitle" data-i18n="heroSubtitleInput">
-        This audit checks whether an assistant can find and recommend you, and whether it can book you. Answer ten short questions about your site and listing copy.
+        This audit checks whether an assistant can find, recommend and book you. Paste your website address and we measure most of it for you. You answer four questions and paste one listing description.
       </p>
     </div>
   </section>
@@ -1154,42 +1346,73 @@
       </div>
 
       <form id="audit-form" novalidate>
-        <div class="panel">
-          <div class="section-header">
-            <div class="section-label" data-i18n="visLabel">Visibility</div>
-            <div class="section-tagline" data-i18n="visTagline">Can AI find and recommend you?</div>
-            <p class="section-explain" data-i18n="visExplain">These checks cover whether an assistant can understand your property and surface it in a natural-language answer.</p>
+        <div class="panel step-panel" id="step-1-panel">
+          <div class="step-kicker"><span class="step-number">1</span><span data-i18n="step1Label">Step 1</span></div>
+          <div class="step-title" data-i18n="step1Title">Your website</div>
+          <p class="step-desc" data-i18n="step1Desc">Choose how to answer the website checks. You can measure them from your site first, or skip that and answer them yourself.</p>
+
+          <div class="path-options" role="group" aria-label="Step 1 path" data-i18n-aria-label="step1PathGroupLabel">
+            <button type="button" class="path-option active" id="path-auto-btn">
+              <span class="path-option-title" data-i18n="pathAutoTitle">Check my site automatically</span>
+              <span class="path-option-text" data-i18n="pathAutoText">Paste your website address and we measure the checks a machine can judge.</span>
+            </button>
+            <button type="button" class="path-option" id="path-manual-btn">
+              <span class="path-option-title" data-i18n="pathManualTitle">Answer manually instead</span>
+              <span class="path-option-text" data-i18n="pathManualText">Keep everything on your device and answer the website questions yourself.</span>
+            </button>
           </div>
 
-          <div class="question-block" data-q="A1">
-            <div class="question-text" data-i18n="qA1Text">Does your site have structured data markup (schema.org) describing the property and rooms?</div>
-            <div class="question-helper" data-i18n="qA1Helper">This is how an AI understands what you are without guessing.</div>
-            <div class="radio-group">
-              <div class="radio-option"><input type="radio" name="A1" id="A1-yes" value="yes"><label for="A1-yes" data-i18n="yes">Yes</label></div>
-              <div class="radio-option"><input type="radio" name="A1" id="A1-no" value="no"><label for="A1-no" data-i18n="no">No</label></div>
-              <div class="radio-option"><input type="radio" name="A1" id="A1-unsure" value="unsure"><label for="A1-unsure" data-i18n="unsure">Not sure</label></div>
+          <div id="step1-auto-branch" class="step1-branch">
+            <div class="deep-dive-panel" id="deep-dive-panel">
+              <div class="deep-dive-title" data-i18n="deepDiveTitle">Deep dive: read my real site</div>
+              <p class="deep-dive-intro" data-i18n="deepDiveIntro">This checks your actual website the way an AI does. It reads the first raw version of your page and reports what is there.</p>
+              <p class="deep-dive-privacy" data-i18n="deepDivePrivacy">This one check is different from the rest of the tool. To read your site, the address you enter is sent to a small server that fetches the page. Nothing else about you is sent or stored. The rest of the audit still runs entirely in your browser.</p>
+              <label class="field-label" for="deep-dive-url" data-i18n="deepDiveUrlLabel">Your website address</label>
+              <input type="url" class="url-input" id="deep-dive-url" placeholder="https://www.yourproperty.com" autocomplete="url">
+              <button type="button" class="deep-dive-btn" id="deep-dive-run-btn" data-i18n="deepDiveRunBtn">Run deep dive</button>
+              <div class="deep-dive-msg hidden" id="deep-dive-msg"></div>
+              <div class="deep-dive-results hidden" id="deep-dive-results"></div>
+            </div>
+
+            <div class="measured-wrap hidden" id="step1-measured-wrap">
+              <div class="measured-header">
+                <div class="measured-title" data-i18n="measuredTitle">What we measured</div>
+                <p class="measured-desc" data-i18n="measuredDesc">These six answers came from your website check. You can change any of them if you know the page contains something the check did not read.</p>
+              </div>
+              <div class="measured-list" id="step1-measured-list"></div>
             </div>
           </div>
 
-          <div class="question-block" data-q="B4">
-            <div class="question-text" data-i18n="qB4Text">Is your core content (what the place is, where it is, what makes it suitable) in plain crawlable text rather than locked inside images or a graphic?</div>
-            <div class="question-helper" data-i18n="qB4Helper">If it is only in a photo or design, the machine does not have it. The copy should also make sense on its own without relying on visuals to fill gaps.</div>
-            <div class="radio-group">
-              <div class="radio-option"><input type="radio" name="B4" id="B4-yes" value="yes"><label for="B4-yes" data-i18n="yes">Yes</label></div>
-              <div class="radio-option"><input type="radio" name="B4" id="B4-no" value="no"><label for="B4-no" data-i18n="no">No</label></div>
-              <div class="radio-option"><input type="radio" name="B4" id="B4-unsure" value="unsure"><label for="B4-unsure" data-i18n="unsure">Not sure</label></div>
+          <div id="step1-manual-branch" class="step1-branch hidden">
+            <div class="measured-header">
+              <div class="measured-title" data-i18n="manualTitle">Answer the website questions manually</div>
+              <p class="measured-desc" data-i18n="manualDesc">Use this path if you do not want to send your website address to the server check.</p>
             </div>
+            <div class="measured-list" id="step1-manual-list"></div>
+            <div class="manual-fallback-note hidden" id="manual-fallback-note"></div>
           </div>
+        </div>
 
-          <div class="question-block" data-q="A4">
-            <div class="question-text" data-i18n="qA4Text">Does your site directly answer the natural questions a guest asks an assistant: is it suitable for families, is there parking, how far to the centre, what is the cancellation policy?</div>
-            <div class="question-helper" data-i18n="qA4Helper">AI recommends the sites that actually answer the question being asked.</div>
+        <div class="panel step-panel" id="step-2-panel">
+          <div class="step-kicker"><span class="step-number">2</span><span data-i18n="step2Label">Step 2</span></div>
+          <div class="step-title" data-i18n="step2Title">Your booking flow</div>
+          <p class="step-desc" data-i18n="step2Desc">Answer the part a crawler cannot settle from the page alone.</p>
+
+          <div class="question-block" data-q="A5">
+            <div class="question-text" data-i18n="qA5Text">Can a guest get from choosing dates to a confirmed booking without a step only a human can complete?</div>
+            <div class="question-helper" data-i18n="qA5Helper">An assistant needs a concrete path it can work through or hand a guest to. JavaScript-heavy steps and widgets still count if they block that path.</div>
             <div class="radio-group">
-              <div class="radio-option"><input type="radio" name="A4" id="A4-yes" value="yes"><label for="A4-yes" data-i18n="yes">Yes</label></div>
-              <div class="radio-option"><input type="radio" name="A4" id="A4-no" value="no"><label for="A4-no" data-i18n="no">No</label></div>
-              <div class="radio-option"><input type="radio" name="A4" id="A4-unsure" value="unsure"><label for="A4-unsure" data-i18n="unsure">Not sure</label></div>
+              <div class="radio-option"><input type="radio" name="A5" id="A5-yes" value="yes"><label for="A5-yes" data-i18n="yes">Yes</label></div>
+              <div class="radio-option"><input type="radio" name="A5" id="A5-no" value="no"><label for="A5-no" data-i18n="no">No</label></div>
+              <div class="radio-option"><input type="radio" name="A5" id="A5-unsure" value="unsure"><label for="A5-unsure" data-i18n="unsure">Not sure</label></div>
             </div>
           </div>
+        </div>
+
+        <div class="panel step-panel" id="step-3-panel">
+          <div class="step-kicker"><span class="step-number">3</span><span data-i18n="step3Label">Step 3</span></div>
+          <div class="step-title" data-i18n="step3Title">Your listing copy</div>
+          <p class="step-desc" data-i18n="step3Desc">Paste one description, then answer the copy questions below. The same on-device text checks still run.</p>
 
           <label class="field-label" for="listingText" data-i18n="listingLabel">Paste the main description text from one of your listings or property pages.</label>
           <textarea id="listingText" name="listingText" placeholder="Paste your listing description here…" data-i18n-placeholder="listingPlaceholder"></textarea>
@@ -1225,67 +1448,74 @@
           </div>
         </div>
 
-        <div class="panel">
-          <div class="section-header">
-            <div class="section-label" data-i18n="bookLabel">Bookability</div>
-            <div class="section-tagline" data-i18n="bookTagline">Can AI book you?</div>
-            <p class="section-explain" data-i18n="bookExplain">These checks cover whether an agent can see prices and availability and follow a real path to book.</p>
-          </div>
+        <div class="panel step-panel" id="step-4-panel">
+          <div class="step-kicker"><span class="step-number">4</span><span data-i18n="step4Label">Step 4</span></div>
+          <div class="step-title" data-i18n="step4Title">Run the audit</div>
+          <p class="step-desc" data-i18n="step4Desc">Run the same score and report once your answers are ready.</p>
 
-          <div class="question-block" data-q="A2">
-            <div class="question-text" data-i18n="qA2Text">Are your prices and live availability visible as text on the page, rather than only inside a booking widget or calendar that loads separately?</div>
-            <div class="question-helper" data-i18n="qA2Helper">An agent cannot read what is locked in an embedded widget.</div>
-            <div class="radio-group">
-              <div class="radio-option"><input type="radio" name="A2" id="A2-yes" value="yes"><label for="A2-yes" data-i18n="yes">Yes</label></div>
-              <div class="radio-option"><input type="radio" name="A2" id="A2-no" value="no"><label for="A2-no" data-i18n="no">No</label></div>
-              <div class="radio-option"><input type="radio" name="A2" id="A2-unsure" value="unsure"><label for="A2-unsure" data-i18n="unsure">Not sure</label></div>
-            </div>
-          </div>
+          <button type="submit" class="submit-btn" data-i18n="runAudit">Run audit</button>
+        </div>
 
-          <div class="question-block" data-q="A5">
-            <div class="question-text" data-i18n="qA5Text">Can the booking flow (from choosing dates to confirming) be followed without steps that only a human can complete, and without depending on multiple JavaScript-only clicks?</div>
-            <div class="question-helper" data-i18n="qA5Helper">An assistant needs a concrete path it can work through or hand a guest to.</div>
-            <div class="radio-group">
-              <div class="radio-option"><input type="radio" name="A5" id="A5-yes" value="yes"><label for="A5-yes" data-i18n="yes">Yes</label></div>
-              <div class="radio-option"><input type="radio" name="A5" id="A5-no" value="no"><label for="A5-no" data-i18n="no">No</label></div>
-              <div class="radio-option"><input type="radio" name="A5" id="A5-unsure" value="unsure"><label for="A5-unsure" data-i18n="unsure">Not sure</label></div>
-            </div>
-          </div>
-
-          <div class="question-block" data-q="A3">
-            <div class="question-text" data-i18n="qA3Text">Is the essential booking information reachable in the first HTML response, rather than only after the page fully renders in a browser?</div>
-            <div class="question-helper" data-i18n="qA3Helper">Agents often see the initial HTML, not the rendered page.</div>
-            <div class="radio-group">
-              <div class="radio-option"><input type="radio" name="A3" id="A3-yes" value="yes"><label for="A3-yes" data-i18n="yes">Yes</label></div>
-              <div class="radio-option"><input type="radio" name="A3" id="A3-no" value="no"><label for="A3-no" data-i18n="no">No</label></div>
-              <div class="radio-option"><input type="radio" name="A3" id="A3-unsure" value="unsure"><label for="A3-unsure" data-i18n="unsure">Not sure</label></div>
-            </div>
-          </div>
-
-          <div class="question-block" data-q="B5">
-            <div class="question-text" data-i18n="qB5Text">Does your site have structured data for prices and availability specifically (offer / price schema), not just a general property description?</div>
-            <div class="question-helper" data-i18n="qB5Helper">Property markup helps an assistant find you. Offer and price markup helps it know what it can book.</div>
-            <div class="radio-group">
-              <div class="radio-option"><input type="radio" name="B5" id="B5-yes" value="yes"><label for="B5-yes" data-i18n="yes">Yes</label></div>
-              <div class="radio-option"><input type="radio" name="B5" id="B5-no" value="no"><label for="B5-no" data-i18n="no">No</label></div>
-              <div class="radio-option"><input type="radio" name="B5" id="B5-unsure" value="unsure"><label for="B5-unsure" data-i18n="unsure">Not sure</label></div>
-            </div>
+        <div class="question-block hidden" data-q="A1">
+          <div class="question-text" data-i18n="qA1Text">Does your site have structured data markup (schema.org) describing the property and rooms?</div>
+          <div class="question-helper" data-i18n="qA1Helper">This is how an AI understands what you are without guessing.</div>
+          <div class="radio-group">
+            <div class="radio-option"><input type="radio" name="A1" id="A1-yes" value="yes"><label for="A1-yes" data-i18n="yes">Yes</label></div>
+            <div class="radio-option"><input type="radio" name="A1" id="A1-no" value="no"><label for="A1-no" data-i18n="no">No</label></div>
+            <div class="radio-option"><input type="radio" name="A1" id="A1-unsure" value="unsure"><label for="A1-unsure" data-i18n="unsure">Not sure</label></div>
           </div>
         </div>
 
-        <button type="submit" class="submit-btn" data-i18n="runAudit">Run audit</button>
-      </form>
+        <div class="question-block hidden" data-q="B4">
+          <div class="question-text" data-i18n="qB4Text">Is your core content (what the place is, where it is, what makes it suitable) in plain crawlable text rather than locked inside images or a graphic?</div>
+          <div class="question-helper" data-i18n="qB4Helper">If it is only in a photo or design, the machine does not have it. The copy should also make sense on its own without relying on visuals to fill gaps.</div>
+          <div class="radio-group">
+            <div class="radio-option"><input type="radio" name="B4" id="B4-yes" value="yes"><label for="B4-yes" data-i18n="yes">Yes</label></div>
+            <div class="radio-option"><input type="radio" name="B4" id="B4-no" value="no"><label for="B4-no" data-i18n="no">No</label></div>
+            <div class="radio-option"><input type="radio" name="B4" id="B4-unsure" value="unsure"><label for="B4-unsure" data-i18n="unsure">Not sure</label></div>
+          </div>
+        </div>
 
-      <div class="deep-dive-panel" id="deep-dive-panel">
-        <div class="deep-dive-title" data-i18n="deepDiveTitle">Deep dive: read my real site</div>
-        <p class="deep-dive-intro" data-i18n="deepDiveIntro">This checks your actual website the way an AI does. It reads the first raw version of your page and reports what is there.</p>
-        <p class="deep-dive-privacy" data-i18n="deepDivePrivacy">This one check is different from the rest of the tool. To read your site, the address you enter is sent to a small server that fetches the page. Nothing else about you is sent or stored. The rest of the audit still runs entirely in your browser.</p>
-        <label class="field-label" for="deep-dive-url" data-i18n="deepDiveUrlLabel">Your website address</label>
-        <input type="url" class="url-input" id="deep-dive-url" placeholder="https://www.yourproperty.com" autocomplete="url">
-        <button type="button" class="deep-dive-btn" id="deep-dive-run-btn" data-i18n="deepDiveRunBtn">Run deep dive</button>
-        <div class="deep-dive-msg hidden" id="deep-dive-msg"></div>
-        <div class="deep-dive-results hidden" id="deep-dive-results"></div>
-      </div>
+        <div class="question-block hidden" data-q="A4">
+          <div class="question-text" data-i18n="qA4Text">Does your site directly answer the natural questions a guest asks an assistant: is it suitable for families, is there parking, how far to the centre, what is the cancellation policy?</div>
+          <div class="question-helper" data-i18n="qA4Helper">AI recommends the sites that actually answer the question being asked.</div>
+          <div class="radio-group">
+            <div class="radio-option"><input type="radio" name="A4" id="A4-yes" value="yes"><label for="A4-yes" data-i18n="yes">Yes</label></div>
+            <div class="radio-option"><input type="radio" name="A4" id="A4-no" value="no"><label for="A4-no" data-i18n="no">No</label></div>
+            <div class="radio-option"><input type="radio" name="A4" id="A4-unsure" value="unsure"><label for="A4-unsure" data-i18n="unsure">Not sure</label></div>
+          </div>
+        </div>
+
+        <div class="question-block hidden" data-q="A2">
+          <div class="question-text" data-i18n="qA2Text">Are your prices and live availability visible as text on the page, rather than only inside a booking widget or calendar that loads separately?</div>
+          <div class="question-helper" data-i18n="qA2Helper">An agent cannot read what is locked in an embedded widget.</div>
+          <div class="radio-group">
+            <div class="radio-option"><input type="radio" name="A2" id="A2-yes" value="yes"><label for="A2-yes" data-i18n="yes">Yes</label></div>
+            <div class="radio-option"><input type="radio" name="A2" id="A2-no" value="no"><label for="A2-no" data-i18n="no">No</label></div>
+            <div class="radio-option"><input type="radio" name="A2" id="A2-unsure" value="unsure"><label for="A2-unsure" data-i18n="unsure">Not sure</label></div>
+          </div>
+        </div>
+
+        <div class="question-block hidden" data-q="A3">
+          <div class="question-text" data-i18n="qA3Text">Is the essential booking information reachable in the first HTML response, rather than only after the page fully renders in a browser?</div>
+          <div class="question-helper" data-i18n="qA3Helper">Agents often see the initial HTML, not the rendered page.</div>
+          <div class="radio-group">
+            <div class="radio-option"><input type="radio" name="A3" id="A3-yes" value="yes"><label for="A3-yes" data-i18n="yes">Yes</label></div>
+            <div class="radio-option"><input type="radio" name="A3" id="A3-no" value="no"><label for="A3-no" data-i18n="no">No</label></div>
+            <div class="radio-option"><input type="radio" name="A3" id="A3-unsure" value="unsure"><label for="A3-unsure" data-i18n="unsure">Not sure</label></div>
+          </div>
+        </div>
+
+        <div class="question-block hidden" data-q="B5">
+          <div class="question-text" data-i18n="qB5Text">Does your site have structured data for prices and availability specifically (offer / price schema), not just a general property description?</div>
+          <div class="question-helper" data-i18n="qB5Helper">Property markup helps an assistant find you. Offer and price markup helps it know what it can book.</div>
+          <div class="radio-group">
+            <div class="radio-option"><input type="radio" name="B5" id="B5-yes" value="yes"><label for="B5-yes" data-i18n="yes">Yes</label></div>
+            <div class="radio-option"><input type="radio" name="B5" id="B5-no" value="no"><label for="B5-no" data-i18n="no">No</label></div>
+            <div class="radio-option"><input type="radio" name="B5" id="B5-unsure" value="unsure"><label for="B5-unsure" data-i18n="unsure">Not sure</label></div>
+          </div>
+        </div>
+      </form>
     </div>
 
     <div id="output-state" class="hidden">
@@ -1420,6 +1650,8 @@
 
     let lastDeepDiveResult = null;
     let currentLang = 'en';
+    let inputMode = 'auto';
+    const MEASURED_IDS = ['A1', 'A2', 'A3', 'A4', 'B4', 'B5'];
 
     function getAnswer(id) {
       const el = document.querySelector('input[name="' + id + '"]:checked');
@@ -1729,6 +1961,7 @@
       document.getElementById('input-state').classList.remove('hidden');
       document.getElementById('hero-title').textContent = pack.heroTitleInput;
       document.getElementById('hero-subtitle').textContent = pack.heroSubtitleInput;
+      setInputMode(inputMode, { keepMeasured: inputMode === 'auto' && !!lastDeepDiveResult });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
@@ -1865,23 +2098,126 @@
       if (el) el.checked = true;
     }
 
+    function updateMeasuredQuestionState(id) {
+      const pack = (I18N[currentLang] || I18N.en).ui;
+      const block = document.querySelector('.question-block[data-q="' + id + '"]');
+      if (!block) return;
+      const status = block.querySelector('.question-status');
+      const note = block.querySelector('.question-status-note');
+      const measuredValue = block.dataset.measuredValue;
+      if (!measuredValue) {
+        block.classList.remove('is-measured', 'is-overridden');
+        if (status) status.textContent = '';
+        if (note) note.textContent = '';
+        return;
+      }
+
+      block.classList.add('is-measured');
+      const current = getAnswer(id);
+      const overridden = current && current !== measuredValue;
+      block.classList.toggle('is-overridden', overridden);
+      if (status) status.textContent = overridden ? pack.measuredChanged : pack.measuredLabel;
+      if (note) {
+        note.textContent = overridden
+          ? pack.measuredChangedNote.replace('{answer}', pack[current] || current)
+          : pack.measuredNote.replace('{answer}', pack[measuredValue] || measuredValue);
+      }
+    }
+
+    function clearMeasuredState() {
+      MEASURED_IDS.forEach(function(id) {
+        const block = document.querySelector('.question-block[data-q="' + id + '"]');
+        if (!block) return;
+        delete block.dataset.measuredValue;
+        updateMeasuredQuestionState(id);
+      });
+      document.getElementById('step1-measured-wrap').classList.add('hidden');
+    }
+
+    function ensureQuestionChrome(block) {
+      if (!block || block.querySelector('.question-topline')) return;
+      block.classList.remove('hidden');
+      const textEl = block.querySelector('.question-text');
+      if (!textEl) return;
+      const topline = document.createElement('div');
+      topline.className = 'question-topline';
+      textEl.parentNode.insertBefore(topline, textEl);
+      topline.appendChild(textEl);
+      const status = document.createElement('span');
+      status.className = 'question-status';
+      topline.appendChild(status);
+      const note = document.createElement('div');
+      note.className = 'question-status-note';
+      const radio = block.querySelector('.radio-group');
+      if (radio) radio.insertAdjacentElement('afterend', note);
+    }
+
+    function mountStep1Questions() {
+      const manualList = document.getElementById('step1-manual-list');
+      const measuredList = document.getElementById('step1-measured-list');
+      const target = inputMode === 'manual' ? manualList : measuredList;
+      MEASURED_IDS.forEach(function(id) {
+        const block = document.querySelector('.question-block[data-q="' + id + '"]');
+        if (!block) return;
+        ensureQuestionChrome(block);
+        target.appendChild(block);
+        updateMeasuredQuestionState(id);
+      });
+    }
+
+    function setInputMode(mode, options) {
+      options = options || {};
+      inputMode = mode === 'manual' ? 'manual' : 'auto';
+      document.getElementById('path-auto-btn').classList.toggle('active', inputMode === 'auto');
+      document.getElementById('path-manual-btn').classList.toggle('active', inputMode === 'manual');
+      document.getElementById('step1-auto-branch').classList.toggle('hidden', inputMode !== 'auto');
+      document.getElementById('step1-manual-branch').classList.toggle('hidden', inputMode !== 'manual');
+      if (inputMode === 'manual' && !options.keepMeasured) {
+        clearMeasuredState();
+      }
+      mountStep1Questions();
+    }
+
+    function setMeasuredAnswers(map) {
+      MEASURED_IDS.forEach(function(id) {
+        if (!map[id]) return;
+        setRadio(id, map[id]);
+        const block = document.querySelector('.question-block[data-q="' + id + '"]');
+        if (block) block.dataset.measuredValue = map[id];
+        updateMeasuredQuestionState(id);
+      });
+      document.getElementById('step1-measured-wrap').classList.remove('hidden');
+      mountStep1Questions();
+    }
+
+    function showManualFallback(text) {
+      const note = document.getElementById('manual-fallback-note');
+      note.textContent = text;
+      note.classList.remove('hidden');
+    }
+
+    function hideManualFallback() {
+      const note = document.getElementById('manual-fallback-note');
+      note.textContent = '';
+      note.classList.add('hidden');
+    }
+
     function prefillFromDeepDive(data) {
-      if (!data) return;
+      if (!data) return null;
       const vis = data.visibility || {};
       const book = data.bookability || {};
       const kw = vis.keywords || {};
-
-      setRadio('A1', vis.structuredDataFound ? 'yes' : 'no');
-      setRadio('B4', (vis.wordCount || 0) >= 80 ? 'yes' : 'no');
-      setRadio('A4', (kw.parking && kw.family && kw.cancellation && kw.distance) ? 'yes'
-        : (kw.parking || kw.family || kw.cancellation || kw.distance) ? 'unsure' : 'no');
-      setRadio('B3', kw.cancellation ? 'yes' : 'no');
-      setRadio('B2', kw.distance ? 'yes' : 'unsure');
-
-      setRadio('A2', book.priceInRawText ? 'yes' : 'no');
-      setRadio('A3', (book.priceInRawText || book.bookingSignal) ? 'yes' : 'no');
-      setRadio('A5', book.bookingSignal ? 'yes' : 'no');
-      setRadio('B5', book.priceSchemaFound ? 'yes' : 'no');
+      const map = {
+        A1: vis.structuredDataFound ? 'yes' : 'no',
+        B4: (vis.wordCount || 0) >= 80 ? 'yes' : 'no',
+        A4: (kw.parking && kw.family && kw.cancellation && kw.distance) ? 'yes'
+          : (kw.parking || kw.family || kw.cancellation || kw.distance) ? 'unsure' : 'no',
+        A2: book.priceInRawText ? 'yes' : 'no',
+        A3: book.bookingSignal ? 'yes' : 'no',
+        B5: book.priceSchemaFound ? 'yes' : 'no'
+      };
+      setMeasuredAnswers(map);
+      return map;
     }
 
     function showDeepDiveMessage(text, kind) {
@@ -1903,7 +2239,7 @@
         prefillBtn.addEventListener('click', function() {
           prefillFromDeepDive(lastDeepDiveResult);
           showDeepDiveMessage((I18N[currentLang] || I18N.en).ui.deepDivePrefilled, '');
-          document.getElementById('audit-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          document.getElementById('step-2-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       }
     }
@@ -1917,15 +2253,20 @@
 
       if (!/^https?:\/\//i.test(url)) {
         showDeepDiveMessage(pack.deepDiveErrInvalidUrl, 'error');
+        setInputMode('manual');
+        showManualFallback(pack.manualFallbackInvalid);
         return;
       }
 
       if (!DEEP_DIVE_ENDPOINT) {
         showDeepDiveMessage(pack.deepDiveErrNotConnected, 'error');
+        setInputMode('manual');
+        showManualFallback(pack.manualFallbackCheck);
         return;
       }
 
       hideDeepDiveMessage();
+      hideManualFallback();
       resultsEl.classList.add('hidden');
       resultsEl.innerHTML = '';
       btn.disabled = true;
@@ -1946,11 +2287,16 @@
         if (!resp.ok || !data || data.error) {
           showDeepDiveMessage(pack.deepDiveErrCouldNotRead, 'error');
           lastDeepDiveResult = null;
+          setInputMode('manual');
+          showManualFallback(pack.manualFallbackCheck);
           return;
         }
 
         lastDeepDiveResult = data;
         hideDeepDiveMessage();
+        hideManualFallback();
+        setInputMode('auto', { keepMeasured: true });
+        prefillFromDeepDive(data);
         resultsEl.innerHTML = renderDeepDiveFindings(data);
         resultsEl.classList.remove('hidden');
 
@@ -1962,12 +2308,31 @@
       } catch (err) {
         showDeepDiveMessage(pack.deepDiveErrCouldNotRead, 'error');
         lastDeepDiveResult = null;
+        setInputMode('manual');
+        showManualFallback(pack.manualFallbackCheck);
       } finally {
         btn.disabled = false;
       }
     }
 
     document.getElementById('deep-dive-run-btn').addEventListener('click', runDeepDive);
+    document.getElementById('path-auto-btn').addEventListener('click', function() {
+      hideManualFallback();
+      setInputMode('auto', { keepMeasured: true });
+    });
+    document.getElementById('path-manual-btn').addEventListener('click', function() {
+      hideDeepDiveMessage();
+      setInputMode('manual');
+    });
+    MEASURED_IDS.forEach(function(id) {
+      document.querySelectorAll('input[name="' + id + '"]').forEach(function(input) {
+        input.addEventListener('change', function() {
+          updateMeasuredQuestionState(id);
+        });
+      });
+    });
+    mountStep1Questions();
+    setInputMode('auto');
 
     // --- i18n ---
     const HTML_I18N_KEYS = ['outputFooter1', 'outputFooter2', 'footerText'];
@@ -1977,12 +2342,38 @@
         ui: {
           brandTitle: 'Website AI Ready Audit',
           brandSubtitle: 'Operator Intelligence Suite',
+          languageGroupLabel: 'Language',
           headerLink: 'Suite Hub',
           heroEyebrow: 'Operator Series · Website Audit',
           heroTitleInput: 'Is your direct booking site ready for AI?',
-          heroSubtitleInput: 'This audit checks whether an assistant can find and recommend you, and whether it can book you. Answer ten short questions about your site and listing copy.',
+          heroSubtitleInput: 'This audit checks whether an assistant can find, recommend and book you. Paste your website address and we measure most of it for you. You answer four questions and paste one listing description.',
           heroTitleOutput: 'Your AI-readiness result',
           heroSubtitleOutput: 'A snapshot of how ready your direct booking site is for AI-driven discovery and booking.',
+          step1Label: 'Step 1',
+          step1PathGroupLabel: 'Step 1 path',
+          step1Title: 'Your website',
+          step1Desc: 'Choose how to answer the website checks. You can measure them from your site first, or skip that and answer them yourself.',
+          pathAutoTitle: 'Check my site automatically',
+          pathAutoText: 'Paste your website address and we measure the checks a machine can judge.',
+          pathManualTitle: 'Answer manually instead',
+          pathManualText: 'Keep everything on your device and answer the website questions yourself.',
+          measuredTitle: 'What we measured',
+          measuredDesc: 'These six answers came from your website check. You can change any of them if you know the page contains something the check did not read.',
+          manualTitle: 'Answer the website questions manually',
+          manualDesc: 'Use this path if you do not want to send your website address to the server check.',
+          measuredLabel: 'Measured',
+          measuredChanged: 'Changed',
+          measuredNote: 'Measured answer: {answer}. You can change this if needed.',
+          measuredChangedNote: 'You changed this answer to {answer}. Your answer will be used in the score.',
+          step2Label: 'Step 2',
+          step2Title: 'Your booking flow',
+          step2Desc: 'Answer the part a crawler cannot settle from the page alone.',
+          step3Label: 'Step 3',
+          step3Title: 'Your listing copy',
+          step3Desc: 'Paste one description, then answer the copy questions below. The same on-device text checks still run.',
+          step4Label: 'Step 4',
+          step4Title: 'Run the audit',
+          step4Desc: 'Run the same score and report once your answers are ready.',
           explainerToggle: 'How AI reads your site',
           explainerLayer1Title: '1. The raw text a site sends first.',
           explainerLayer1Text: 'This is the version an AI reads. It is the site stripped of its looks, just the words and the structure underneath.',
@@ -2013,8 +2404,8 @@
           bookExplain: 'These checks cover whether an agent can see prices and availability and follow a real path to book.',
           qA2Text: 'Are your prices and live availability visible as text on the page, rather than only inside a booking widget or calendar that loads separately?',
           qA2Helper: 'An agent cannot read what is locked in an embedded widget.',
-          qA5Text: 'Can the booking flow (from choosing dates to confirming) be followed without steps that only a human can complete, and without depending on multiple JavaScript-only clicks?',
-          qA5Helper: 'An assistant needs a concrete path it can work through or hand a guest to.',
+          qA5Text: 'Can a guest get from choosing dates to a confirmed booking without a step only a human can complete?',
+          qA5Helper: 'An assistant needs a concrete path it can work through or hand a guest to. JavaScript-heavy steps and widgets still count if they block that path.',
           qA3Text: 'Is the essential booking information reachable in the first HTML response, rather than only after the page fully renders in a browser?',
           qA3Helper: 'Agents often see the initial HTML, not the rendered page.',
           qB5Text: 'Does your site have structured data for prices and availability specifically (offer / price schema), not just a general property description?',
@@ -2059,7 +2450,9 @@
           deepDiveErrNotConnected: 'The deep dive is not connected yet. Deploy the worker (see deep-dive-worker.js) and paste its URL into DEEP_DIVE_ENDPOINT.',
           deepDiveReading: 'Reading your site...',
           deepDiveErrCouldNotRead: 'We could not read this site. It may block automated reads, or it may be down. Your self-assessed score still stands.',
-          deepDivePrefilled: 'Answers filled from what we found. Review them, then run the audit.'
+          deepDivePrefilled: 'We filled the six website checks from what we found. Review them, change any if needed, then run the audit.',
+          manualFallbackInvalid: 'We could not use that address, so the website questions are open below for manual answers.',
+          manualFallbackCheck: 'We could not read that site, so the website questions are open below for manual answers.'
         },
         meta: {
           A1: { short: 'Property and room structured data', gap: 'Without schema.org markup for the property and rooms, an assistant has to guess what you offer rather than reading it directly.', action: 'Add schema.org structured data for your property and room types. Most site builders have a plugin or a settings panel for this.' },
@@ -2133,12 +2526,38 @@
         ui: {
           brandTitle: 'Website AI Ready Audit',
           brandSubtitle: 'Operator Intelligence Suite',
+          languageGroupLabel: 'Lingua',
           headerLink: 'Hub Suite',
           heroEyebrow: 'Operator Series · Controllo del sito',
           heroTitleInput: 'Il tuo sito di prenotazione diretta è pronto per l’AI?',
-          heroSubtitleInput: 'Questo controllo verifica se un assistente può trovarti e raccomandarti, e se può prenotarti. Rispondi a dieci brevi domande sul tuo sito e sui testi dell’annuncio.',
+          heroSubtitleInput: 'Questo controllo verifica se un assistente può trovarti, raccomandarti e prenotarti. Incolla l’indirizzo del tuo sito e ne misuriamo gran parte per te. Tu rispondi a quattro domande e incolli una descrizione dell’annuncio.',
           heroTitleOutput: 'Il tuo risultato di AI-readiness',
           heroSubtitleOutput: 'Una fotografia di quanto il tuo sito di prenotazione diretta sia pronto per la scoperta e la prenotazione guidate dall’AI.',
+          step1Label: 'Passo 1',
+          step1PathGroupLabel: 'Percorso del passo 1',
+          step1Title: 'Il tuo sito web',
+          step1Desc: 'Scegli come rispondere ai controlli del sito. Puoi misurarli prima dal tuo sito oppure saltare questo passaggio e rispondere tu.',
+          pathAutoTitle: 'Controlla il mio sito automaticamente',
+          pathAutoText: 'Incolla l’indirizzo del tuo sito e misuriamo i controlli che una macchina può giudicare.',
+          pathManualTitle: 'Rispondi manualmente invece',
+          pathManualText: 'Tieni tutto sul tuo dispositivo e rispondi tu alle domande sul sito.',
+          measuredTitle: 'Cosa abbiamo misurato',
+          measuredDesc: 'Queste sei risposte arrivano dal controllo del tuo sito. Puoi cambiarne una se sai che la pagina contiene qualcosa che il controllo non ha letto.',
+          manualTitle: 'Rispondi manualmente alle domande sul sito',
+          manualDesc: 'Usa questo percorso se non vuoi inviare l’indirizzo del tuo sito al controllo sul server.',
+          measuredLabel: 'Misurato',
+          measuredChanged: 'Modificato',
+          measuredNote: 'Risposta misurata: {answer}. Puoi cambiarla se serve.',
+          measuredChangedNote: 'Hai cambiato questa risposta in {answer}. Nel punteggio useremo la tua risposta.',
+          step2Label: 'Passo 2',
+          step2Title: 'Il tuo percorso di prenotazione',
+          step2Desc: 'Rispondi alla parte che un crawler non può stabilire dalla sola pagina.',
+          step3Label: 'Passo 3',
+          step3Title: 'Il testo del tuo annuncio',
+          step3Desc: 'Incolla una descrizione, poi rispondi alle domande sul testo qui sotto. Gli stessi controlli deterministici sul dispositivo continuano a funzionare.',
+          step4Label: 'Passo 4',
+          step4Title: 'Esegui il controllo',
+          step4Desc: 'Esegui lo stesso punteggio e lo stesso report quando le risposte sono pronte.',
           explainerToggle: 'Come l’AI legge il tuo sito',
           explainerLayer1Title: '1. Il testo grezzo che un sito invia per primo.',
           explainerLayer1Text: 'È la versione che un’AI legge. È il sito spogliato del suo aspetto, solo le parole e la struttura sottostante.',
@@ -2169,8 +2588,8 @@
           bookExplain: 'Questi controlli verificano se un agente può vedere prezzi e disponibilità e seguire un percorso reale per prenotare.',
           qA2Text: 'I tuoi prezzi e la disponibilità in tempo reale sono visibili come testo nella pagina, oppure solo dentro un widget di prenotazione o un calendario caricato separatamente?',
           qA2Helper: 'Un agente non può leggere ciò che è chiuso dentro un widget incorporato.',
-          qA5Text: 'Il percorso di prenotazione (dalla scelta delle date alla conferma) può essere seguito senza passaggi che solo un umano può completare, e senza dipendere da più clic possibili solo con JavaScript?',
-          qA5Helper: 'Un assistente ha bisogno di un percorso concreto da seguire o da indicare a un ospite.',
+          qA5Text: 'Un ospite può passare dalla scelta delle date a una prenotazione confermata senza un passaggio che solo un umano può completare?',
+          qA5Helper: 'Un assistente ha bisogno di un percorso concreto da seguire o da indicare a un ospite. Anche passaggi e widget molto dipendenti da JavaScript contano se bloccano quel percorso.',
           qA3Text: 'Le informazioni essenziali per la prenotazione sono raggiungibili nella prima risposta HTML, oppure solo dopo che la pagina si è completamente caricata nel browser?',
           qA3Helper: 'Gli agenti spesso vedono l’HTML iniziale, non la pagina renderizzata.',
           qB5Text: 'Il tuo sito ha dati strutturati specifici per prezzi e disponibilità (schema offer / price), non solo una descrizione generale della struttura?',
@@ -2215,7 +2634,9 @@
           deepDiveErrNotConnected: 'L’approfondimento non è ancora connesso. Distribuisci il worker (vedi deep-dive-worker.js) e incolla il suo URL in DEEP_DIVE_ENDPOINT.',
           deepDiveReading: 'Lettura del tuo sito in corso...',
           deepDiveErrCouldNotRead: 'Non siamo riusciti a leggere questo sito. Potrebbe bloccare le letture automatizzate, oppure potrebbe essere offline. Il tuo punteggio autovalutato resta comunque valido.',
-          deepDivePrefilled: 'Risposte compilate in base a quanto trovato. Controllale, poi esegui il controllo.'
+          deepDivePrefilled: 'Abbiamo compilato i sei controlli del sito in base a quanto trovato. Controllali, cambia ciò che serve, poi esegui il controllo.',
+          manualFallbackInvalid: 'Non siamo riusciti a usare quell’indirizzo, quindi qui sotto trovi aperte le domande sul sito da compilare manualmente.',
+          manualFallbackCheck: 'Non siamo riusciti a leggere quel sito, quindi qui sotto trovi aperte le domande sul sito da compilare manualmente.'
         },
         meta: {
           A1: { short: 'Dati strutturati per struttura e camere', gap: 'Senza il markup schema.org per la struttura e le camere, un assistente deve indovinare cosa offri invece di leggerlo direttamente.', action: 'Aggiungi dati strutturati schema.org per la tua struttura e le tipologie di camera. La maggior parte dei costruttori di siti ha un plugin o un pannello impostazioni per questo.' },
@@ -2289,12 +2710,38 @@
         ui: {
           brandTitle: 'Website AI Ready Audit',
           brandSubtitle: 'Operator Intelligence Suite',
+          languageGroupLabel: 'Sprache',
           headerLink: 'Suite-Hub',
           heroEyebrow: 'Operator Series · Website-Audit',
           heroTitleInput: 'Ist Ihre Direktbuchungsseite bereit für KI?',
-          heroSubtitleInput: 'Dieser Check prüft, ob ein Assistent Sie finden und empfehlen kann und ob er bei Ihnen buchen kann. Beantworten Sie zehn kurze Fragen zu Ihrer Website und Ihren Angebotstexten.',
+          heroSubtitleInput: 'Dieser Check prüft, ob ein Assistent Sie finden, empfehlen und bei Ihnen buchen kann. Fügen Sie Ihre Website-Adresse ein und wir messen den größten Teil davon für Sie. Sie beantworten vier Fragen und fügen eine Angebotsbeschreibung ein.',
           heroTitleOutput: 'Ihr KI-Readiness-Ergebnis',
           heroSubtitleOutput: 'Eine Momentaufnahme, wie bereit Ihre Direktbuchungsseite für KI-gestützte Auffindbarkeit und Buchung ist.',
+          step1Label: 'Schritt 1',
+          step1PathGroupLabel: 'Pfad für Schritt 1',
+          step1Title: 'Ihre Website',
+          step1Desc: 'Wählen Sie, wie Sie die Website-Prüfungen beantworten möchten. Sie können sie zuerst auf Ihrer Website messen oder das überspringen und selbst antworten.',
+          pathAutoTitle: 'Meine Website automatisch prüfen',
+          pathAutoText: 'Fügen Sie Ihre Website-Adresse ein und wir messen die Punkte, die eine Maschine beurteilen kann.',
+          pathManualTitle: 'Stattdessen manuell antworten',
+          pathManualText: 'Behalten Sie alles auf Ihrem Gerät und beantworten Sie die Website-Fragen selbst.',
+          measuredTitle: 'Was wir gemessen haben',
+          measuredDesc: 'Diese sechs Antworten stammen aus Ihrer Website-Prüfung. Sie können jede davon ändern, wenn Sie wissen, dass die Seite etwas enthält, das der Check nicht gelesen hat.',
+          manualTitle: 'Die Website-Fragen manuell beantworten',
+          manualDesc: 'Nutzen Sie diesen Weg, wenn Sie Ihre Website-Adresse nicht an den Server-Check senden möchten.',
+          measuredLabel: 'Gemessen',
+          measuredChanged: 'Geändert',
+          measuredNote: 'Gemessene Antwort: {answer}. Sie können das bei Bedarf ändern.',
+          measuredChangedNote: 'Sie haben diese Antwort auf {answer} geändert. Für die Bewertung wird Ihre Antwort verwendet.',
+          step2Label: 'Schritt 2',
+          step2Title: 'Ihr Buchungsablauf',
+          step2Desc: 'Beantworten Sie den Teil, den ein Crawler nicht allein aus der Seite ableiten kann.',
+          step3Label: 'Schritt 3',
+          step3Title: 'Ihr Angebotstext',
+          step3Desc: 'Fügen Sie eine Beschreibung ein und beantworten Sie dann die Textfragen darunter. Dieselben Prüfungen auf dem Gerät laufen weiter.',
+          step4Label: 'Schritt 4',
+          step4Title: 'Audit starten',
+          step4Desc: 'Starten Sie dieselbe Bewertung und denselben Bericht, sobald Ihre Antworten bereit sind.',
           explainerToggle: 'Wie KI Ihre Website liest',
           explainerLayer1Title: '1. Der Rohtext, den eine Seite zuerst sendet.',
           explainerLayer1Text: 'Das ist die Version, die eine KI liest. Die Seite ohne ihr Erscheinungsbild, nur die Worte und die Struktur darunter.',
@@ -2325,8 +2772,8 @@
           bookExplain: 'Diese Checks prüfen, ob ein Agent Preise und Verfügbarkeit sehen und einen echten Weg zur Buchung verfolgen kann.',
           qA2Text: 'Sind Ihre Preise und die aktuelle Verfügbarkeit als Text auf der Seite sichtbar, oder nur innerhalb eines separat ladenden Buchungswidgets oder Kalenders?',
           qA2Helper: 'Ein Agent kann nicht lesen, was in einem eingebetteten Widget eingeschlossen ist.',
-          qA5Text: 'Kann der Buchungsablauf (von der Datumswahl bis zur Bestätigung) ohne Schritte durchlaufen werden, die nur ein Mensch erledigen kann, und ohne von mehreren nur per JavaScript möglichen Klicks abhängig zu sein?',
-          qA5Helper: 'Ein Assistent braucht einen konkreten Weg, den er durchlaufen oder einem Gast weitergeben kann.',
+          qA5Text: 'Kann ein Gast von der Datumswahl zu einer bestätigten Buchung kommen, ohne einen Schritt, den nur ein Mensch erledigen kann?',
+          qA5Helper: 'Ein Assistent braucht einen konkreten Weg, den er durchlaufen oder einem Gast weitergeben kann. Stark JavaScript-abhängige Schritte und Widgets zählen mit, wenn sie diesen Weg blockieren.',
           qA3Text: 'Sind die wesentlichen Buchungsinformationen bereits in der ersten HTML-Antwort erreichbar, oder erst nachdem die Seite im Browser vollständig geladen wurde?',
           qA3Helper: 'Agenten sehen oft das ursprüngliche HTML, nicht die gerenderte Seite.',
           qB5Text: 'Hat Ihre Website strukturierte Daten speziell für Preise und Verfügbarkeit (Offer- / Price-Schema), nicht nur eine allgemeine Objektbeschreibung?',
@@ -2371,7 +2818,9 @@
           deepDiveErrNotConnected: 'Der Deep Dive ist noch nicht verbunden. Stellen Sie den Worker bereit (siehe deep-dive-worker.js) und fügen Sie dessen URL in DEEP_DIVE_ENDPOINT ein.',
           deepDiveReading: 'Ihre Website wird gelesen...',
           deepDiveErrCouldNotRead: 'Wir konnten diese Website nicht lesen. Sie blockiert möglicherweise automatisierte Zugriffe oder ist nicht erreichbar. Ihre selbst eingeschätzte Bewertung bleibt trotzdem gültig.',
-          deepDivePrefilled: 'Antworten anhand der Ergebnisse ausgefüllt. Überprüfen Sie sie und starten Sie dann das Audit.'
+          deepDivePrefilled: 'Wir haben die sechs Website-Prüfungen anhand der Ergebnisse ausgefüllt. Prüfen Sie sie, ändern Sie bei Bedarf etwas und starten Sie dann das Audit.',
+          manualFallbackInvalid: 'Wir konnten diese Adresse nicht verwenden, daher sind die Website-Fragen unten für manuelle Antworten geöffnet.',
+          manualFallbackCheck: 'Wir konnten diese Website nicht lesen, daher sind die Website-Fragen unten für manuelle Antworten geöffnet.'
         },
         meta: {
           A1: { short: 'Strukturierte Daten für Objekt und Zimmer', gap: 'Ohne schema.org-Markup für Objekt und Zimmer muss ein Assistent raten, was Sie anbieten, statt es direkt zu lesen.', action: 'Fügen Sie schema.org-strukturierte Daten für Ihr Objekt und Ihre Zimmertypen hinzu. Die meisten Website-Baukästen haben dafür ein Plugin oder ein Einstellungsfeld.' },
@@ -2463,6 +2912,12 @@
         if (val !== undefined) el.setAttribute('placeholder', val);
       });
 
+      document.querySelectorAll('[data-i18n-aria-label]').forEach(function(el) {
+        const key = el.getAttribute('data-i18n-aria-label');
+        const val = pack.ui[key];
+        if (val !== undefined) el.setAttribute('aria-label', val);
+      });
+
       QUESTION_IDS.forEach(function(id) {
         if (pack.meta[id]) {
           META[id].short = pack.meta[id].short;
@@ -2496,6 +2951,11 @@
           attachPrefillHandler(inputResultsEl);
         }
       }
+
+      mountStep1Questions();
+      MEASURED_IDS.forEach(function(id) {
+        updateMeasuredQuestionState(id);
+      });
     }
 
     document.querySelectorAll('.lang-btn').forEach(function(btn) {
