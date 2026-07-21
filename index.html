@@ -350,6 +350,11 @@
       transition: border-color 0.2s, box-shadow 0.2s, background 0.2s, transform 0.15s;
     }
 
+    .path-option.path-option-primary:not(.active) {
+      border-color: rgba(0, 122, 255, 0.35);
+      background: rgba(0, 122, 255, 0.04);
+    }
+
     .path-option:hover {
       border-color: var(--accent);
       transform: translateY(-1px);
@@ -1393,7 +1398,7 @@
       <div class="hero-eyebrow" data-i18n="heroEyebrow">Operator Series · Website Audit</div>
       <h1 id="hero-title" data-i18n="heroTitleInput">Is your direct booking site ready for AI?</h1>
       <p class="hero-subtitle" id="hero-subtitle" data-i18n="heroSubtitleInput">
-        This audit checks whether an assistant can find, recommend and book you.
+        This audit checks whether an assistant can find, recommend and book you. Paste your website address and we measure most of it for you. You answer four questions and paste one listing description.
       </p>
     </div>
   </section>
@@ -1428,7 +1433,7 @@
           <div class="step-title" data-i18n="step1Title">Your website</div>
 
           <div class="path-options" role="group" aria-label="Step 1 path" data-i18n-aria-label="step1PathGroupLabel">
-            <button type="button" class="path-option active" id="path-auto-btn">
+            <button type="button" class="path-option path-option-primary active" id="path-auto-btn">
               <span class="path-option-title" data-i18n="pathAutoTitle">Check my site automatically</span>
               <span class="path-option-text" data-i18n="pathAutoText">We read your page and measure six of the checks for you.</span>
             </button>
@@ -1470,6 +1475,11 @@
             <div class="measured-list" id="step1-manual-list"></div>
             <div class="manual-fallback-note hidden" id="manual-fallback-note"></div>
           </div>
+        </div>
+
+        <div class="panel step-panel" id="step-2-panel">
+          <div class="step-kicker"><span class="step-number">2</span></div>
+          <div class="step-title" data-i18n="step2Title">Your booking flow</div>
 
           <div class="question-block" data-q="A5">
             <div class="question-text" data-i18n="qA5Text">Can a guest get from choosing dates to a confirmed booking without a step only a human can complete?</div>
@@ -1482,9 +1492,9 @@
           </div>
         </div>
 
-        <div class="panel step-panel" id="step-2-panel">
-          <div class="step-kicker"><span class="step-number">2</span></div>
-          <div class="step-title" data-i18n="step2Title">Your listing copy</div>
+        <div class="panel step-panel" id="step-3-panel">
+          <div class="step-kicker"><span class="step-number">3</span></div>
+          <div class="step-title" data-i18n="step3Title">Your listing copy</div>
 
           <label class="field-label" for="listingText" data-i18n="listingLabel">Paste the main description text from one of your listings or property pages.</label>
           <textarea id="listingText" name="listingText" placeholder="Paste your listing description here…" data-i18n-placeholder="listingPlaceholder"></textarea>
@@ -1520,7 +1530,11 @@
           </div>
         </div>
 
-        <button type="submit" class="submit-btn" data-i18n="runAudit">Run audit</button>
+        <div class="panel step-panel" id="step-4-panel">
+          <div class="step-kicker"><span class="step-number">4</span></div>
+          <div class="step-title" data-i18n="step4Title">Run the audit</div>
+          <button type="submit" class="submit-btn" data-i18n="runAudit">Run audit</button>
+        </div>
 
         <div class="question-block hidden" data-q="A1">
           <div class="question-text" data-i18n="qA1Text">Does your site have structured data markup (schema.org) describing the property and rooms?</div>
@@ -2030,6 +2044,13 @@
 
     document.getElementById('audit-form').addEventListener('submit', function(e) {
       e.preventDefault();
+      const pack = (I18N[currentLang] || I18N.en).ui;
+      const missingMeasured = MEASURED_IDS.some(function(id) { return !getAnswer(id); });
+      if (inputMode === 'auto' && missingMeasured) {
+        setInputMode('manual');
+        alert(pack.alertAllQuestions);
+        return;
+      }
       renderOutput();
     });
 
@@ -2374,7 +2395,8 @@
       const resultsEl = document.getElementById('deep-dive-results');
 
       if (!url) {
-        showDeepDiveMessage(pack.deepDiveErrInvalidUrl, 'error');
+        setInputMode('manual');
+        showManualFallback(pack.manualFallbackInvalid);
         return;
       }
 
@@ -2421,12 +2443,13 @@
         prefillFromDeepDive(data);
         resultsEl.innerHTML = renderDeepDiveFindings(data);
         resultsEl.classList.remove('hidden');
+        const autoPrefillBtn = resultsEl.querySelector('#prefill-audit-btn');
+        if (autoPrefillBtn) autoPrefillBtn.classList.add('hidden');
+        showDeepDiveMessage(pack.deepDivePrefilled, '');
 
         if (typeof gtag === 'function') {
           gtag('event', 'deep_dive_success');
         }
-
-        attachPrefillHandler(resultsEl);
       } catch (err) {
         showDeepDiveMessage(pack.deepDiveErrCouldNotRead, 'error');
         lastDeepDiveResult = null;
@@ -2466,7 +2489,7 @@
           headerLink: 'Suite Hub',
           heroEyebrow: 'Operator Series · Website Audit',
           heroTitleInput: 'Is your direct booking site ready for AI?',
-          heroSubtitleInput: 'This audit checks whether an assistant can find, recommend and book you.',
+          heroSubtitleInput: 'This audit checks whether an assistant can find, recommend and book you. Paste your website address and we measure most of it for you. You answer four questions and paste one listing description.',
           heroTitleOutput: 'Your AI-readiness result',
           heroSubtitleOutput: 'A snapshot of how ready your direct booking site is for AI-driven discovery and booking.',
           step1PathGroupLabel: 'Step 1 path',
@@ -2481,7 +2504,9 @@
           measuredChanged: 'Changed',
           measuredNote: 'Measured answer: {answer}. You can change this if needed.',
           measuredChangedNote: 'You changed this answer to {answer}. Your answer will be used in the score.',
-          step2Title: 'Your listing copy',
+          step2Title: 'Your booking flow',
+          step3Title: 'Your listing copy',
+          step4Title: 'Run the audit',
           explainerToggle: 'How AI reads your site',
           explainerLayer1Title: '1. The raw text a site sends first.',
           explainerLayer1Text: 'This is the version an AI reads. It is the site stripped of its looks, just the words and the structure underneath.',
@@ -2641,7 +2666,7 @@
           headerLink: 'Hub Suite',
           heroEyebrow: 'Operator Series · Controllo del sito',
           heroTitleInput: 'Il tuo sito di prenotazione diretta è pronto per l’AI?',
-          heroSubtitleInput: 'Questo controllo verifica se un assistente può trovarti, raccomandarti e prenotarti.',
+          heroSubtitleInput: 'Questo controllo verifica se un assistente può trovarti, raccomandarti e prenotarti. Incolla l’indirizzo del tuo sito e misuriamo la maggior parte per te. Tu rispondi a quattro domande e incolli una descrizione dell’annuncio.',
           heroTitleOutput: 'Il tuo risultato di AI-readiness',
           heroSubtitleOutput: 'Una fotografia di quanto il tuo sito di prenotazione diretta sia pronto per la scoperta e la prenotazione guidate dall’AI.',
           step1PathGroupLabel: 'Percorso del passo 1',
@@ -2656,7 +2681,9 @@
           measuredChanged: 'Modificato',
           measuredNote: 'Risposta misurata: {answer}. Puoi cambiarla se serve.',
           measuredChangedNote: 'Hai cambiato questa risposta in {answer}. Nel punteggio useremo la tua risposta.',
-          step2Title: 'Il testo del tuo annuncio',
+          step2Title: 'Il tuo percorso di prenotazione',
+          step3Title: 'Il testo del tuo annuncio',
+          step4Title: 'Esegui il controllo',
           explainerToggle: 'Come l’AI legge il tuo sito',
           explainerLayer1Title: '1. Il testo grezzo che un sito invia per primo.',
           explainerLayer1Text: 'È la versione che un’AI legge. È il sito spogliato del suo aspetto, solo le parole e la struttura sottostante.',
@@ -2816,7 +2843,7 @@
           headerLink: 'Suite-Hub',
           heroEyebrow: 'Operator Series · Website-Audit',
           heroTitleInput: 'Ist Ihre Direktbuchungsseite bereit für KI?',
-          heroSubtitleInput: 'Dieser Check prüft, ob ein Assistent Sie finden, empfehlen und bei Ihnen buchen kann.',
+          heroSubtitleInput: 'Dieser Check prüft, ob ein Assistent Sie finden, empfehlen und bei Ihnen buchen kann. Fügen Sie Ihre Website-Adresse ein und wir messen den Großteil für Sie. Sie beantworten vier Fragen und fügen eine Angebotsbeschreibung ein.',
           heroTitleOutput: 'Ihr KI-Readiness-Ergebnis',
           heroSubtitleOutput: 'Eine Momentaufnahme, wie bereit Ihre Direktbuchungsseite für KI-gestützte Auffindbarkeit und Buchung ist.',
           step1PathGroupLabel: 'Pfad für Schritt 1',
@@ -2831,7 +2858,9 @@
           measuredChanged: 'Geändert',
           measuredNote: 'Gemessene Antwort: {answer}. Sie können das bei Bedarf ändern.',
           measuredChangedNote: 'Sie haben diese Antwort auf {answer} geändert. Für die Bewertung wird Ihre Antwort verwendet.',
-          step2Title: 'Ihr Angebotstext',
+          step2Title: 'Ihr Buchungsweg',
+          step3Title: 'Ihr Angebotstext',
+          step4Title: 'Audit starten',
           explainerToggle: 'Wie KI Ihre Website liest',
           explainerLayer1Title: '1. Der Rohtext, den eine Seite zuerst sendet.',
           explainerLayer1Text: 'Das ist die Version, die eine KI liest. Die Seite ohne ihr Erscheinungsbild, nur die Worte und die Struktur darunter.',
@@ -3042,7 +3071,8 @@
         const inputResultsEl = document.getElementById('deep-dive-results');
         if (inputResultsEl && !inputResultsEl.classList.contains('hidden')) {
           inputResultsEl.innerHTML = renderDeepDiveFindings(lastDeepDiveResult);
-          attachPrefillHandler(inputResultsEl);
+          const prefillBtn = inputResultsEl.querySelector('#prefill-audit-btn');
+          if (prefillBtn) prefillBtn.classList.add('hidden');
         }
       }
 
